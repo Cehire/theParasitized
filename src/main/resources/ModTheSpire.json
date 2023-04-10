@@ -1,0 +1,10 @@
+{
+  "modid": "theParasitized",
+  "name": "寄染之人",
+  "author_list": ["CheesyCrab"],
+  "description": "LET'S TRY IT AGAIN",
+  "version": "0.0.1",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.23.2",
+  "dependencies": ["basemod"]
+}
