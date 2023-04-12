@@ -28,6 +28,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new zhuxing());
         BaseMod.addCard(new xiezeng());
         BaseMod.addCard(new duxing());
+        BaseMod.addCard(new huangmou());
     }
 
     @Override
