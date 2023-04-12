@@ -63,6 +63,7 @@ public class changbi extends CustomCard {
     @Override
     public void atTurnStart() {
         if(AbstractDungeon.player.hand.contains(this)){
+            this.flash();
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new StrengthPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
         }

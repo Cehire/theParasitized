@@ -63,6 +63,7 @@ public class zhuxing extends CustomCard {
 
     @Override
     public void onRetained() {
+        this.flash();
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new DexterityPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }

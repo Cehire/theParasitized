@@ -61,6 +61,7 @@ public class xiezeng extends CustomCard {
 
     @Override
     public void atTurnStart() {
+        this.flash();
         this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
     }
 }

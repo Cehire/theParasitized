@@ -23,5 +23,10 @@
     "NAME": "协增",
     "DESCRIPTION": " 回合开始时, 抽 !M! 张牌。",
     "UPGRADE_DESCRIPTION": " 固有 。 回合开始时, 抽 !M! 张牌。"
+  },
+  "TheParasitized:duxing": {
+    "NAME": "毒腥",
+    "DESCRIPTION": " 受到伤害时, 给予全体敌人 !M! 点虚弱和 !B! 点中毒。",
+    "UPGRADE_DESCRIPTION": " 固有 。 受到伤害时, 给予全体敌人 !M! 点虚弱和 !B! 点中毒。"
   }
 }

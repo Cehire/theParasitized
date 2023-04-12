@@ -1,16 +1,20 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class duxing extends CustomCard {
 
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:BaseCurse";
+    public static final String ID = "TheParasitized:duxing";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -29,6 +33,10 @@ public class duxing extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
+        this.baseBlock = 3 * this.baseMagicNumber;
+        this.block = this.baseBlock;
     }
 
     @Override
@@ -37,6 +45,11 @@ public class duxing extends CustomCard {
             this.isInnate = true;
         }
         ++this.timesUpgraded;
+        ++this.baseMagicNumber;
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
+        this.baseBlock = 3 * this.baseMagicNumber;
+        this.block = this.baseBlock;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
@@ -52,6 +65,21 @@ public class duxing extends CustomCard {
     public AbstractCard makeCopy(){
         return new duxing(this.timesUpgraded);
     }
+
+    public void tookDamage() {
+        this.flash();
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                if (!monster.isDead && !monster.isDying) {
+                    this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                            new PoisonPower(monster, AbstractDungeon.player, this.block), this.block));
+                    this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                            new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+                }
+            }
+        }
+    }
+
 
 
 }
