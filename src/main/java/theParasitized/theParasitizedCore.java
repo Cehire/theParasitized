@@ -6,6 +6,7 @@ import basemod.interfaces.EditStringsSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.curse.baseCurse;
 
 @SpireInitializer
@@ -23,6 +24,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     @Override
     public void receiveEditCards() {
         BaseMod.addCard(new baseCurse());
+        BaseMod.addCard(new callOfParasites());
     }
 
     @Override

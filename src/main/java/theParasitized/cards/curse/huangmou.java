@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class baseCurse extends CustomCard {
+public class huangmou extends CustomCard {
 
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:BaseCurse";
@@ -22,16 +22,20 @@ public class baseCurse extends CustomCard {
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = CardColor.CURSE;
     public static final CardTarget TARGET = CardTarget.NONE;
-    public baseCurse() {
+    public huangmou() {
         this(0);
     }
-    public baseCurse(int upgrades) {
+    public huangmou(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
+        this.selfRetain = true;
     }
 
     @Override
     public void upgrade() {
+        if(!this.upgraded){
+            this.isInnate = true;
+        }
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
@@ -46,7 +50,7 @@ public class baseCurse extends CustomCard {
     }
     @Override
     public AbstractCard makeCopy(){
-        return new baseCurse(this.timesUpgraded);
+        return new huangmou(this.timesUpgraded);
     }
 
 

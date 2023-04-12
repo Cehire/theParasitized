@@ -1,8 +1,12 @@
 {
   "TheParasitized:BaseCurse": {
+    "NAME": "测试",
+    "DESCRIPTION": " 测试",
+    "UPGRADE_DESCRIPTION": " 测试"
+  },
+  "TheParasitized:CallOfParasites": {
     "NAME": "寄群之唤",
     "DESCRIPTION": " 固有 。 NL 虫群在召唤。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 虫群在召唤。"
   }
-
 }
