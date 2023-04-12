@@ -8,5 +8,15 @@
     "NAME": "寄群之唤",
     "DESCRIPTION": " 固有 。 NL 虫群在召唤。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 虫群在召唤。"
+  },
+  "TheParasitized:changbi": {
+    "NAME": "长臂",
+    "DESCRIPTION": " 回合开始时,获得 !M! 点力量。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 回合开始时,获得 !M! 点力量。"
+  },
+  "TheParasitized:zhuxing": {
+    "NAME": "蛛形",
+    "DESCRIPTION": " 回合结束时,获得 !M! 点敏捷。",
+    "UPGRADE_DESCRIPTION": " 固有 。 回合开始时,获得 !M! 点敏捷。"
   }
 }

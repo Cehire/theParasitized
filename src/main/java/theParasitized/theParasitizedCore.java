@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.curse.baseCurse;
+import theParasitized.cards.curse.changbi;
+import theParasitized.cards.curse.zhuxing;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber {
@@ -25,6 +27,8 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     public void receiveEditCards() {
         BaseMod.addCard(new baseCurse());
         BaseMod.addCard(new callOfParasites());
+        BaseMod.addCard(new changbi());
+        BaseMod.addCard(new zhuxing());
     }
 
     @Override
