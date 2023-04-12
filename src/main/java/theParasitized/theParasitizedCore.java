@@ -6,10 +6,7 @@ import basemod.interfaces.EditStringsSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import theParasitized.cards.curse.callOfParasites;
-import theParasitized.cards.curse.baseCurse;
-import theParasitized.cards.curse.changbi;
-import theParasitized.cards.curse.zhuxing;
+import theParasitized.cards.curse.*;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber {
@@ -29,6 +26,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new callOfParasites());
         BaseMod.addCard(new changbi());
         BaseMod.addCard(new zhuxing());
+        BaseMod.addCard(new xiezeng());
     }
 
     @Override

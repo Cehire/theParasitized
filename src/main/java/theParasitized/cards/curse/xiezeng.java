@@ -1,21 +1,23 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class xiezeng extends CustomCard {
 
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:BaseCurse";
+    public static final String ID = "TheParasitized:xiezeng";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
@@ -29,6 +31,8 @@ public class xiezeng extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
+        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     @Override
@@ -39,6 +43,8 @@ public class xiezeng extends CustomCard {
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        ++this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber;
         this.initializeTitle();
     }
     @Override
@@ -53,5 +59,8 @@ public class xiezeng extends CustomCard {
         return new xiezeng(this.timesUpgraded);
     }
 
-
+    @Override
+    public void atTurnStart() {
+        this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
+    }
 }
