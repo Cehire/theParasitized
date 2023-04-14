@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import theParasitized.cards.curse.*;
+import theParasitized.cards.pi_defend;
 import theParasitized.cards.pi_strike;
 
 @SpireInitializer
@@ -33,6 +34,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new jugu());
         BaseMod.addCard(new error());
         BaseMod.addCard(new pi_strike());
+        BaseMod.addCard(new pi_defend());
     }
 
     @Override
