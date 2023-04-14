@@ -48,7 +48,7 @@ public class duxing extends CustomCard {
         ++this.baseMagicNumber;
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
-        this.baseBlock = 3 * this.baseMagicNumber;
+        this.baseBlock = 2 * this.baseMagicNumber;
         this.block = this.baseBlock;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
