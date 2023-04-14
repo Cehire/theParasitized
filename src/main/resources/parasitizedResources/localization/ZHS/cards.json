@@ -38,5 +38,15 @@
     "NAME": "咀骨",
     "DESCRIPTION": " 每当有一名敌人死亡, 获得 !M! 点能量",
     "UPGRADE_DESCRIPTION": " 固有 。 每当有一名敌人死亡, 获得 !M! 点能量"
+  },
+  "TheParasitized:error": {
+    "NAME": "错误",
+    "DESCRIPTION": " 有时候会这样",
+    "UPGRADE_DESCRIPTION": " 有时候会这样"
+  },
+  "TheParasitized:pi_strike": {
+    "NAME": "打击",
+    "DESCRIPTION": " 造成 !D! 点伤害",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害"
   }
 }

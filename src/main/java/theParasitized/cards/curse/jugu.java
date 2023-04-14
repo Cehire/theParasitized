@@ -71,13 +71,7 @@ public class jugu extends CustomCard {
         }
         super.update();
     }
-
-    @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        super.onPlayCard(c, m);
-
-    }
-
+    
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         super.triggerOnCardPlayed(cardPlayed);
