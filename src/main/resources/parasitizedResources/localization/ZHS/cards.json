@@ -53,5 +53,10 @@
     "NAME": "防御",
     "DESCRIPTION": " 获得 !B! 点格挡",
     "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡"
+  },
+  "TheParasitized:pi_eclosion": {
+    "NAME": "羽化",
+    "DESCRIPTION": " 升级你的手牌 !M! 次",
+    "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次"
   }
 }
