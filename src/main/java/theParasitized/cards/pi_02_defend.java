@@ -1,16 +1,18 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theParasitized.ModHelper;
 
-public class pi_eclosion extends CustomCard {
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
+public class pi_02_defend extends CustomCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_eclosion";
+    public static final String ID = "TheParasitized:pi_02_defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -18,40 +20,44 @@ public class pi_eclosion extends CustomCard {
     public static final CardRarity RARITY = CardRarity.BASIC;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 3;
+    public static final int COST = 1;
     public static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.RED;
+    public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
-    public pi_eclosion() {
+    public pi_02_defend() {
+        this(0);
+    }
+    public pi_02_defend(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.timesUpgraded = upgrades;
+        this.block = this.baseBlock = 5;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        ModHelper.addToBotAbstract(
-                ()->{
-                    for (int i = 0; i < magicNumber; i++) {
-                        for (AbstractCard card : abstractPlayer.hand.group) {
-                            if (card.canUpgrade()){
-                                card.upgrade();
-                                card.flash();
-                            }
-                        }
-                    }
-                }
+        this.addToBot(
+                new GainBlockAction(
+                         abstractPlayer, block
+                )
         );
 
     }
 
     @Override
     public void upgrade() {
+        ++this.timesUpgraded;
         this.upgraded = true;
-        this.upgradeMagicNumber(2);
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+        this.upgradeBlock(3);
+    }
+    @Override
+    public boolean canUpgrade() {
+        return true;
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_eclosion();
+        return new pi_02_defend(this.timesUpgraded);
     }
 }

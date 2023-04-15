@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.Vajra;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import theParasitized.cards.pi_strike;
+import theParasitized.cards.pi_01_strike;
 import theParasitized.theParasitizedCore;
 
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class apiTheParasitized extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for(int x = 0; x<5; x++) {
-            retVal.add("TheParasitized:pi_defend");
+            retVal.add("TheParasitized:pi_02_defend");
         }
         return retVal;
     }
@@ -130,7 +130,7 @@ public class apiTheParasitized extends CustomPlayer {
     // 翻牌事件出现的你的职业牌（一般设为打击）
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new pi_strike();
+        return new pi_01_strike();
     }
 
     // 卡牌轨迹颜色
