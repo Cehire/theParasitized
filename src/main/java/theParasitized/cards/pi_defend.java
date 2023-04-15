@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class pi_defend extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_defend";
@@ -22,7 +24,7 @@ public class pi_defend extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
     public static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.RED;
+    public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_defend() {
         this(0);

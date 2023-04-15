@@ -7,10 +7,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class error extends CustomCard {
 
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:BaseCurse";
+    public static final String ID = "TheParasitized:error";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -20,7 +22,7 @@ public class error extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
+    public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.NONE;
     public error() {
         this(0);
