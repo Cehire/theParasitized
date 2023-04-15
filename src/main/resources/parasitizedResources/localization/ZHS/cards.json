@@ -58,5 +58,10 @@
     "NAME": "羽化",
     "DESCRIPTION": " 升级你的手牌 !M! 次",
     "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次"
+  },
+  "TheParasitized:pi_07_combo": {
+    "NAME": "连击",
+    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次"
   }
 }
