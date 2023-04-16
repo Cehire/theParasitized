@@ -44,19 +44,24 @@
     "DESCRIPTION": " 有时候会这样",
     "UPGRADE_DESCRIPTION": " 有时候会这样"
   },
-  "TheParasitized:pi_strike": {
+  "TheParasitized:pi_01_strike": {
     "NAME": "打击",
     "DESCRIPTION": " 造成 !D! 点伤害",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害"
   },
-  "TheParasitized:pi_defend": {
+  "TheParasitized:pi_02_defend": {
     "NAME": "防御",
     "DESCRIPTION": " 获得 !B! 点格挡",
     "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡"
   },
-  "TheParasitized:pi_eclosion": {
+  "TheParasitized:pi_03_eclosion": {
     "NAME": "羽化",
     "DESCRIPTION": " 升级你的手牌 !M! 次",
     "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次"
+  },
+  "TheParasitized:pi_07_combo": {
+    "NAME": "连击",
+    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次"
   }
 }

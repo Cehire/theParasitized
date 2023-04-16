@@ -11,9 +11,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import theParasitized.cards.curse.*;
-import theParasitized.cards.pi_defend;
-import theParasitized.cards.pi_eclosion;
-import theParasitized.cards.pi_strike;
+import theParasitized.cards.pi_02_defend;
+import theParasitized.cards.pi_03_eclosion;
+import theParasitized.cards.pi_01_strike;
+import theParasitized.cards.pi_07_combo;
 import theParasitized.characters.apiTheParasitized;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -76,9 +77,10 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new huangmou());
         BaseMod.addCard(new jugu());
         BaseMod.addCard(new error());
-        BaseMod.addCard(new pi_strike());
-        BaseMod.addCard(new pi_defend());
-        BaseMod.addCard(new pi_eclosion());
+        BaseMod.addCard(new pi_01_strike());
+        BaseMod.addCard(new pi_02_defend());
+        BaseMod.addCard(new pi_03_eclosion());
+        BaseMod.addCard(new pi_07_combo());
     }
 
     @Override
