@@ -22,5 +22,11 @@
     "DESCRIPTIONS": [
       "你可以打出诅咒牌，打出诅咒牌时，抽牌"
     ]
+  },
+  "TheParasitized:pi_wither_power": {
+    "NAME": "凋零",
+    "DESCRIPTIONS": [
+      "回合结束时，失去生命值，使buff来源恢复同等生命值"
+    ]
   }
 }

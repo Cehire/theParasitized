@@ -103,5 +103,10 @@
     "NAME": "牺牲",
     "DESCRIPTION": " 你可以打出诅咒牌，打出诅咒牌时，抽 !M! 张牌 ",
     "UPGRADE_DESCRIPTION": " 你可以打出诅咒牌，打出诅咒牌时，抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_31_witherStrike": {
+    "NAME": "凋零打击",
+    "DESCRIPTION": " 造成 !D! 点伤害，给予 !M! 点凋零 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，给予 !M! 点凋零 "
   }
 }
