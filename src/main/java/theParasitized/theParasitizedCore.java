@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_03_eclosion;
@@ -93,5 +94,6 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         }
         BaseMod.loadCustomStringsFile(CardStrings.class, "parasitizedResources/localization/" + lang + "/cards.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "parasitizedResources/localization/" + lang + "/characters.json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class, "parasitizedResources/localization/" + lang + "/powers.json");
     }
 }

@@ -59,6 +59,11 @@
     "DESCRIPTION": " 升级你的手牌 !M! 次",
     "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次"
   },
+  "TheParasitized:pi_04_choice": {
+    "NAME": "抉择",
+    "DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌",
+    "UPGRADE_DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌"
+  },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
     "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
