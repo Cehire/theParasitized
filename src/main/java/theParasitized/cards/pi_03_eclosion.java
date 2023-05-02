@@ -18,7 +18,7 @@ public class pi_03_eclosion extends CustomCard {
     public static final CardRarity RARITY = CardRarity.BASIC;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 3;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = CardColor.RED;
     public static final CardTarget TARGET = CardTarget.SELF;
