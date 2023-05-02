@@ -65,14 +65,19 @@
     "UPGRADE_DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌"
   },
   "TheParasitized:pi_06_purification": {
-    "NAME": "抉择",
-    "DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌",
-    "UPGRADE_DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌"
+    "NAME": "净化",
+    "DESCRIPTION": " 消耗一张手牌获得 !E! , 若为诅咒牌, 则再次获得 !E! ",
+    "UPGRADE_DESCRIPTION": " 消耗一张手牌获得 !E! , 若为诅咒牌, 则再次获得 !E! "
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
     "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次"
+  },
+  "TheParasitized:pi_08_hunt": {
+    "NAME": "追猎",
+    "DESCRIPTION": " 造成 !D! 点伤害，若斩杀的怪物为精英怪，则升级你的所有诅咒牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，若斩杀的怪物为精英怪，则升级你的所有诅咒牌 "
   },
   "TheParasitized:pi_11_callOfSwarm": {
     "NAME": "大群的呼唤",

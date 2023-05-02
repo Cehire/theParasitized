@@ -6,6 +6,7 @@ import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -14,6 +15,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
 import theParasitized.characters.apiTheParasitized;
+
+import java.util.ArrayList;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
@@ -47,11 +50,17 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // ============================ to do
     public static final Color Pi_Color = new Color(236.0F/255.0F,102.0F/255.0F,172.0F/255.0F,1);
 
-
+    public static ArrayList<AbstractCard> curseCardList;
     // 构造方法
     public theParasitizedCore() {
         BaseMod.subscribe(this);
         BaseMod.addColor(PI_COLOR, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
+        curseCardList.add(new changbi());
+        curseCardList.add(new duxing());
+        curseCardList.add(new huangmou());
+        curseCardList.add(new jugu());
+        curseCardList.add(new xiezeng());
+        curseCardList.add(new zhuxing());
     }
 
     @Override
@@ -81,8 +90,11 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_04_choice());
         BaseMod.addCard(new pi_06_purification());
         BaseMod.addCard(new pi_07_combo());
+        BaseMod.addCard(new pi_08_hunt());
         BaseMod.addCard(new pi_10_parasiticTentacles());
         BaseMod.addCard(new pi_11_callOfSwarm());
+        BaseMod.addCard(new pi_12_deterioration());
+        BaseMod.addCard(new pi_18_sacrifice());
     }
 
     @Override
