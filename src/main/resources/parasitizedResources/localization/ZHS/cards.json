@@ -64,9 +64,24 @@
     "DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌",
     "UPGRADE_DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌"
   },
+  "TheParasitized:pi_06_purification": {
+    "NAME": "抉择",
+    "DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌",
+    "UPGRADE_DESCRIPTION": " 回合开始时，抽 !M! 张牌，弃 !M! 张牌"
+  },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
     "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次"
+  },
+  "TheParasitized:pi_11_callOfSwarm": {
+    "NAME": "大群的呼唤",
+    "DESCRIPTION": " 回合开始时, 升级你的所有手牌 !M! 次, 你的手牌没有上限 ",
+    "UPGRADE_DESCRIPTION": " 回合开始时, 升级你的所有手牌 !M! 次, 你的手牌没有上限 "
+  },
+  "TheParasitized:pi_10_parasiticTentacles": {
+    "NAME": "寄染之触",
+    "DESCRIPTION": " 造成 !M! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !M! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 "
   }
 }

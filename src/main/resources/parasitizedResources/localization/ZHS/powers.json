@@ -4,5 +4,11 @@
     "DESCRIPTIONS": [
       "回合开始时，抽1弃1"
     ]
-  }
+  },
+  "TheParasitized:pi_callOfSwarm_power": {
+  "NAME": "抉择",
+  "DESCRIPTIONS": [
+    "回合开始时，抽1弃1"
+  ]
+}
 }

@@ -1,22 +1,22 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class pi_choice_power extends AbstractPower {
-    public static final String POWER_ID = "TheParasitized:pi_choice_power";
+public class pi_callOfSwarm_power extends AbstractPower {
+    public static final String POWER_ID = "TheParasitized:pi_callOfSwarm_power";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = POWER_STRINGS.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
-    public pi_choice_power(AbstractCreature owner, int amount){
+    public pi_callOfSwarm_power(AbstractCreature owner, int amount){
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -34,13 +34,15 @@ public class pi_choice_power extends AbstractPower {
     }
 
     @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        AbstractDungeon.player.gameHandSize=9999;
+    }
+
+    @Override
     public void atStartOfTurn() {
         this.flash();
-        this.addToBot(
-                new DrawCardAction(this.owner, this.amount)
-        );
-        this.addToBot(
-                new DiscardAction(this.owner, this.owner, this.amount, false)
-        );
+        for (int i = 0; i < this.amount; i++) {
+            this.addToBot(new ArmamentsAction(true));
+        }
     }
 }
