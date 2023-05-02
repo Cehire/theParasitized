@@ -6,9 +6,21 @@
     ]
   },
   "TheParasitized:pi_callOfSwarm_power": {
-  "NAME": "抉择",
-  "DESCRIPTIONS": [
-    "回合开始时，抽1弃1"
-  ]
-}
+    "NAME": "大群之唤",
+    "DESCRIPTIONS": [
+      "回合开始时，升级所有手牌；你的手牌没有上限"
+    ]
+  },
+    "TheParasitized:pi_growth_power": {
+      "NAME": "野蛮生长",
+      "DESCRIPTIONS": [
+        "战斗结束时，恢复生命值"
+      ]
+  },
+  "TheParasitized:pi_sacrifice_power": {
+    "NAME": "牺牲",
+    "DESCRIPTIONS": [
+      "你可以打出诅咒牌，打出诅咒牌时，抽牌"
+    ]
+  }
 }

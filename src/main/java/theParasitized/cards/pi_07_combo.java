@@ -55,13 +55,18 @@ public class pi_07_combo extends CustomCard {
         return new pi_07_combo();
     }
 
-    //todo:修改连击的升级效果
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(1);
-        }
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+        this.upgradeMagicNumber(1);
+    }
+
+    @Override
+    public boolean canUpgrade() {
+        return true;
     }
 }
 

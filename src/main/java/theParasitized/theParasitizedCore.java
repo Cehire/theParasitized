@@ -94,6 +94,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_10_parasiticTentacles());
         BaseMod.addCard(new pi_11_callOfSwarm());
         BaseMod.addCard(new pi_12_deterioration());
+        BaseMod.addCard(new pi_17_growth());
         BaseMod.addCard(new pi_18_sacrifice());
     }
 
