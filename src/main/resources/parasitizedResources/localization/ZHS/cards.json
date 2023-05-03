@@ -94,7 +94,7 @@
     "DESCRIPTION": " 消耗 !M! 张牌，往手牌中加入 !M! 张牌 ",
     "UPGRADE_DESCRIPTION": " 消耗 !M! 张牌，往手牌中加入 !M! 张牌 "
   },
-  "TheParasitized:pi_17_growth": {
+  "TheParasitized:pi_17_graspingAtCurses": {
     "NAME": "野蛮生长",
     "DESCRIPTION": " 战斗结束时，恢复 !M! 点生命值，获得一次诅咒牌奖励 ",
     "UPGRADE_DESCRIPTION": " 战斗结束时，恢复 !M! 点生命值，获得一次诅咒牌奖励 "
@@ -103,6 +103,21 @@
     "NAME": "牺牲",
     "DESCRIPTION": " 你可以打出诅咒牌，打出诅咒牌时，抽 !M! 张牌 ",
     "UPGRADE_DESCRIPTION": " 你可以打出诅咒牌，打出诅咒牌时，抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_21_pumping": {
+    "NAME": "竭泽",
+    "DESCRIPTION": " 抽 !M! 张牌，当你打出 !D! 张牌后，回合将强制结束 ",
+    "UPGRADE_DESCRIPTION": " 抽 !M! 张牌，当你打出 !D! 张牌后，回合将强制结束 "
+  },
+  "TheParasitized:pi_23_paraBurst": {
+    "NAME": "教科书",
+    "DESCRIPTION": " 对全体敌人造成 !D! 点伤害, 敌人每有一种负面效果，清除之并重复 ",
+    "UPGRADE_DESCRIPTION": " 对全体敌人造成 !D! 点伤害, 敌人每有一种负面效果，清除之并重复 "
+  },
+  "TheParasitized:pi_24_deadlySlash": {
+    "NAME": "横砍",
+    "DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 ",
+    "UPGRADE_DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 "
   },
   "TheParasitized:pi_31_witherStrike": {
     "NAME": "凋零打击",

@@ -1,57 +1,57 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import theParasitized.powers.pi_growth_power;
-import theParasitized.powers.pi_sacrifice_power;
 
-import static theParasitized.cards.utils.CurseCardUtil.getCurseReward;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_17_growth extends CustomCard {
+public class pi_24_deadlySlash extends CustomCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_17_growth";
+    public static final String ID = "TheParasitized:pi_24_deadlySlash";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    public static final CardRarity RARITY = CardRarity.BASIC;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
-    public static final CardType TYPE = CardType.POWER;
+    public static final int COST = 2;
+    public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.SELF;
-    public pi_17_growth(){
+    public static final CardTarget TARGET = CardTarget.ENEMY;
+    public pi_24_deadlySlash() {
         this(0);
     }
-    public pi_17_growth(int upgrades) {
+    public pi_24_deadlySlash(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.damage = this.baseDamage = 16;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
-
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(
-                    new ApplyPowerAction(
-                            abstractPlayer, abstractPlayer,
-                            new pi_growth_power(abstractPlayer, this.magicNumber),
-                            this.magicNumber)
-        );
+        this.addToBot(new DamageAllEnemiesAction(abstractPlayer, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.getCurrRoom().addGoldToRewards(this.magicNumber);
-            AbstractDungeon.getCurrRoom().addCardReward(getCurseReward());
+            for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                this.addToBot(new ApplyPowerAction(monster, abstractPlayer, new VulnerablePower(monster, this.magicNumber, false)));
+            }
         }
+
     }
 
     @Override
@@ -60,9 +60,11 @@ public class pi_17_growth extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(3);
+        this.upgradeDamage(5);
+        if (this.timesUpgraded % 2 == 0){
+            this.upgradeMagicNumber(1);
+        }
     }
-
     @Override
     public boolean canUpgrade() {
         return true;
@@ -70,6 +72,6 @@ public class pi_17_growth extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_17_growth();
+        return new pi_24_deadlySlash(this.timesUpgraded);
     }
 }

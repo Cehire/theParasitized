@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
+import theParasitized.cards.extra.pi_growth;
 import theParasitized.characters.apiTheParasitized;
 
 import java.util.ArrayList;
@@ -75,6 +76,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // =============  卡牌注册在这里  =============
     @Override
     public void receiveEditCards() {
+        //===============================   curse part  ==============================
         BaseMod.addCard(new baseCurse());
         BaseMod.addCard(new callOfParasites());
         BaseMod.addCard(new changbi());
@@ -84,6 +86,9 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new huangmou());
         BaseMod.addCard(new jugu());
         BaseMod.addCard(new error());
+        //===============================   extra part  ==============================
+        BaseMod.addCard(new pi_growth());
+        //===============================   normal part  ==============================
         BaseMod.addCard(new pi_01_strike());
         BaseMod.addCard(new pi_02_defend());
         BaseMod.addCard(new pi_03_eclosion());
@@ -94,8 +99,14 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_10_parasiticTentacles());
         BaseMod.addCard(new pi_11_callOfSwarm());
         BaseMod.addCard(new pi_12_deterioration());
-        BaseMod.addCard(new pi_17_growth());
+        BaseMod.addCard(new pi_14_nesting());
+        BaseMod.addCard(new pi_15_whipping());
+        BaseMod.addCard(new pi_16_emergencyRepair());
+        BaseMod.addCard(new pi_17_graspingAtCurses());
         BaseMod.addCard(new pi_18_sacrifice());
+        BaseMod.addCard(new pi_21_pumping());
+        BaseMod.addCard(new pi_23_paraBurst());
+        BaseMod.addCard(new pi_24_deadlySlash());
         BaseMod.addCard(new pi_31_witherStrike());
     }
 

@@ -28,5 +28,17 @@
     "DESCRIPTIONS": [
       "回合结束时，失去生命值，使buff来源恢复同等生命值"
     ]
+  },
+  "TheParasitized:pi_nesting_power": {
+    "NAME": "筑巢",
+    "DESCRIPTIONS": [
+      "回合结束时，将 张生长加入手牌"
+    ]
+  },
+  "TheParasitized:pi_pumping_power": {
+    "NAME": "竭泽",
+    "DESCRIPTIONS": [
+      "打出 张牌后，结束当前回合"
+    ]
   }
 }

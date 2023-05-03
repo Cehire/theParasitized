@@ -8,12 +8,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.powers.pi_callOfSwarm_power;
+import theParasitized.powers.pi_nesting_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_11_callOfSwarm extends CustomCard {
+public class pi_14_nesting extends CustomCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_01_strike";
+    public static final String ID = "TheParasitized:pi_14_nesting";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -25,10 +26,10 @@ public class pi_11_callOfSwarm extends CustomCard {
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
-    public pi_11_callOfSwarm() {
+    public pi_14_nesting() {
         this(0);
     }
-    public pi_11_callOfSwarm(int upgrades) {
+    public pi_14_nesting(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
@@ -39,7 +40,7 @@ public class pi_11_callOfSwarm extends CustomCard {
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
-                        new pi_callOfSwarm_power(abstractPlayer, this.magicNumber),
+                        new pi_nesting_power(abstractPlayer, this.magicNumber),
                         this.magicNumber)
         );
     }
@@ -59,6 +60,6 @@ public class pi_11_callOfSwarm extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_11_callOfSwarm(this.timesUpgraded);
+        return new pi_14_nesting(this.timesUpgraded);
     }
 }

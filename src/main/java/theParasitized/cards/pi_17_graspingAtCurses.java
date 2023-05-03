@@ -5,15 +5,18 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theParasitized.powers.pi_callOfSwarm_power;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import theParasitized.powers.pi_graspingAtCurses_power;
 
+import static theParasitized.cards.utils.CurseCardUtil.getCurseReward;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_11_callOfSwarm extends CustomCard {
+public class pi_17_graspingAtCurses extends CustomCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_01_strike";
+    public static final String ID = "TheParasitized:pi_17_graspingAtCurses";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -25,23 +28,28 @@ public class pi_11_callOfSwarm extends CustomCard {
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
-    public pi_11_callOfSwarm() {
+    public pi_17_graspingAtCurses(){
         this(0);
     }
-    public pi_11_callOfSwarm(int upgrades) {
+    public pi_17_graspingAtCurses(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 6;
     }
+
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(
-                new ApplyPowerAction(
-                        abstractPlayer, abstractPlayer,
-                        new pi_callOfSwarm_power(abstractPlayer, this.magicNumber),
-                        this.magicNumber)
+                    new ApplyPowerAction(
+                            abstractPlayer, abstractPlayer,
+                            new pi_graspingAtCurses_power(abstractPlayer, this.magicNumber),
+                            this.magicNumber)
         );
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            AbstractDungeon.getCurrRoom().addGoldToRewards(this.magicNumber);
+            AbstractDungeon.getCurrRoom().addCardReward(getCurseReward());
+        }
     }
 
     @Override
@@ -50,8 +58,9 @@ public class pi_11_callOfSwarm extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        this.upgradeMagicNumber(3);
     }
+
     @Override
     public boolean canUpgrade() {
         return true;
@@ -59,6 +68,6 @@ public class pi_11_callOfSwarm extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_11_callOfSwarm(this.timesUpgraded);
+        return new pi_17_graspingAtCurses();
     }
 }
