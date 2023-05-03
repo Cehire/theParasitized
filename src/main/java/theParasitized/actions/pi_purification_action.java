@@ -41,16 +41,14 @@ public class pi_purification_action extends AbstractGameAction {
             }
         } else {
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-                AbstractCard c;
-                for(Iterator var1 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator(); var1.hasNext(); this.p.hand.moveToExhaustPile(c)) {
-                    c = (AbstractCard)var1.next();
-                    if (c.type == AbstractCard.CardType.CURSE) {
+                for (AbstractCard card : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+                    if (card.type == AbstractCard.CardType.CURSE) {
                         this.addToTop(new GainEnergyAction(1 + this.upgrades));
                     } else{
                         this.addToTop(new GainEnergyAction(1));
                     }
+                    this.p.hand.moveToExhaustPile(card);
                 }
-
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
                 AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             }

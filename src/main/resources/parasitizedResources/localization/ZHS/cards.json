@@ -119,9 +119,39 @@
     "DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 ",
     "UPGRADE_DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 "
   },
+  "TheParasitized:pi_25_activate": {
+    "NAME": "激发",
+    "DESCRIPTION": " 抽 !M! 张牌, 获得 !E! , 将一张错误加入到手牌, 强化一张手牌 ",
+    "UPGRADE_DESCRIPTION": " 抽 !M! 张牌, 获得 !E! , 将一张错误加入到手牌, 强化所有手牌 "
+  },
+  "TheParasitized:pi_27_bloodShield": {
+    "NAME": "驭血术",
+    "DESCRIPTION": " 失去3点生命值，获得 !M! 点格挡2次 ",
+    "UPGRADE_DESCRIPTION": " 失去3点生命值，获得 !M! 点格挡2次 "
+  },
+  "TheParasitized:pi_28_specialize": {
+    "NAME": "特化",
+    "DESCRIPTION": " 选择一张手牌，升级 X 次，X为你当前的能量 ",
+    "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X 次，X为你当前的能量 "
+  },
+  "TheParasitized:pi_29_ironWave": {
+    "NAME": "特化",
+    "DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值 "
+  },
+  "TheParasitized:pi_30_thornyFlesh": {
+    "NAME": "带刺皮肤",
+    "DESCRIPTION": " 受到攻击时, 攻击者获得 !M! 虚弱 !M! 中毒 ",
+    "UPGRADE_DESCRIPTION": " 受到攻击时, 攻击者获得 !M! 虚弱 !M! 中毒 "
+  },
   "TheParasitized:pi_31_witherStrike": {
     "NAME": "凋零打击",
     "DESCRIPTION": " 造成 !D! 点伤害，给予 !M! 点凋零 ",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，给予 !M! 点凋零 "
+  },
+  "TheParasitized:pi_32_witherAll": {
+    "NAME": "死亡凋零",
+    "DESCRIPTION": " 给予所有敌人 !M! 层凋零 ",
+    "UPGRADE_DESCRIPTION": " 给予所有敌人 !M! 层凋零 "
   }
 }

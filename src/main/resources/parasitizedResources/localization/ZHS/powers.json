@@ -40,5 +40,17 @@
     "DESCRIPTIONS": [
       "打出 张牌后，结束当前回合"
     ]
+  },
+  "TheParasitized:pi_graspingAtCurses_power": {
+    "NAME": "饮鸩止渴",
+    "DESCRIPTIONS": [
+      "打出 张牌后，结束当前回合"
+    ]
+  },
+  "TheParasitized:pi_thornyFlesh_power": {
+    "NAME": "蛰刺皮肤",
+    "DESCRIPTIONS": [
+      "被攻击时，给予攻击者 层虚弱，层中毒"
+    ]
   }
 }

@@ -51,17 +51,11 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // ============================ to do
     public static final Color Pi_Color = new Color(236.0F/255.0F,102.0F/255.0F,172.0F/255.0F,1);
 
-    public static ArrayList<AbstractCard> curseCardList;
     // 构造方法
     public theParasitizedCore() {
         BaseMod.subscribe(this);
         BaseMod.addColor(PI_COLOR, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
-        curseCardList.add(new changbi());
-        curseCardList.add(new duxing());
-        curseCardList.add(new huangmou());
-        curseCardList.add(new jugu());
-        curseCardList.add(new xiezeng());
-        curseCardList.add(new zhuxing());
+
     }
 
     @Override
@@ -107,7 +101,13 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_21_pumping());
         BaseMod.addCard(new pi_23_paraBurst());
         BaseMod.addCard(new pi_24_deadlySlash());
+        BaseMod.addCard(new pi_25_activate());
+        BaseMod.addCard(new pi_27_bloodShield());
+        BaseMod.addCard(new pi_28_specialize());
+        BaseMod.addCard(new pi_29_ironWave());
+        BaseMod.addCard(new pi_30_thornyFlesh());
         BaseMod.addCard(new pi_31_witherStrike());
+        BaseMod.addCard(new pi_32_witherAll());
     }
 
     @Override
