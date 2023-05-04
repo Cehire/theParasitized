@@ -153,5 +153,41 @@
     "NAME": "死亡凋零",
     "DESCRIPTION": " 给予所有敌人 !M! 层凋零 ",
     "UPGRADE_DESCRIPTION": " 给予所有敌人 !M! 层凋零 "
+  },
+  "TheParasitized:pi_33_cognitiveFilter": {
+    "NAME": "认知滤网",
+    "DESCRIPTION": " 当你得到负面状态时，获得 !M! 点格挡 ",
+    "UPGRADE_DESCRIPTION": " 当你得到负面状态时，获得 !M! 点格挡 "
+  },
+  "TheParasitized:pi_34_poisonFog": {
+    "NAME": "致命瘴气",
+    "DESCRIPTION": " 给予全场 !M! 层中毒， !D! 层易伤 ",
+    "UPGRADE_DESCRIPTION": " 给予全场 !M! 层中毒， !D! 层易伤 "
+  },
+  "TheParasitized:pi_35_olfactoryAggression": {
+    "NAME": "激发",
+    "DESCRIPTION": " 造成 !D! 点伤害，如果敌人有易伤，抽1张牌，恢复 !M! 点生命值 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，如果敌人有易伤，抽2张牌，恢复 !M! 点生命值 "
+  },
+  "TheParasitized:pi_36_sideStep": {
+    "NAME": "滑步",
+    "DESCRIPTION": " 获得 !D! 点格挡，抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 获得 !D! 点格挡，抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_39_witherEnchantment": {
+    "NAME": "凋零附魔",
+    "DESCRIPTION": " 当你造成伤害时，同时赋予1层凋零 ",
+    "UPGRADE_DESCRIPTION": " 当你造成伤害时，同时赋予2层凋零 "
+  },
+  "TheParasitized:pi_41_crustShield": {
+    "NAME": "硬质护盾",
+    "DESCRIPTION": " 获得 !M! 点格挡， 你的下一回合开始时，你的格挡不会消失 ",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 点格挡， 你的下一回合开始时，你的格挡不会消失 "
+  },
+  "TheParasitized:pi_42_errorStrike": {
+    "NAME": "阻断刺击",
+    "DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 "
   }
+
 }

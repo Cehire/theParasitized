@@ -52,5 +52,17 @@
     "DESCRIPTIONS": [
       "被攻击时，给予攻击者 层虚弱，层中毒"
     ]
+  },
+  "TheParasitized:pi_cognitiveFilter_power": {
+    "NAME": "认知滤网",
+    "DESCRIPTIONS": [
+      "当你获得负面状态时，获得 格挡"
+    ]
+  },
+  "TheParasitized:pi_witherEnchantment_power": {
+    "NAME": "凋零附魔",
+    "DESCRIPTIONS": [
+      "造成伤害时，额外给予 层凋零"
+    ]
   }
 }
