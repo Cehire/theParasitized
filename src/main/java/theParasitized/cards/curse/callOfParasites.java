@@ -75,6 +75,8 @@ public class callOfParasites extends CustomCard {
         }
  */
 
+
+
     @Override
     public void triggerOnCardPlayed(AbstractCard c) {
         if(AbstractDungeon.player.hand.contains(this)){

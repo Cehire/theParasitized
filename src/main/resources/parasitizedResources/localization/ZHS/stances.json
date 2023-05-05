@@ -1,0 +1,14 @@
+{
+  "TheParasitized:pi_halfMad_stance": {
+    "NAME": "halfMad",
+    "DESCRIPTION": [
+      "阶段二"
+    ]
+  },
+  "TheParasitized:pi_mad_stance": {
+    "NAME": "Mad",
+    "DESCRIPTION": [
+      "阶段三"
+    ]
+  }
+}

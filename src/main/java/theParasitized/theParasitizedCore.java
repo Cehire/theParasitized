@@ -1,29 +1,31 @@
 package theParasitized;
 
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.*;
 import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.extra.pi_growth;
+import theParasitized.cards.extra.pi_intoHalfMad;
+import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.characters.apiTheParasitized;
+import theParasitized.relics.pi_whiteTwig;
 
-import java.util.ArrayList;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
 
 @SpireInitializer
-public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber {
+public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
+, EditRelicsSubscriber {
 
     // ===================== to do
     // 人物选择界面按钮的图片
@@ -82,6 +84,8 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new error());
         //===============================   extra part  ==============================
         BaseMod.addCard(new pi_growth());
+        BaseMod.addCard(new pi_intoMad());
+        BaseMod.addCard(new pi_intoHalfMad());
         //===============================   normal part  ==============================
         BaseMod.addCard(new pi_01_strike());
         BaseMod.addCard(new pi_02_defend());
@@ -128,5 +132,13 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.loadCustomStringsFile(CardStrings.class, "parasitizedResources/localization/" + lang + "/cards.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "parasitizedResources/localization/" + lang + "/characters.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "parasitizedResources/localization/" + lang + "/powers.json");
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "parasitizedResources/localization/" + lang + "/relics.json");
+        BaseMod.loadCustomStringsFile(StanceStrings.class, "parasitizedResources/localization/" + lang + "/stances.json");
+
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        BaseMod.addRelic(new pi_whiteTwig(), RelicType.SHARED);
     }
 }

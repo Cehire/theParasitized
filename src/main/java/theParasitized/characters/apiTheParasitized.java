@@ -18,6 +18,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.Vajra;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import theParasitized.cards.extra.pi_intoHalfMad;
+import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.theParasitizedCore;
 
@@ -56,15 +58,13 @@ public class apiTheParasitized extends CustomPlayer {
     public apiTheParasitized(String name) {
         super(name, PI_THE_PARASITIZED,ORB_TEXTURES,"parasitizedResources/images/UI/orb/vfx.png", LAYER_SPEED, null, null);
 
-
+        this.drawY -= 20.0;
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
         this.dialogY = (this.drawY + 150.0F * Settings.scale);
-
-
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
-                "parasitizedResources/images/char/character3.png", // 人物图片
+                "parasitizedResources/images/char/stance1.png", // 人物图片
                 MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1,
                 CORPSE_IMAGE, // 人物死亡图像
                 this.getLoadout(),
@@ -86,16 +86,16 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<5; x++) {
-            retVal.add("TheParasitized:pi_02_defend");
-        }
+        retVal.add(pi_intoMad.ID);
+        retVal.add(pi_intoHalfMad.ID);
+
         return retVal;
     }
 
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(Vajra.ID);
+        retVal.add("TheParasitized:pi_whiteTwig");
         return retVal;
     }
 

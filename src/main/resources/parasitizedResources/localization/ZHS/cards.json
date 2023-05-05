@@ -188,6 +188,16 @@
     "NAME": "阻断刺击",
     "DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 ",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 "
+  },
+  "TheParasitized:pi_intoHalfMad": {
+    "NAME": "阶段二",
+    "DESCRIPTION": " 进入阶段二 ",
+    "UPGRADE_DESCRIPTION": " 进入阶段二 "
+  },
+  "TheParasitized:pi_intoMad": {
+    "NAME": "阶段三",
+    "DESCRIPTION": " 进入阶段三 ",
+    "UPGRADE_DESCRIPTION": " 进入阶段三 "
   }
 
 }
