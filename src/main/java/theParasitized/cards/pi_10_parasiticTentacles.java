@@ -39,7 +39,8 @@ public class pi_10_parasiticTentacles extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-
+        this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card.type == CardType.CURSE){
                 this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));

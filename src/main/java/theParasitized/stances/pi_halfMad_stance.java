@@ -56,4 +56,5 @@ public class pi_halfMad_stance extends AbstractStance {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
         }
     }
+
 }

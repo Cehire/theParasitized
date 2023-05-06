@@ -81,8 +81,8 @@
   },
   "TheParasitized:pi_10_parasiticTentacles": {
     "NAME": "寄染之触",
-    "DESCRIPTION": " 造成 !M! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 ",
-    "UPGRADE_DESCRIPTION": " 造成 !M! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 "
+    "DESCRIPTION": " 造成 !D! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 伤害, 恢复 !M! 生命, 你的手牌中每有诅咒便重复一次 "
   },
   "TheParasitized:pi_11_callOfSwarm": {
     "NAME": "大群的呼唤",

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_01_strike extends CustomCard {
+    //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_01_strike";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class pi_choice_power extends AbstractPower {
+    //test ok
     public static final String POWER_ID = "TheParasitized:pi_choice_power";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -22,19 +23,19 @@ public class pi_choice_power extends AbstractPower {
         this.owner = owner;
         this.type = PowerType.BUFF;
         this.amount = amount;
-        String path_128 = "parasitizedResources/images/powers/pi_curse.png";
-        String path_48 = "parasitizedResources/images/powers/pi_curse.png";
+        String path_128 = "parasitizedResources/images/powers/choice_p.png";
+        String path_48 = "parasitizedResources/images/powers/choice.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path_128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path_48), 0, 0, 32, 32);
         this.updateDescription();
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         this.flash();
         this.addToBot(
                 new DrawCardAction(this.owner, this.amount)
@@ -43,4 +44,6 @@ public class pi_choice_power extends AbstractPower {
                 new DiscardAction(this.owner, this.owner, this.amount, false)
         );
     }
+
+
 }

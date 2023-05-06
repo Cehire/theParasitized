@@ -30,8 +30,6 @@ public class pi_mad_stance extends AbstractStance {
     @Override
     public void onEnterStance() {
         AbstractDungeon.player.img = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
-        ImageMaster.loadImage("parasitizedResources/images/char/stance3.png").bind();
-
         if (sfxId != -1L) {
             this.stopIdleSfx();
         }
@@ -54,8 +52,8 @@ public class pi_mad_stance extends AbstractStance {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
-            StanceAuraEffect effect = new StanceAuraEffect("Wrath");
             AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
+
 }

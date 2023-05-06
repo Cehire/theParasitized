@@ -12,6 +12,7 @@ import theParasitized.actions.pi_hunt_action;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_08_hunt extends CustomCard {
+    //todo: pending
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_08_hunt";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

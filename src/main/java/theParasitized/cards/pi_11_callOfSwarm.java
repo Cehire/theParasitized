@@ -13,7 +13,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_11_callOfSwarm extends CustomCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_01_strike";
+    public static final String ID = "TheParasitized:pi_11_callOfSwarm";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";

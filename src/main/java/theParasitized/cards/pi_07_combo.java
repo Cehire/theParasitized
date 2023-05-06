@@ -17,6 +17,7 @@ import theParasitized.ModHelper;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_07_combo extends CustomCard {
+    //func test ok
     public static final String ID = "TheParasitized:pi_07_combo";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -33,6 +34,7 @@ public class pi_07_combo extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 6;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override

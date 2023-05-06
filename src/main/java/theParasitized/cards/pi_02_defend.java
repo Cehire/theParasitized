@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_02_defend extends CustomMutiUpgradeCard {
+    //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_02_defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

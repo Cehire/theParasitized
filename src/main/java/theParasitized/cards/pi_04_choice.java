@@ -12,11 +12,12 @@ import theParasitized.powers.pi_choice_power;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_04_choice extends CustomCard {
+    //func test ok
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_01_strike";
+    public static final String ID = "TheParasitized:pi_04_choice";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/powers/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 

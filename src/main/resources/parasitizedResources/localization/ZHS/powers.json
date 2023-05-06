@@ -2,7 +2,7 @@
   "TheParasitized:pi_choice_power": {
     "NAME": "抉择",
     "DESCRIPTIONS": [
-      "回合开始时，抽1弃1"
+      "回合开始时，抽", "张牌, 弃", "张牌"
     ]
   },
   "TheParasitized:pi_callOfSwarm_power": {

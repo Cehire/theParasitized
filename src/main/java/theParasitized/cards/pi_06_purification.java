@@ -10,6 +10,7 @@ import theParasitized.actions.pi_purification_action;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_06_purification extends CustomMutiUpgradeCard {
+    //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_06_purification";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
