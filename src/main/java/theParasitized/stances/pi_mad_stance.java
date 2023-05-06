@@ -1,8 +1,6 @@
 package theParasitized.stances;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -10,10 +8,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.stances.AbstractStance;
-import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.DivinityParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import theParasitized.stances.particle.pi_mad_particle;
 
 public class pi_mad_stance extends AbstractStance {
     public static final String STANCE_ID = "TheParasitized:pi_mad_stance";
@@ -33,14 +30,14 @@ public class pi_mad_stance extends AbstractStance {
     @Override
     public void onEnterStance() {
         AbstractDungeon.player.img = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
+        ImageMaster.loadImage("parasitizedResources/images/char/stance3.png").bind();
+
         if (sfxId != -1L) {
             this.stopIdleSfx();
         }
 
         CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
-        AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.PINK, true));
-        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Divinity"));
     }
 
     @Override
@@ -49,14 +46,16 @@ public class pi_mad_stance extends AbstractStance {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.2F;
-                AbstractDungeon.effectsQueue.add(new DivinityParticleEffect());
+                DivinityParticleEffect effect = new DivinityParticleEffect();
+                AbstractDungeon.effectsQueue.add(new pi_mad_particle());
             }
         }
 
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Divinity"));
+            StanceAuraEffect effect = new StanceAuraEffect("Wrath");
+            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 }

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import theParasitized.stances.particle.pi_stance_generator;
 
 public class pi_halfMad_stance extends AbstractStance {
     public static final String STANCE_ID = "TheParasitized:pi_halfMad_stance";
@@ -38,8 +39,6 @@ public class pi_halfMad_stance extends AbstractStance {
 
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
-        AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.SCARLET, true));
-        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
     }
 
     @Override
@@ -55,7 +54,6 @@ public class pi_halfMad_stance extends AbstractStance {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 }
