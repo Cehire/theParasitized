@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class pi_wither_power extends AbstractPower {
-    public static final String POWER_ID = "TheParasitized:pi_sacrifice_power";
+    public static final String POWER_ID = "TheParasitized:pi_wither_power";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = POWER_STRINGS.NAME;
@@ -47,6 +48,9 @@ public class pi_wither_power extends AbstractPower {
             }
             this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
             this.amount--;
+            if (this.amount == 0){
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            }
         }
     }
 }

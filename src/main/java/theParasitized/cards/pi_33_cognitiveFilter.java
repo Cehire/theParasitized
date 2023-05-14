@@ -17,11 +17,11 @@ public class pi_33_cognitiveFilter extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_33_cognitiveFilter() {

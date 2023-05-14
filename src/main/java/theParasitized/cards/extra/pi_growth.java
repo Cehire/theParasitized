@@ -13,7 +13,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_growth extends CustomMutiUpgradeCard {
     //===============  需要改的地方 ====================
-    public static final String ID = "TheParasitized:pi_02_defend";
+    public static final String ID = "TheParasitized:pi_growth";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
@@ -21,7 +21,7 @@ public class pi_growth extends CustomMutiUpgradeCard {
     public static final CardRarity RARITY = CardRarity.BASIC;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 0;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -31,12 +31,13 @@ public class pi_growth extends CustomMutiUpgradeCard {
     public pi_growth(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ArmamentsAction(false));
-        this.addToBot(new DrawCardAction(this.timesUpgraded));
+        this.addToBot(new DrawCardAction(this.magicNumber));
     }
 
     @Override
@@ -45,6 +46,7 @@ public class pi_growth extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        this.upgradeMagicNumber(1);
     }
 
     @Override

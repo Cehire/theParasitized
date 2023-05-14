@@ -18,7 +18,7 @@ public class pi_21_pumping extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -31,16 +31,18 @@ public class pi_21_pumping extends CustomMutiUpgradeCard {
     public pi_21_pumping(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.block = this.baseBlock = 3;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new DrawCardAction(this.timesUpgraded + 2));
+        this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
-                        new pi_pumping_power(abstractPlayer, this.magicNumber),
-                        this.magicNumber)
+                        new pi_pumping_power(abstractPlayer, 3),
+                        3)
         );
     }
 
@@ -50,6 +52,7 @@ public class pi_21_pumping extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        this.upgradeMagicNumber(1);
     }
 
     @Override

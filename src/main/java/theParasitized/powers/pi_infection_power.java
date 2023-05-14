@@ -1,28 +1,23 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 
-import java.util.Iterator;
-
-
-public class pi_pumping_power extends AbstractPower {
-    public static final String POWER_ID = "TheParasitized:pi_pumping_power";
+public class pi_infection_power extends AbstractPower {
+    public static final String POWER_ID = "TheParasitized:pi_infection_power";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = POWER_STRINGS.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
-    public pi_pumping_power(AbstractCreature owner, int amount){
+    public pi_infection_power(AbstractCreature owner, int amount){
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -40,22 +35,9 @@ public class pi_pumping_power extends AbstractPower {
     }
 
     @Override
-    public void onAfterCardPlayed(AbstractCard usedCard) {
-        this.flashWithoutSound();
-        --this.amount;
-        if (this.amount == 0){
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (!target.isPlayer && source.isPlayer){
+            this.addToBot(new ApplyPowerAction(target, source, power, power.amount));
         }
-        this.updateDescription();
-    }
-
-    @Override
-    public void onRemove() {
-        this.addToBot(new PressEndTurnButtonAction());
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        this.amount = Math.min(stackAmount, this.amount);
     }
 }

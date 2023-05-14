@@ -33,7 +33,7 @@ public class pi_thornyFlesh_power extends AbstractPower {
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]+ this.amount + DESCRIPTIONS[2];
     }
 
     @Override

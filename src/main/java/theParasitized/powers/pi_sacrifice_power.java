@@ -36,15 +36,4 @@ public class pi_sacrifice_power extends AbstractPower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.CURSE) {
-            this.flash();
-            card.exhaust = true;
-            action.exhaustCard = true;
-        }
-        if (card.type == AbstractCard.CardType.CURSE){
-            this.addToBot(new DrawCardAction(this.amount));
-        }
-    }
 }

@@ -19,7 +19,7 @@ public class pi_15_whipping extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -57,6 +57,7 @@ public class pi_15_whipping extends CustomCard {
         if(this.timesUpgraded % 2 == 0){
             this.upgradeMagicNumber(1);
         }
+
     }
     @Override
     public boolean canUpgrade() {

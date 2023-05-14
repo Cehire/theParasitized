@@ -72,6 +72,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // =============  卡牌注册在这里  =============
     @Override
     public void receiveEditCards() {
+
         //===============================   curse part  ==============================
         BaseMod.addCard(new baseCurse());
         BaseMod.addCard(new callOfParasites());
@@ -119,6 +120,13 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_39_witherEnchantment());
         BaseMod.addCard(new pi_41_crustShield());
         BaseMod.addCard(new pi_42_errorStrike());
+        BaseMod.addCard(new pi_43_elimination());
+        BaseMod.addCard(new pi_46_resentment());
+
+
+
+
+
     }
 
     @Override

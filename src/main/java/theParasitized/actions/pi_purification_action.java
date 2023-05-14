@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import java.util.Iterator;
 
 public class pi_purification_action extends AbstractGameAction {
     private static final UIStrings uiStrings;
@@ -56,7 +55,6 @@ public class pi_purification_action extends AbstractGameAction {
             this.tickDuration();
         }
     }
-    //todo: update string
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString("RecycleAction");
         TEXT = uiStrings.TEXT;

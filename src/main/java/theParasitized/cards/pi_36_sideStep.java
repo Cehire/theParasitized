@@ -17,7 +17,7 @@ public class pi_36_sideStep extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -31,6 +31,7 @@ public class pi_36_sideStep extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 6;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

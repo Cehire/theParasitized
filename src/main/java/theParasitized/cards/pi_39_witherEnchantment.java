@@ -17,7 +17,7 @@ public class pi_39_witherEnchantment extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -25,8 +25,13 @@ public class pi_39_witherEnchantment extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_39_witherEnchantment() {
+        this(0);
+    }
+
+    public pi_39_witherEnchantment(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.timesUpgraded = upgrades;
     }
 
     @Override
@@ -41,12 +46,20 @@ public class pi_39_witherEnchantment extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        upgradeMagicNumber(1);
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+        this.upgradeMagicNumber(1);
+    }
+    @Override
+    public boolean canUpgrade() {
+        return true;
     }
 
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_33_cognitiveFilter(this.timesUpgraded);
+        return new pi_39_witherEnchantment(this.timesUpgraded);
     }
 }

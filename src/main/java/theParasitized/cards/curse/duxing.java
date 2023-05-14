@@ -2,14 +2,18 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.relics.BlueCandle;
+import theParasitized.powers.pi_sacrifice_power;
 
 public class duxing extends CustomCard {
 
@@ -37,6 +41,7 @@ public class duxing extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.baseBlock = 3 * this.baseMagicNumber;
         this.block = this.baseBlock;
+        this.exhaust = true;
     }
 
     @Override
@@ -60,6 +65,17 @@ public class duxing extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if (abstractPlayer.hasPower(pi_sacrifice_power.POWER_ID)){
+            for (AbstractPower power : abstractPlayer.powers) {
+                if (power.ID.equals(pi_sacrifice_power.POWER_ID)){
+                    power.flash();
+                    this.addToBot(new DrawCardAction(power.amount));}
+            }
+        }
+    }
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
     }
     @Override
     public AbstractCard makeCopy(){

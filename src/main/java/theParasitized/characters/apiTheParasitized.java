@@ -36,7 +36,7 @@ public class apiTheParasitized extends CustomPlayer {
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "parasitizedResources/images/char/shoulder2.png";
     // 人物死亡图像
-    private static final String CORPSE_IMAGE = "parasitizedResources/images/char/corpse.png";
+    private static final String CORPSE_IMAGE = "parasitizedResources/images/char/stance1.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
             "parasitizedResources/images/UI/orb/layer5.png",
@@ -87,7 +87,7 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             retVal.add(Armaments.ID);
         }
 

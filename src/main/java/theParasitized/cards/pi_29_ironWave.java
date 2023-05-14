@@ -19,10 +19,10 @@ public class pi_29_ironWave extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 2;
+    public static final int COST = 1;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;

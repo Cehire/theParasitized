@@ -2,6 +2,7 @@ package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +21,7 @@ public class pi_42_errorStrike extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -43,9 +44,8 @@ public class pi_42_errorStrike extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        ModHelper.addToBotAbstract(()->{
-            abstractPlayer.hand.addToHand(new error());
-        });
+
+        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
     }
 
     @Override

@@ -2,6 +2,7 @@ package theParasitized.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +21,7 @@ public class pi_25_activate extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -41,9 +42,7 @@ public class pi_25_activate extends CustomMutiUpgradeCard {
         this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToBot(new GainEnergyAction(this.upgraded?2:1));
         this.addToBot(new ArmamentsAction(this.upgraded));
-        ModHelper.addToBotAbstract(()->{
-            abstractPlayer.hand.addToHand(new error());
-        });
+        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
     }
 
     @Override

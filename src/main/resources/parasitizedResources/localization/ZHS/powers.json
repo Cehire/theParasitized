@@ -11,58 +11,61 @@
       "回合开始时，升级所有手牌；你的手牌没有上限"
     ]
   },
-    "TheParasitized:pi_growth_power": {
-      "NAME": "野蛮生长",
-      "DESCRIPTIONS": [
-        "战斗结束时，恢复生命值"
-      ]
-  },
   "TheParasitized:pi_sacrifice_power": {
     "NAME": "牺牲",
     "DESCRIPTIONS": [
-      "你可以打出诅咒牌，打出诅咒牌时，抽牌"
+      "你可以打出诅咒牌，打出诅咒牌时，抽",
+      "张牌"
     ]
   },
   "TheParasitized:pi_wither_power": {
     "NAME": "凋零",
     "DESCRIPTIONS": [
-      "回合结束时，失去生命值，使buff来源恢复同等生命值"
+      "回合结束时，失去",
+      "点生命，施加者恢复同等生命"
     ]
   },
   "TheParasitized:pi_nesting_power": {
     "NAME": "筑巢",
     "DESCRIPTIONS": [
-      "回合结束时，将 张生长加入手牌"
+      "回合结束时，将",
+      "张生长加入手牌"
     ]
   },
   "TheParasitized:pi_pumping_power": {
     "NAME": "竭泽",
     "DESCRIPTIONS": [
-      "打出 张牌后，结束当前回合"
+      "打出",
+      "张牌后结束回合"
     ]
   },
   "TheParasitized:pi_graspingAtCurses_power": {
-    "NAME": "饮鸩止渴",
+    "NAME": "野蛮生长",
     "DESCRIPTIONS": [
-      "打出 张牌后，结束当前回合"
+      "战斗结束时，恢复",
+      "生命值, 增加诅咒奖励"
     ]
   },
   "TheParasitized:pi_thornyFlesh_power": {
     "NAME": "蛰刺皮肤",
     "DESCRIPTIONS": [
-      "被攻击时，给予攻击者 层虚弱，层中毒"
+      "被攻击时，给予攻击者 层虚弱，层中毒",
+      "层虚弱，",
+      "层中毒"
     ]
   },
   "TheParasitized:pi_cognitiveFilter_power": {
     "NAME": "认知滤网",
     "DESCRIPTIONS": [
-      "当你获得负面状态时，获得 格挡"
+      "当你获得负面状态时，获得",
+      "格挡"
     ]
   },
   "TheParasitized:pi_witherEnchantment_power": {
     "NAME": "凋零附魔",
     "DESCRIPTIONS": [
-      "造成伤害时，额外给予 层凋零"
+      "造成伤害时，额外给予",
+      "层凋零"
     ]
   }
 }

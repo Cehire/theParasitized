@@ -2,6 +2,7 @@ package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,16 +31,11 @@ public class pi_callOfSwarm_power extends AbstractPower {
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        AbstractDungeon.player.gameHandSize=9999;
-    }
-
-    @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         this.flash();
         for (int i = 0; i < this.amount; i++) {
             this.addToBot(new ArmamentsAction(true));

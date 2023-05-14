@@ -12,7 +12,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 
 public class CurseCardUtil {
-    public static ArrayList<AbstractCard> curseCardList;
+    public static ArrayList<AbstractCard> curseCardList = new ArrayList<>();
     static {
         curseCardList.add(new changbi());
         curseCardList.add(new duxing());
@@ -33,9 +33,21 @@ public class CurseCardUtil {
         for (AbstractRelic relic : AbstractDungeon.player.relics) {
             numCards = relic.changeNumberOfCardsInReward(numCards);
         }
-        for (int i = 0; i < numCards; i++) {
-            retVal.add(returnRandomCurse());
+        AbstractCard c1;
+        AbstractCard c2;
+        AbstractCard c3;
+        c1 = returnRandomCurse();
+        c2 = returnRandomCurse();
+        while (c1.cardID.equals(c2.cardID)){
+            c2 = returnRandomCurse();
         }
+        c3 = returnRandomCurse();
+        while (c1.cardID.equals(c3.cardID)||c2.cardID.equals(c3.cardID)){
+            c3 = returnRandomCurse();
+        }
+        retVal.add(c1);
+        retVal.add(c2);
+        retVal.add(c3);
         reward.cards = retVal;
         return reward;
     }

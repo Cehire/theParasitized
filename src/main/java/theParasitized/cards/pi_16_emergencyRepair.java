@@ -2,6 +2,7 @@ package theParasitized.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.error;
 
+import static theParasitized.cards.utils.CurseCardUtil.returnRandomCurse;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
@@ -20,7 +22,7 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -45,11 +47,8 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
                 )
         );
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
-        ModHelper.addToBotAbstract(
-                ()->{
-                    AbstractDungeon.player.hand.addToHand(new error());
-                }
-        );
+        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
+
     }
 
     @Override

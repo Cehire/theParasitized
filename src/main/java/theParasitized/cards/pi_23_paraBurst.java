@@ -25,13 +25,13 @@ public class pi_23_paraBurst extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 2;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.ENEMY;
+    public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_23_paraBurst() {
         this(0);
     }
@@ -43,12 +43,13 @@ public class pi_23_paraBurst extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        this.addToBot(new DamageAllEnemiesAction(abstractPlayer, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 for (AbstractPower power : monster.powers) {
                     if (power.type == AbstractPower.PowerType.DEBUFF){
-                        this.addToTop(new RemoveSpecificPowerAction(monster, monster, power.ID));
                         this.addToBot(new DamageAllEnemiesAction(abstractPlayer, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
+                        this.addToBot(new RemoveSpecificPowerAction(monster, monster, power.ID));
                     }
                 }
             }

@@ -21,7 +21,7 @@ public class pi_35_olfactoryAggression extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -35,6 +35,7 @@ public class pi_35_olfactoryAggression extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 9;
+        this.magicNumber = 2;
     }
 
     @Override
@@ -45,14 +46,14 @@ public class pi_35_olfactoryAggression extends CustomCard {
                 )
         );
         for (AbstractPower power : abstractMonster.powers) {
-            if (power.ID.equals("Vulnerable")){
+            if (power.ID.equals("Poison")){
                 if(this.upgraded){
                     this.addToBot(new DrawCardAction(2));
                 }else {
                     this.addToBot(new DrawCardAction(1));
                 }
+                this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
             }
-            this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
         }
     }
 

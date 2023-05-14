@@ -21,7 +21,7 @@ public class pi_31_witherStrike extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -69,8 +69,9 @@ public class pi_31_witherStrike extends CustomCard {
         return true;
     }
 
+
     @Override
     public AbstractCard makeCopy(){
-        return new pi_01_strike(this.timesUpgraded);
+        return new pi_31_witherStrike(this.timesUpgraded);
     }
 }
