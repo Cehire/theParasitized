@@ -18,12 +18,12 @@ public class pi_10_parasiticTentacles extends CustomCard {
     public static final String ID = "TheParasitized:pi_10_parasiticTentacles";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
@@ -33,8 +33,8 @@ public class pi_10_parasiticTentacles extends CustomCard {
     public pi_10_parasiticTentacles(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 2;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.damage = this.baseDamage = 4;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override

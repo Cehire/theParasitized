@@ -15,9 +15,9 @@ public class pi_28_specialize extends CustomMutiUpgradeCard {
     public static final String ID = "TheParasitized:pi_28_specialize";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -1;
@@ -34,7 +34,7 @@ public class pi_28_specialize extends CustomMutiUpgradeCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new pi_specialize_action(this.energyOnUse, this.freeToPlayOnce));
+        this.addToBot(new pi_specialize_action(this.energyOnUse, this.freeToPlayOnce, this.upgraded));
     }
 
     @Override

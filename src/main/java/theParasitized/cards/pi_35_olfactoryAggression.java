@@ -19,7 +19,7 @@ public class pi_35_olfactoryAggression extends CustomCard {
     public static final String ID = "TheParasitized:pi_35_olfactoryAggression";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.COMMON;
 
@@ -46,12 +46,8 @@ public class pi_35_olfactoryAggression extends CustomCard {
                 )
         );
         for (AbstractPower power : abstractMonster.powers) {
-            if (power.ID.equals("Poison")){
-                if(this.upgraded){
-                    this.addToBot(new DrawCardAction(2));
-                }else {
-                    this.addToBot(new DrawCardAction(1));
-                }
+            if (power.type == AbstractPower.PowerType.DEBUFF){
+                this.addToBot(new DrawCardAction(1));
                 this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
             }
         }

@@ -2,7 +2,6 @@ package theParasitized.stances.particle;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 
 public class pi_stance_generator extends AbstractGameEffect {
     private float x;

@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 
@@ -17,21 +16,25 @@ public class pi_specialize_action extends AbstractGameAction {
     public static final String[] TEXT;
     private AbstractPlayer p;
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList();
-    private boolean upgraded = false;
+    private boolean upgraded;
     private int times;
     private int energy = 0;
 
-    public pi_specialize_action(int times, boolean freeToPlayOnce) {
+    public pi_specialize_action(int times, boolean freeToPlayOnce, boolean upgraded) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
         this.times = times;
         this.freeToPlayOnce = freeToPlayOnce;
+        this.upgraded = upgraded;
     }
 
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (this.upgraded){
+                this.energy--;
+            }
 
             for (AbstractCard card : this.p.hand.group) {
                 if (!card.canUpgrade()) {

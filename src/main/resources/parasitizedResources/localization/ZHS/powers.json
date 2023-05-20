@@ -67,5 +67,116 @@
       "造成伤害时，额外给予",
       "层凋零"
     ]
+  },
+  "TheParasitized:pi_infection_power": {
+    "NAME": "寄染",
+    "DESCRIPTIONS": [
+      "给予负面状态时，额外给予",
+      "次"
+    ]
+  },
+  "TheParasitized:pi_parasite_power": {
+    "NAME": "寄染",
+    "DESCRIPTIONS": [
+      "给予负面状态时，额外给予",
+      "次"
+    ]
+  },
+  "TheParasitized:pi_sharpenBlade_power": {
+    "NAME": "打磨刀刃",
+    "DESCRIPTIONS": [
+      "给予负面状态时，额外给予",
+      "次"
+    ]
+  },
+  "TheParasitized:pi_69_parasite_power": {
+    "NAME": "寄染",
+    "DESCRIPTIONS": [
+      "受到攻击时，攻击者恢复",
+      "点生命值, 获得",
+      "点力量"
+    ]
+  },
+  "TheParasitized:pi_phantom_power": {
+    "NAME": "幻影",
+    "DESCRIPTIONS": [
+      "你的下",
+      "次攻击获得等量格挡"
+    ]
+  },
+  "TheParasitized:pi_awake_power": {
+    "NAME": "觉醒",
+    "DESCRIPTIONS": [
+      "回合开始时，获得",
+      "点能量"
+    ]
+  },
+  "TheParasitized:pi_double_power": {
+    "NAME": "双倍",
+    "DESCRIPTIONS": [
+      "下",
+      "次攻击造成双倍伤害"
+    ]
+  },
+  "TheParasitized:pi_explosion_power": {
+    "NAME": "爆发",
+    "DESCRIPTIONS": [
+      "下",
+      "张牌将打出两次"
+    ]
+  },
+  "TheParasitized:pi_getMad_power": {
+    "NAME": "狂乱",
+    "DESCRIPTIONS": [
+      "回合开始时，对所有敌人造成",
+      "点伤害，将1张错误加入手牌"
+    ]
+  },
+  "TheParasitized:pi_onslaught_power": {
+    "NAME": "猛攻",
+    "DESCRIPTIONS": [
+      "当你给予负面状态时，抽",
+      "张牌"
+    ]
+  },
+  "TheParasitized:pi_reek_power": {
+    "NAME": "毒腥之息",
+    "DESCRIPTIONS": [
+      "每打出1张牌，失去",
+      "点生命，获得格挡时，失去和格挡等量生命"
+    ]
+  },
+  "TheParasitized:pi_serene_power": {
+    "NAME": "宁静",
+    "DESCRIPTIONS": [
+      "回合开始时，给予所有单位",
+      "层易伤"
+    ]
+  },
+  "TheParasitized:pi_scab_power": {
+    "NAME": "结痂",
+    "DESCRIPTIONS": [
+      "失去生命时，获得等量格挡"
+    ]
+  },
+  "TheParasitized:pi_skillful_power": {
+    "NAME": "超凡技艺",
+    "DESCRIPTIONS": [
+      "当你成功挡下伤害时，抽",
+      "张牌 "
+    ]
+  },
+  "TheParasitized:pi_stress_power": {
+    "NAME": "应激",
+    "DESCRIPTIONS": [
+      "失去生命时，抽",
+      "张牌 "
+    ]
+  },
+  "TheParasitized:pi_suppress_power": {
+    "NAME": "威压",
+    "DESCRIPTIONS": [
+      "回合内，有负面状态的敌人对你的伤害为0"
+    ]
   }
 }

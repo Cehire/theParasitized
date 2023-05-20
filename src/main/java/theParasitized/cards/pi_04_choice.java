@@ -17,7 +17,7 @@ public class pi_04_choice extends CustomCard {
     public static final String ID = "TheParasitized:pi_04_choice";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/powers/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/power.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 

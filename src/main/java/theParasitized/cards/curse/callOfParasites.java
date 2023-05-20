@@ -2,6 +2,7 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
-public class callOfParasites extends CustomCard {
+    public class callOfParasites extends CustomCard {
 
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:CallOfParasites";
@@ -69,35 +70,4 @@ public class callOfParasites extends CustomCard {
         return new callOfParasites(this.timesUpgraded);
     }
 
-    //========================================== 额外区域 ===========================
-    @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if(AbstractDungeon.player.hand.contains(this)){
-            this.magicNumber = this.baseMagicNumber;
-            for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                if(card.type == CardType.CURSE){
-                    this.magicNumber += (card.timesUpgraded + 1);
-                }
-            }
-            c.baseDamage += this.magicNumber;
-            c.baseBlock += this.magicNumber;
-        }
-        System.out.println("=============");
-
-    }
-/*
-        if(AbstractDungeon.player.hand.contains(this)){
-
-        }
- */
-
-
-
-    @Override
-    public void triggerOnCardPlayed(AbstractCard c) {
-        if(AbstractDungeon.player.hand.contains(this)){
-            c.baseDamage -= this.magicNumber;
-            c.baseBlock -= this.magicNumber;
-        }
-    }
 }

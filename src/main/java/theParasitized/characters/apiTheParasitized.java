@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.cards.pi_01_strike;
+import theParasitized.cards.pi_02_defend;
 import theParasitized.theParasitizedCore;
 
 import java.util.ArrayList;
@@ -87,8 +88,9 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            retVal.add(Armaments.ID);
+        for (int i = 0; i < 5; i++) {
+            retVal.add(pi_01_strike.ID);
+            retVal.add(pi_02_defend.ID);
         }
 
         return retVal;

@@ -4,17 +4,12 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theParasitized.ModHelper;
-import theParasitized.cards.curse.changbi;
-import theParasitized.cards.utils.CurseCardUtil;
 
-import static theParasitized.cards.utils.CurseCardUtil.returnRandomCurse;
+import static theParasitized.cards.utils.CommonUtil.returnRandomCurse;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_12_deterioration extends CustomCard {
@@ -22,7 +17,7 @@ public class pi_12_deterioration extends CustomCard {
     public static final String ID = "TheParasitized:pi_12_deterioration";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 

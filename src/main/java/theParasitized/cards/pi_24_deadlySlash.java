@@ -14,7 +14,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -24,9 +26,9 @@ public class pi_24_deadlySlash extends CustomCard {
     public static final String ID = "TheParasitized:pi_24_deadlySlash";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 2;
@@ -49,6 +51,8 @@ public class pi_24_deadlySlash extends CustomCard {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 this.addToBot(new ApplyPowerAction(monster, abstractPlayer, new VulnerablePower(monster, this.magicNumber, false)));
+                this.addToBot(new ApplyPowerAction(monster, abstractPlayer, new WeakPower(monster, this.magicNumber, false)));
+                this.addToBot(new ApplyPowerAction(monster, abstractPlayer, new PoisonPower(monster, abstractPlayer, this.magicNumber)));
             }
         }
 

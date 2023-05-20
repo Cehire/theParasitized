@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_graspingAtCurses_power;
 
-import static theParasitized.cards.utils.CurseCardUtil.getCurseReward;
+import static theParasitized.cards.utils.CommonUtil.getCurseReward;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
 public class pi_17_graspingAtCurses extends CustomCard {
@@ -19,7 +19,7 @@ public class pi_17_graspingAtCurses extends CustomCard {
     public static final String ID = "TheParasitized:pi_17_graspingAtCurses";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/power.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
@@ -47,7 +47,6 @@ public class pi_17_graspingAtCurses extends CustomCard {
                             this.magicNumber)
         );
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.getCurrRoom().addGoldToRewards(this.magicNumber);
             AbstractDungeon.getCurrRoom().addCardReward(getCurseReward());
         }
     }

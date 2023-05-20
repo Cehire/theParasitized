@@ -1,17 +1,20 @@
 package theParasitized.cards.utils;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import theParasitized.cards.curse.*;
+import theParasitized.stances.pi_halfMad_stance;
+import theParasitized.stances.pi_mad_stance;
 
 import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 
-public class CurseCardUtil {
+public class CommonUtil {
     public static ArrayList<AbstractCard> curseCardList = new ArrayList<>();
     static {
         curseCardList.add(new changbi());
@@ -50,5 +53,10 @@ public class CurseCardUtil {
         retVal.add(c3);
         reward.cards = retVal;
         return reward;
+    }
+
+
+    public static boolean Skill(AbstractPlayer player){
+        return !player.stance.ID.equals(pi_halfMad_stance.STANCE_ID) && !player.stance.ID.equals(pi_mad_stance.STANCE_ID);
     }
 }

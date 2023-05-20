@@ -17,9 +17,9 @@ public class pi_29_ironWave extends CustomCard {
     public static final String ID = "TheParasitized:pi_29_ironWave";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -32,7 +32,7 @@ public class pi_29_ironWave extends CustomCard {
     public pi_29_ironWave(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 4;
     }
 
     @Override
@@ -42,7 +42,6 @@ public class pi_29_ironWave extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        calculateCardDamage(abstractMonster);
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.damage));
     }
 
@@ -52,7 +51,7 @@ public class pi_29_ironWave extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(2);
     }
     @Override
     public boolean canUpgrade() {

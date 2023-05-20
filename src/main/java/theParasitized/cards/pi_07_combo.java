@@ -4,6 +4,7 @@ package theParasitized.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.ModHelper;
+import theParasitized.cards.curse.error;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -22,7 +24,7 @@ public class pi_07_combo extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_07_combo.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     public static final int COST = 1;
 
     public static final CardType TYPE = CardType.ATTACK;
@@ -33,7 +35,7 @@ public class pi_07_combo extends CustomCard {
     public pi_07_combo(int upgrades){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -50,6 +52,7 @@ public class pi_07_combo extends CustomCard {
                 }
 
         );
+        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
     }
 
     @Override
@@ -63,7 +66,7 @@ public class pi_07_combo extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        this.upgradeDamage(2);
     }
 
     @Override

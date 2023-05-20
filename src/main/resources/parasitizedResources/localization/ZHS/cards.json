@@ -6,7 +6,7 @@
   },
   "TheParasitized:CallOfParasites": {
     "NAME": "寄群之唤",
-    "DESCRIPTION": " 固有 。 NL 虫群在召唤。",
+    "DESCRIPTION": " 回合开始时，升级随机一张手牌 。 NL 虫群在召唤。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 虫群在召唤。"
   },
   "TheParasitized:changbi": {
@@ -71,8 +71,8 @@
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
-    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次"
+    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 , 增加1张错误到手牌中 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次 , 增加1张错误到手牌中 "
   },
   "TheParasitized:pi_08_hunt": {
     "NAME": "追猎",
@@ -131,8 +131,8 @@
   },
   "TheParasitized:pi_24_deadlySlash": {
     "NAME": "横砍",
-    "DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 ",
-    "UPGRADE_DESCRIPTION": " 对全体敌人造成 !D! 点伤害并施加 !M! 点易伤 "
+    "DESCRIPTION": " 对全体敌人造成 !D! 点伤害, 给予 !M! 层易伤、虚弱和中毒 ",
+    "UPGRADE_DESCRIPTION": " 对全体敌人造成 !D! 点伤害, 给予 !M! 层易伤、虚弱和中毒 "
   },
   "TheParasitized:pi_25_activate": {
     "NAME": "激发",
@@ -147,12 +147,12 @@
   "TheParasitized:pi_28_specialize": {
     "NAME": "特化",
     "DESCRIPTION": " 选择一张手牌，升级 X 次，X为你当前的能量 ",
-    "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X 次，X为你当前的能量 "
+    "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X + 1 次，X为你当前的能量 "
   },
   "TheParasitized:pi_29_ironWave": {
     "NAME": "御血术",
-    "DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值 "
+    "DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值  消耗 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害, 恢复等量生命值  消耗 "
   },
   "TheParasitized:pi_30_thornyFlesh": {
     "NAME": "带刺皮肤",
@@ -181,8 +181,8 @@
   },
   "TheParasitized:pi_35_olfactoryAggression": {
     "NAME": "汲取",
-    "DESCRIPTION": " 造成 !D! 点伤害，如果敌人有易伤状态，抽 !M! 张牌，恢复 !M! 点生命值 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，如果敌人有易伤状态，抽 !M! 张牌，恢复 !M! 点生命值 "
+    "DESCRIPTION": " 造成 !D! 点伤害，如果敌人有负面状态，抽 1 张牌，恢复 !M! 点生命值 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，如果敌人有负面状态，抽 1 张牌，恢复 !M! 点生命值 "
   },
   "TheParasitized:pi_36_sideStep": {
     "NAME": "滑步",
@@ -194,6 +194,11 @@
     "DESCRIPTION": " 当你造成伤害时，同时赋予1层凋零 ",
     "UPGRADE_DESCRIPTION": " 当你造成伤害时，同时赋予2层凋零 "
   },
+  "TheParasitized:pi_40_speedup": {
+    "NAME": "加速",
+    "DESCRIPTION": " 失去3点生命值, 抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 失去3点生命值, 抽 !M! 张牌 "
+  },
   "TheParasitized:pi_41_crustShield": {
     "NAME": "硬质护盾",
     "DESCRIPTION": " 获得 !M! 点格挡， 你的下一回合开始时，你的格挡不会消失 ",
@@ -201,18 +206,253 @@
   },
   "TheParasitized:pi_42_errorStrike": {
     "NAME": "阻断刺击",
-    "DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将一张错误加入手牌 "
+    "DESCRIPTION": " 造成 !D! 点伤害，将1张错误加入手牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将1张错误加入手牌 "
   },
   "TheParasitized:pi_43_elimination": {
     "NAME": "淘汰",
-    "DESCRIPTION": " 若敌人的debuff超过3种，消灭这个敌人 ",
-    "UPGRADE_DESCRIPTION": " 若敌人的debuff超过2种，消灭这个敌人 "
+    "DESCRIPTION": " 若敌人的负面状态超过3种，消灭这个敌人 ",
+    "UPGRADE_DESCRIPTION": " 若敌人的负面状态超过3种，消灭这个敌人 "
+  },
+  "TheParasitized:pi_45_infection": {
+    "NAME": "寄染",
+    "DESCRIPTION": " 当你给予负面状态时，额外给予一次 ",
+    "UPGRADE_DESCRIPTION": " 当你给予负面状态时，额外给予一次 "
   },
   "TheParasitized:pi_46_resentment": {
     "NAME": "憎恶",
-    "DESCRIPTION": " 造成 !D! + X 点伤害，X为敌人的debuff种类数 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! + X 点伤害，X为敌人的debuff种类数 "
+    "DESCRIPTION": " 额外造成敌人负面状态总层数的伤害, 造成 !D! 点伤害 ",
+    "UPGRADE_DESCRIPTION": " 额外造成敌人负面状态总层数的伤害, 造成 !D! 点伤害 "
+  },
+  "TheParasitized:pi_47_scab": {
+    "NAME": "结痂",
+    "DESCRIPTION": " 失去生命时，获得等量格挡 ",
+    "UPGRADE_DESCRIPTION": " 失去生命时，获得等量格挡 "
+  },
+  "TheParasitized:pi_48_alacrity": {
+    "NAME": "迅捷",
+    "DESCRIPTION": " 抽 !M! 张牌，其中的技能牌耗能为0，技巧：获得 !B! 点临时敏捷 ",
+    "UPGRADE_DESCRIPTION": " 抽 !M! 张牌，其中的技能牌耗能为0，技巧：获得 !B! 点临时敏捷 "
+  },
+  "TheParasitized:pi_50_theEnd": {
+    "NAME": "末日",
+    "DESCRIPTION": " 将2张同名牌加入抽牌堆，当你手牌有10张诅咒时，胜利 ",
+    "UPGRADE_DESCRIPTION": " 将2张同名牌加入抽牌堆，当你手牌有10张诅咒时，胜利 "
+  },
+  "TheParasitized:TheParasitized:pi_bodyEnhance_1": {
+    "NAME": "力量强化",
+    "DESCRIPTION": " 获得 !M! 点力量 ",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 点力量 "
+  },
+  "TheParasitized:TheParasitized:pi_bodyEnhance_2": {
+    "NAME": "力量强化",
+    "DESCRIPTION": " 获得 !M! 点敏捷 ",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 点敏捷 "
+  },
+  "TheParasitized:TheParasitized:pi_bodyEnhance_3": {
+    "NAME": "力量强化",
+    "DESCRIPTION": " 获得 !M! 层多层护甲 ",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 层多层护甲 "
+  },
+  "TheParasitized:pi_51_bodyEnhance": {
+    "NAME": "身体强化",
+    "DESCRIPTION": " 技巧：选择：获得 !M! 点力量，!M! 点敏捷 或 !B! 层多重护甲；否则：获得 !M! 点力量 ",
+    "UPGRADE_DESCRIPTION": " 技巧：选择：获得 !M! 点力量，!M! 点敏捷 或 !B! 层多重护甲；否则：获得 !M! 点力量 "
+  },
+  "TheParasitized:pi_52_getMad": {
+    "NAME": "狂躁",
+    "DESCRIPTION": " 回合开始时，对所有敌人造成 !D! 点伤害, 将1张错误加入到手牌 ",
+    "UPGRADE_DESCRIPTION": " 回合开始时，对所有敌人造成 !D! 点伤害, 将1张错误加入到手牌 "
+  },
+  "TheParasitized:pi_53_focus": {
+    "NAME": "集中精神",
+    "DESCRIPTION": " 弃掉 !M! 张牌， 恢复 !M! 点能量 ",
+    "UPGRADE_DESCRIPTION": " 弃掉 !M! 张牌，恢复 !M! 点能量 "
+  },
+  "TheParasitized:pi_54_preAttack": {
+    "NAME": "居合",
+    "DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害 技巧：抽1张牌 ",
+    "UPGRADE_DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害 技巧：抽2张牌 "
+  },
+  "TheParasitized:pi_58_parasiticArm": {
+    "NAME": "寄染之臂",
+    "DESCRIPTION": " 造成 !D! 点伤害，若斩杀，则战斗结束后增加寄染诅咒奖励 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，若斩杀，则战斗结束后增加寄染诅咒奖励 "
+  },
+  "TheParasitized:pi_60_explosion": {
+    "NAME": "潜能爆发",
+    "DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得 !B! 层易伤 ",
+    "UPGRADE_DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得 !B! 层易伤 "
+  },
+  "TheParasitized:pi_61_whirlwind": {
+    "NAME": "回旋斩",
+    "DESCRIPTION": " 造成 !D! 点伤害, 抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害, 抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_63_crossSlash": {
+    "NAME": "横斩",
+    "DESCRIPTION": " 对所有敌人造成 !D! 点伤害  技巧：再施加 !M! 层易伤 ",
+    "UPGRADE_DESCRIPTION": " 对所有敌人造成 !D! 点伤害  技巧：再施加 !M! 层易伤 "
+  },
+  "TheParasitized:pi_64_doubleBlade": {
+    "NAME": "双刃剑",
+    "DESCRIPTION": " 造成 !D! 点伤害  失去 3 生命 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害  失去 3 生命 "
+  },
+  "TheParasitized:pi_65_suppress": {
+    "NAME": "压制",
+    "DESCRIPTION": " 本回合中，拥有负面状态的敌人对你的伤害为0 ",
+    "UPGRADE_DESCRIPTION": " 本回合中，拥有负面状态的敌人对你的伤害为0 "
+  },
+  "TheParasitized:pi_66_skillful": {
+    "NAME": "超凡技艺",
+    "DESCRIPTION": " 当你成功挡下伤害时，抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 当你成功挡下伤害时，抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_67_awake": {
+    "NAME": "觉醒",
+    "DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E! ",
+    "UPGRADE_DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E! "
+  },
+  "TheParasitized:pi_68_serene": {
+    "NAME": "宁静",
+    "DESCRIPTION": " 回合开始时，给予所有人1层易伤 ",
+    "UPGRADE_DESCRIPTION": " 回合开始时，给予所有人1层易伤 "
+  },
+  "TheParasitized:pi_69_parasite": {
+    "NAME": "寄生",
+    "DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B! 点力量 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B!点力量 "
+  },
+  "TheParasitized:pi_70_stress": {
+    "NAME": "应激",
+    "DESCRIPTION": " 失去生命时，抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 失去生命时，抽 !M! 张牌 "
+  },
+  "TheParasitized:pi_71_headOn": {
+    "NAME": "硬碰硬",
+    "DESCRIPTION": " 造成 !D! 点伤害 给予敌人和自己 !M! 层虚弱 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 给予敌人和自己 !M! 层虚弱 "
+  },
+  "TheParasitized:pi_72_fall": {
+    "NAME": "降临",
+    "DESCRIPTION": " 对所有敌人造成 !D! 点伤害  施加 !M! 层虚弱 ",
+    "UPGRADE_DESCRIPTION": " 对所有敌人造成 !D! 点伤害  施加 !M! 层虚弱 "
+  },
+  "TheParasitized:pi_73_pureBlade": {
+    "NAME": "纯洁之刃",
+    "DESCRIPTION": " 消耗你的诅咒牌和状态牌，造成 !D! 点伤害 ",
+    "UPGRADE_DESCRIPTION": " 消耗你的诅咒牌和状态牌，造成 !D! 点伤害 "
+  },
+  "TheParasitized:pi_74_fanaticism": {
+    "NAME": "狂热",
+    "DESCRIPTION": " 造成 !D! 点伤害， 如果你在本场战斗中受到过伤害，再造成一次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 如果你在本场战斗中受到过伤害，再造成一次 "
+  },
+  "TheParasitized:pi_75_longArmStrike": {
+    "NAME": "长臂劈砍",
+    "DESCRIPTION": " 造成 !D! 点伤害，将一张 长臂劈砍-II 加入手牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将一张 长臂劈砍-II 加入手牌 "
+  },
+  "TheParasitized:pi_longArmStrike_1": {
+    "NAME": "长臂劈砍-II",
+    "DESCRIPTION": " 造成 !D! 点伤害，将一张 长臂劈砍-II 加入手牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，将一张 长臂劈砍-II 加入手牌 "
+  },
+  "TheParasitized:pi_longArmStrike_2": {
+    "NAME": "长臂劈砍-III",
+    "DESCRIPTION": " 对所有敌人造成 !D! 点伤害 ",
+    "UPGRADE_DESCRIPTION": " 对所有敌人造成 !D! 点伤害 "
+  },
+  "TheParasitized:pi_76_erosion": {
+    "NAME": "侵蚀",
+    "DESCRIPTION": " 额外造成敌人格挡值的伤害，造成 !D! 点伤害 ",
+    "UPGRADE_DESCRIPTION": " 额外造成敌人格挡值的伤害，造成 !D! 点伤害 "
+  },
+  "TheParasitized:pi_78_assimilation": {
+    "NAME": "同化",
+    "DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，抽1张牌；20，获得5格挡；30，获得 !E! ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，抽1张牌；20，获得5格挡；30，获得 !E! "
+  },
+  "TheParasitized:pi_79_reflection": {
+    "NAME": "反射",
+    "DESCRIPTION": " 造成 !D! 点伤害，当你受到伤害时，将此卡从抽牌堆抽至手牌并使其耗能为0 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，当你受到伤害时，将此卡从抽牌堆抽至手牌并使其耗能为0 "
+  },
+  "TheParasitized:pi_80_feignedAttack": {
+    "NAME": "佯攻",
+    "DESCRIPTION": " 造成 !D! 点伤害  抽 1 张牌 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害  抽 1 张牌 "
+  },
+  "TheParasitized:pi_81_bolsterStrike": {
+    "NAME": "协增冲击",
+    "DESCRIPTION": " 保留 造成 !D! 点伤害, 若此卡已被保留  抽1张牌 ",
+    "UPGRADE_DESCRIPTION": " 保留 造成 !D! 点伤害, 若此卡已被保留  抽2张牌 "
+  },
+  "TheParasitized:pi_82_extraSlash": {
+    "NAME": "追斩",
+    "DESCRIPTION": " 造成 !D! 点伤害, 打出攻击牌时若此卡在抽牌堆，则会自动打出 ",
+    "UPGRADE_DESCRIPTION": "  造成 !D! 点伤害, 打出攻击牌时若此卡在抽牌堆，则会自动打出 "
+  },
+  "TheParasitized:pi_83_illusionSlash": {
+    "NAME": "剑舞",
+    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次 "
+  },
+  "TheParasitized:pi_85_parry": {
+    "NAME": "剑格",
+    "DESCRIPTION": " 获得 !B! 点格挡， 技巧：再获得一次 ",
+    "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡， 技巧：再获得一次 "
+  },
+  "TheParasitized:pi_86_nourishment": {
+    "NAME": "滋养",
+    "DESCRIPTION": " 恢复 !M! 点生命，若此卡被保留，则额外获得 !B! 点力量 ",
+    "UPGRADE_DESCRIPTION": " 恢复 !M! 点生命，若此卡被保留，则额外获得 !B! 点力量 "
+  },
+  "TheParasitized:pi_87_waited": {
+    "NAME": "伺机而动",
+    "DESCRIPTION": " 抽 !M! 张牌，若此卡被保留，则额外抽1张 ",
+    "UPGRADE_DESCRIPTION": " 抽 !M! 张牌，若此卡被保留，则额外抽2张 "
+  },
+  "TheParasitized:pi_88_phantom": {
+    "NAME": "幻影",
+    "DESCRIPTION": " 你的下 !M! 次攻击同时获得等量攻击伤害的格挡 ",
+    "UPGRADE_DESCRIPTION": " 你的下 !M! 次攻击同时获得等量攻击伤害的格挡 "
+  },
+  "TheParasitized:pi_90_reekGas": {
+    "NAME": "毒腥之息",
+    "DESCRIPTION": " pending ",
+    "UPGRADE_DESCRIPTION": " 敌人失去 !M! 点力量， 获得 !D! 层易伤 "
+  },
+  "TheParasitized:pi_91_bolsterFlesh": {
+    "NAME": "协增之躯",
+    "DESCRIPTION": " 保留 获得 !M! 点格挡, 若此卡已被保留  抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 保留 获得 !M! 点格挡, 若此卡已被保留  抽 !M! 张牌  "
+  },
+  "TheParasitized:pi_89_tractionNet": {
+    "NAME": "牵引之网",
+    "DESCRIPTION": " 敌人失去 !M! 点力量， 获得 !D! 层易伤 ",
+    "UPGRADE_DESCRIPTION": " 敌人失去 !M! 点力量， 获得 !D! 层易伤 "
+  },
+  "TheParasitized:pi_92_impetus": {
+    "NAME": "声势",
+    "DESCRIPTION": " 若你的生命值比敌人高： 获得 !M! 点力量，否则：获得 !M! 点敏捷 ",
+    "UPGRADE_DESCRIPTION": " 若你的生命值比敌人高： 获得 !M! 点力量，否则：获得 !M! 点敏捷 "
+  },
+  "TheParasitized:pi_93_upheaval": {
+    "NAME": "剧变",
+    "DESCRIPTION": " 清除你的负面状态，抽1张牌 ",
+    "UPGRADE_DESCRIPTION": "  清除你的负面状态，每清除1种就抽1张牌  "
+  },
+  "TheParasitized:pi_94_chewing": {
+    "NAME": "咀骨",
+    "DESCRIPTION": " 获得 !B! 点格挡， 若本回合中打出过攻击牌，则格挡翻倍 ",
+    "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡， 若本回合中打出过攻击牌，则格挡翻倍 "
+  },
+  "TheParasitized:pi_95_prepare": {
+    "NAME": "准备",
+    "DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点"
   },
   "TheParasitized:pi_intoHalfMad": {
     "NAME": "阶段二",

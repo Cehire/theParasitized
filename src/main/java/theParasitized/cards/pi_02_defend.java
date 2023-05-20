@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +16,7 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
     public static final String ID = "TheParasitized:pi_02_defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/pi_curse.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.BASIC;
 
@@ -31,6 +32,7 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 5;
+
     }
 
     @Override
@@ -40,7 +42,6 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
                          abstractPlayer, block
                 )
         );
-
     }
 
     @Override
