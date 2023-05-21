@@ -2,6 +2,7 @@ package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -33,13 +34,16 @@ public class pi_scab_power extends AbstractPower {
         this.description = DESCRIPTIONS[0];
     }
 
+
     @Override
-    public int onLoseHp(int damageAmount) {
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        this.flash();
         this.addToBot(
                 new GainBlockAction(
                         this.owner, this.amount
                 )
         );
-        return 0;
+        return damageAmount;
     }
+
 }

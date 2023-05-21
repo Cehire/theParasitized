@@ -1,6 +1,7 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theParasitized.cards.extra.pi_growth;
+import theParasitized.cards.utils.CommonUtil;
 
 public class pi_nesting_power extends AbstractPower {
     public static final String POWER_ID = "TheParasitized:pi_nesting_power";
@@ -34,10 +36,12 @@ public class pi_nesting_power extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
             if (this.owner.isPlayer){
+                this.flash();
                 for (int i = 0; i < this.amount; i++) {
-                    AbstractDungeon.player.hand.addToHand(new pi_growth());
+                    this.flash();
+                    this.addToBot(new MakeTempCardInHandAction(new pi_growth(), 1));
                 }
             }
     }

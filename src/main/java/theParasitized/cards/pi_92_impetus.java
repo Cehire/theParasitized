@@ -27,14 +27,14 @@ public class pi_92_impetus extends CustomMutiUpgradeCard {
     public static final int COST = 1;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.SELF;
+    public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_92_impetus() {
         this(0);
     }
     public pi_92_impetus(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override

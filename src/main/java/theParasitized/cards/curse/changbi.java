@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class changbi extends CustomCard {
 
     //===============  需要改的地方 ====================
@@ -27,8 +29,8 @@ public class changbi extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardColor COLOR = PI_COLOR;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public changbi() {
         this(0);
     }
@@ -39,6 +41,7 @@ public class changbi extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override

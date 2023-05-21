@@ -21,21 +21,22 @@ public class error extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/basecard_skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public error() {
         this(0);
     }
     public error(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.retain = true;
+        this.selfRetain = true;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override

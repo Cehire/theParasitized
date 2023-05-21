@@ -35,7 +35,7 @@ public class pi_81_bolsterStrike extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 9;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override

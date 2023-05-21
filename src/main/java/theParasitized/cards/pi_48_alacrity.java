@@ -36,6 +36,7 @@ public class pi_48_alacrity extends CustomCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new DrawCardAction(this.magicNumber, new pi_alacrity_action()));
+
     }
 
 

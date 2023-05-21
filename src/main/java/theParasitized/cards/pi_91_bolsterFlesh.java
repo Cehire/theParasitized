@@ -33,7 +33,7 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
         this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 7;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override

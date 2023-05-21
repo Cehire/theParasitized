@@ -33,7 +33,7 @@ public class pi_88_phantom extends CustomMutiUpgradeCard {
     public pi_88_phantom(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.block = this.baseBlock = 5;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

@@ -31,7 +31,7 @@ public class pi_95_prepare extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.callOfParasites;
+import theParasitized.cards.utils.CommonUtil;
 import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
 
@@ -38,11 +40,9 @@ public class pi_whiteTwig extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         this.flash();
-        ModHelper.addToTopAbstract(()->{
-            AbstractDungeon.player.hand.addToHand(new callOfParasites());
-        });
+        this.addToBot(new MakeTempCardInHandAction(new callOfParasites(), 1));
     }
 
 

@@ -25,7 +25,7 @@ public class pi_longArmStrike_3 extends CustomCard {
     public static final int COST = 3;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.ENEMY;
+    public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_longArmStrike_3() {
         this(0);
     }
@@ -34,6 +34,7 @@ public class pi_longArmStrike_3 extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 20;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.exhaust = true;
     }
 
 

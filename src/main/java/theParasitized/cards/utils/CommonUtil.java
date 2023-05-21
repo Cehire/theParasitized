@@ -16,6 +16,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 public class CommonUtil {
     public static ArrayList<AbstractCard> curseCardList = new ArrayList<>();
+    public static ArrayList<AbstractCard> curseCardListAndError = new ArrayList<>();
     static {
         curseCardList.add(new changbi());
         curseCardList.add(new duxing());
@@ -23,11 +24,23 @@ public class CommonUtil {
         curseCardList.add(new jugu());
         curseCardList.add(new xiezeng());
         curseCardList.add(new zhuxing());
+        curseCardListAndError.add(new changbi());
+        curseCardListAndError.add(new duxing());
+        curseCardListAndError.add(new huangmou());
+        curseCardListAndError.add(new jugu());
+        curseCardListAndError.add(new xiezeng());
+        curseCardListAndError.add(new zhuxing());
+        curseCardListAndError.add(new error());
     }
 
     public static AbstractCard returnRandomCurse(){
         return (AbstractCard)curseCardList.get(cardRandomRng.random(curseCardList.size() - 1));
     }
+
+    public static AbstractCard returnRandomCurseIncludeError(){
+        return (AbstractCard)curseCardListAndError.get(cardRandomRng.random(curseCardList.size() - 1));
+    }
+
 
     public static RewardItem getCurseReward(){
         RewardItem reward = new RewardItem();

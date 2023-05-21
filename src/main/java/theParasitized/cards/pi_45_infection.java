@@ -26,9 +26,13 @@ public class pi_45_infection extends CustomCard {
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
-    public pi_45_infection() {
+    public pi_45_infection(){
+        this(0);
+    }
+    public pi_45_infection(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.timesUpgraded = upgrades;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -43,12 +47,20 @@ public class pi_45_infection extends CustomCard {
 
     @Override
     public void upgrade() {
+        ++this.timesUpgraded;
         this.upgraded = true;
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
         this.upgradeMagicNumber(1);
     }
 
     @Override
+    public boolean canUpgrade() {
+        return true;
+    }
+
+    @Override
     public AbstractCard makeCopy(){
-        return new pi_45_infection();
+        return new pi_45_infection(this.timesUpgraded);
     }
 }

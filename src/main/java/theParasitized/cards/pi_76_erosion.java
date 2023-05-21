@@ -51,7 +51,7 @@ public class pi_76_erosion extends CustomCard {
         this.damage += abstractMonster.currentBlock;
         this.addToBot(
                 new DamageAction(
-                        abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
+                        abstractMonster, new DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.HP_LOSS)
                 )
         );
     }

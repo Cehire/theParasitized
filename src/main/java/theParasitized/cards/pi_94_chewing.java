@@ -20,6 +20,7 @@ public class pi_94_chewing extends CustomMutiUpgradeCard {
     private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private boolean flag = false;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -42,24 +43,26 @@ public class pi_94_chewing extends CustomMutiUpgradeCard {
                         abstractPlayer, block
                 )
         );
-
+        if (this.flag){
+            this.addToBot(
+                    new GainBlockAction(
+                            abstractPlayer, block
+                    )
+            );
+        }
+        this.flag = false;
     }
 
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         if (AbstractDungeon.player.hand.contains(this) && cardPlayed.type == CardType.ATTACK){
-            this.block = this.baseBlock * 2;
+            this.flag = true;
         }
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.block = this.baseBlock;
-    }
-
-    @Override
-    public void tookDamage() {
-        this.damage = this.baseDamage * 2;
+        this.flag = false;
     }
 
     @Override

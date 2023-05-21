@@ -34,7 +34,7 @@ public class pi_72_fall extends CustomCard {
     public static final int COST = 1;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.ENEMY;
+    public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_72_fall() {
         this(0);
     }

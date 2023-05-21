@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class huangmou extends CustomCard {
 
     //===============  需要改的地方 ====================
@@ -27,8 +29,8 @@ public class huangmou extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardColor COLOR = PI_COLOR;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public huangmou() {
         this(0);
     }
@@ -41,6 +43,7 @@ public class huangmou extends CustomCard {
         this.baseDamage = 6;
         this.damage = this.baseDamage;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override
@@ -79,25 +82,27 @@ public class huangmou extends CustomCard {
     }
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
-        --this.baseMagicNumber;
-        this.magicNumber = this.baseMagicNumber;
-        if(this.baseMagicNumber ==1 ){
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-            this.isGlowing = true;
-        }
+        if (AbstractDungeon.player.hand.contains(this)){
+            --this.baseMagicNumber;
+            this.magicNumber = this.baseMagicNumber;
+            if(this.baseMagicNumber ==1 ){
+                this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+                this.isGlowing = true;
+            }
 
-        if (this.baseMagicNumber == 0){
-            this.flash();
-            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                    if (!monster.isDead && !monster.isDying) {
-                        this.addToTop(new LoseHPAction(monster, AbstractDungeon.player,
-                                this.damage, AbstractGameAction.AttackEffect.FIRE));
+            if (this.baseMagicNumber == 0){
+                this.flash();
+                if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                    for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                        if (!monster.isDead && !monster.isDying) {
+                            this.addToTop(new LoseHPAction(monster, null,
+                                    this.damage, AbstractGameAction.AttackEffect.FIRE));
+                        }
                     }
                 }
+                this.baseMagicNumber = 3;
+                this.magicNumber = this.baseMagicNumber;
             }
-            this.baseMagicNumber = 3;
-            this.magicNumber = this.baseMagicNumber;
         }
     }
 }

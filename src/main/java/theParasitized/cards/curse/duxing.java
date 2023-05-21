@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class duxing extends CustomCard {
 
     //===============  需要改的地方 ====================
@@ -28,8 +30,8 @@ public class duxing extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardColor COLOR = PI_COLOR;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public duxing() {
         this(0);
     }
@@ -37,11 +39,10 @@ public class duxing extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
-        this.baseBlock = 3 * this.baseMagicNumber;
-        this.block = this.baseBlock;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override
@@ -50,11 +51,7 @@ public class duxing extends CustomCard {
             this.isInnate = true;
         }
         ++this.timesUpgraded;
-        ++this.baseMagicNumber;
-        this.baseMagicNumber = 2;
-        this.magicNumber = this.baseMagicNumber;
-        this.baseBlock = 2 * this.baseMagicNumber;
-        this.block = this.baseBlock;
+        this.upgradeMagicNumber(1);
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
@@ -83,14 +80,15 @@ public class duxing extends CustomCard {
     }
 
     public void tookDamage() {
-        this.flash();
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
-                            new PoisonPower(monster, AbstractDungeon.player, this.block), this.block));
-                    this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
-                            new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+
+        if (AbstractDungeon.player.hand.contains(this)){
+            this.flash();
+            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                    if (!monster.isDead && !monster.isDying) {
+                        this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                                new PoisonPower(monster, AbstractDungeon.player, this.magicNumber), this.magicNumber));
+                        }
                 }
             }
         }

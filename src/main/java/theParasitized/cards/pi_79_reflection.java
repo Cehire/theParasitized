@@ -57,8 +57,10 @@ public class pi_79_reflection extends CustomCard {
     public void tookDamage() {
         AbstractPlayer player = AbstractDungeon.player;
         if (player.drawPile.contains(this)){
-            player.drawPile.moveToHand(this);
-            this.freeToPlayOnce = true;
+            ModHelper.addToBotAbstract(()->{
+                player.drawPile.moveToHand(this);
+                this.freeToPlayOnce = true;
+            });
         }
     }
 

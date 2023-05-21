@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class xiezeng extends CustomCard {
 
     //===============  需要改的地方 ====================
@@ -25,8 +27,8 @@ public class xiezeng extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardColor COLOR = PI_COLOR;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public xiezeng() {
         this(0);
     }
@@ -37,6 +39,7 @@ public class xiezeng extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override
@@ -75,7 +78,9 @@ public class xiezeng extends CustomCard {
     }
     @Override
     public void atTurnStart() {
-        this.flash();
-        this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
+        if (AbstractDungeon.player.hand.contains(this)){
+            this.flash();
+            this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
+        }
     }
 }

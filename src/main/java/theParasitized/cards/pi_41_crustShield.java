@@ -53,7 +53,6 @@ public class pi_41_crustShield extends CustomMutiUpgradeCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeBlock(3);
-        this.upgradeMagicNumber(1);
     }
 
     @Override

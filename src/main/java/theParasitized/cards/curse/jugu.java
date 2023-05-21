@@ -2,6 +2,7 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,6 +16,8 @@ import theParasitized.powers.pi_sacrifice_power;
 
 import java.util.ArrayList;
 
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+
 public class jugu extends CustomCard {
 
     //===============  需要改的地方 ====================
@@ -27,8 +30,8 @@ public class jugu extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
-    public static final CardTarget TARGET = CardTarget.NONE;
+    public static final CardColor COLOR = PI_COLOR;
+    public static final CardTarget TARGET = CardTarget.SELF;
     public jugu() {
         this(0);
     }
@@ -37,6 +40,8 @@ public class jugu extends CustomCard {
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
         this.exhaust = true;
+        this.isInnate = true;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
     ArrayList<Boolean> preMonster = null;
 
@@ -49,6 +54,7 @@ public class jugu extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {
@@ -70,36 +76,20 @@ public class jugu extends CustomCard {
     }
 
     @Override
-    public void update() {
-
-        if(AbstractDungeon.player!=null&&AbstractDungeon.player.hand.contains(this)){
-            if(preMonster == null){
-                preMonster = new ArrayList<>();
-                System.out.println("update===============");
-                for (int i = 0; i < AbstractDungeon.getMonsters().monsters.size(); i++) {
-                    preMonster.add(AbstractDungeon.getMonsters().monsters.get(i).isDead);
-                }
-            }
-        }
-        super.update();
-    }
-    @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
     }
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
-        super.triggerOnCardPlayed(cardPlayed);
-            ArrayList<AbstractMonster> tmp = AbstractDungeon.getMonsters().monsters;
-            for (int i = 0; i < preMonster.size(); i++) {
-                if (tmp.get(i).isDead && !preMonster.get(i)){
-                    this.addToBot(new GainEnergyAction(2));
-                    preMonster = new ArrayList<>();
-                    for (AbstractMonster abstractMonster : tmp) {
-                        preMonster.add(abstractMonster.isDead);
-                    }
-                }
+        if (AbstractDungeon.player.hand.contains(this)){
+            if (cardPlayed.type == CardType.ATTACK){
+                this.addToBot(
+                        new GainBlockAction(
+                                AbstractDungeon.player, this.magicNumber
+                        )
+                );
             }
+        }
     }
 
 
