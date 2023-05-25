@@ -21,7 +21,7 @@ public class pi_39_witherEnchantment extends CustomMutiUpgradeCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_39_witherEnchantment() {

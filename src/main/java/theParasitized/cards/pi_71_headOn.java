@@ -36,7 +36,7 @@ public class pi_71_headOn extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 10;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
 
@@ -50,13 +50,13 @@ public class pi_71_headOn extends CustomCard {
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
-                        new WeakPower(abstractPlayer, this.magicNumber, false),
+                        new WeakPower(abstractPlayer, this.magicNumber, true),
                         this.magicNumber)
         );
         this.addToBot(
                 new ApplyPowerAction(
                         abstractMonster, abstractPlayer,
-                        new WeakPower(abstractMonster, this.magicNumber, false),
+                        new WeakPower(abstractMonster, this.magicNumber, true),
                         this.magicNumber)
         );
 
@@ -70,6 +70,9 @@ public class pi_71_headOn extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeDamage(4);
+        if (this.magicNumber>1){
+            this.upgradeMagicNumber(-1);
+        }
     }
     @Override
     public boolean canUpgrade() {

@@ -6,8 +6,8 @@
   },
   "TheParasitized:callOfParasites": {
     "NAME": "寄群之唤",
-    "DESCRIPTION": " 回合开始时，将1张随机诅咒加入到手牌 。 NL 此卡被升级时，恢复3生命值。",
-    "UPGRADE_DESCRIPTION": " 回合开始时，将1张随机诅咒加入到手牌 。 NL 此卡被升级时，恢复3生命值。"
+    "DESCRIPTION": " 回合开始时，将1张随机诅咒加入到手牌 。 NL 此卡被升级时，恢复3生命值。 无法逃脱 ",
+    "UPGRADE_DESCRIPTION": " 回合开始时，将1张随机诅咒加入到手牌 。 NL 此卡被升级时，恢复3生命值。 无法逃脱 "
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
@@ -71,8 +71,8 @@
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
-    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 , 增加1张错误到手牌中 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次 , 增加1张错误到手牌中 "
+    "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次 "
   },
   "TheParasitized:pi_08_hunt": {
     "NAME": "追猎",
@@ -251,8 +251,8 @@
   },
   "TheParasitized:pi_bodyEnhance_3": {
     "NAME": "生存强化",
-    "DESCRIPTION": " 获得 !M! 层多层护甲 ",
-    "UPGRADE_DESCRIPTION": " 获得 !M! 层多层护甲 "
+    "DESCRIPTION": " 获得 !M! 层再生 ",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 层再生 "
   },
   "TheParasitized:pi_51_bodyEnhance": {
     "NAME": "身体强化",
@@ -271,8 +271,8 @@
   },
   "TheParasitized:pi_54_preAttack": {
     "NAME": "居合",
-    "DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害 技巧：抽1张牌 ",
-    "UPGRADE_DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害 技巧：抽2张牌 "
+    "DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害  NL  技巧：抽1张牌 ",
+    "UPGRADE_DESCRIPTION": " 你的下 !M! 次攻击造成双倍伤害  NL  技巧：抽1张牌 "
   },
   "TheParasitized:pi_58_parasiticArm": {
     "NAME": "寄染之臂",
@@ -311,8 +311,8 @@
   },
   "TheParasitized:pi_67_awake": {
     "NAME": "觉醒",
-    "DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E! ",
-    "UPGRADE_DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E! "
+    "DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E!  消耗  ",
+    "UPGRADE_DESCRIPTION": " 消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷，!E! !E!  消耗  "
   },
   "TheParasitized:pi_68_serene": {
     "NAME": "宁静",
@@ -399,6 +399,11 @@
     "DESCRIPTION": " 造成 !D! 点伤害 !M! 次 ",
     "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害 !M! 次 "
   },
+  "TheParasitized:pi_84_exchange": {
+    "NAME": "交换",
+    "DESCRIPTION": " 弃掉 !M! 张牌， 然后将弃牌堆的 !M! 张牌放入手牌 保留  ",
+    "UPGRADE_DESCRIPTION": " 弃掉 !M! 张牌， 然后将弃牌堆的 !M! 张牌放入手牌 保留  "
+  },
   "TheParasitized:pi_85_parry": {
     "NAME": "剑格",
     "DESCRIPTION": " 获得 !B! 点格挡， 技巧：再获得一次 ",
@@ -426,8 +431,8 @@
   },
   "TheParasitized:pi_91_bolsterFlesh": {
     "NAME": "协增之躯",
-    "DESCRIPTION": " 保留 获得 !M! 点格挡, 若此卡已被保留  抽 !M! 张牌 ",
-    "UPGRADE_DESCRIPTION": " 保留 获得 !M! 点格挡, 若此卡已被保留  抽 !M! 张牌  "
+    "DESCRIPTION": " 保留 获得 !B! 点格挡, 若此卡已被保留  抽 !M! 张牌 ",
+    "UPGRADE_DESCRIPTION": " 保留 获得 !B! 点格挡, 若此卡已被保留  抽 !M! 张牌  "
   },
   "TheParasitized:pi_89_tractionNet": {
     "NAME": "牵引之网",

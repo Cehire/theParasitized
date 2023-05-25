@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DuplicationPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theParasitized.powers.pi_explosion_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -27,26 +29,24 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_60_explosion() {
-        this(0);
-    }
-    public pi_60_explosion(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new pi_explosion_power(abstractPlayer, this.magicNumber)));
-
+        this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DuplicationPower(abstractPlayer, this.magicNumber)));
+        if (this.upgraded){
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new VulnerablePower(abstractPlayer, 1, true)));
+        }else {
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new VulnerablePower(abstractPlayer, 2, true)));
+        }
     }
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
         this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeMagicNumber(1);
     }
 
@@ -57,6 +57,6 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_60_explosion(this.timesUpgraded);
+        return new pi_60_explosion();
     }
 }

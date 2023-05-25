@@ -30,12 +30,13 @@ public class pi_50_theEnd extends CustomCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 2;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_50_theEnd() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 3;
+        this.selfRetain = true;
     }
 
     @Override
@@ -43,15 +44,15 @@ public class pi_50_theEnd extends CustomCard {
         this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 2, true, true));
     }
 
-
     @Override
-    public void triggerWhenDrawn() {
+    public void atTurnStart() {
         AbstractPlayer player = AbstractDungeon.player;
-        if (player.drawPile.size() == 10){
+        if (player.hand.size() == 10){
             int n = 0;
-            for (AbstractCard card : player.drawPile.group) {
+            for (AbstractCard card : player.hand.group) {
                 if (card.type == CardType.CURSE){
                     n++;
+                    System.out.println(n);
                 }
             }
             if (n == 10){
@@ -60,8 +61,8 @@ public class pi_50_theEnd extends CustomCard {
                 }
             }
         }
-
     }
+
 
     @Override
     public void upgrade() {

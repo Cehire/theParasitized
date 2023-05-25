@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -48,15 +49,24 @@ public class huangmou extends CustomCard {
 
     @Override
     public void upgrade() {
-        if(!this.upgraded){
-            this.isInnate = true;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.flash();
+            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                    if (!monster.isDead && !monster.isDying) {
+                        this.addToTop(new LoseHPAction(monster, null,
+                                this.damage, AbstractGameAction.AttackEffect.FIRE));
+                    }
+                }
+            }
+        }else {
+            ++this.timesUpgraded;
+            this.baseDamage += 3;
+            this.damage = this.baseDamage;
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
         }
-        ++this.timesUpgraded;
-        this.baseDamage += 3;
-        this.damage = this.baseDamage;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
     }
     @Override
     public boolean canUpgrade() {

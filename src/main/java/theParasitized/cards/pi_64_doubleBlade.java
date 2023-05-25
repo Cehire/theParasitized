@@ -33,7 +33,7 @@ public class pi_64_doubleBlade extends CustomCard {
     public pi_64_doubleBlade(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 12;
     }
 
     @Override

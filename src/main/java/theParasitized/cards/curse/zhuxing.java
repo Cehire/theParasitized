@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -46,15 +47,19 @@ public class zhuxing extends CustomCard {
 
     @Override
     public void upgrade() {
-        if(!this.upgraded){
-            this.isInnate = true;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.flash();
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new DexterityPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        }else {
+            ++this.timesUpgraded;
+            ++this.baseMagicNumber;
+            this.magicNumber = this.baseMagicNumber;
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
         }
-        ++this.timesUpgraded;
-        ++this.baseMagicNumber;
-        this.magicNumber = this.baseMagicNumber;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+
     }
     @Override
     public boolean canUpgrade() {

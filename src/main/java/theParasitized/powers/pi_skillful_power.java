@@ -39,6 +39,7 @@ public class pi_skillful_power extends AbstractPower {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (damageAmount <=0){
+            this.flash();
             this.addToBot(new DrawCardAction(this.amount));
         }
         return damageAmount;

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -47,14 +48,26 @@ public class duxing extends CustomCard {
 
     @Override
     public void upgrade() {
-        if(!this.upgraded){
-            this.isInnate = true;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.flash();
+            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                    if (!monster.isDead && !monster.isDying) {
+                        this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                                new PoisonPower(monster, AbstractDungeon.player, this.magicNumber), this.magicNumber));
+                        this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                                new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+                    }
+                }
+            }
+
+        }else {
+            ++this.timesUpgraded;
+            this.upgradeMagicNumber(1);
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
         }
-        ++this.timesUpgraded;
-        this.upgradeMagicNumber(1);
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
     }
     @Override
     public boolean canUpgrade() {

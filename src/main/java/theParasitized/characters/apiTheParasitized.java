@@ -24,6 +24,7 @@ import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_75_longArmStrike;
+import theParasitized.cards.pi_84_exchange;
 import theParasitized.theParasitizedCore;
 
 import java.util.ArrayList;
@@ -95,7 +96,7 @@ public class apiTheParasitized extends CustomPlayer {
         for (int i = 0; i < 5; i++) {
             retVal.add(pi_02_defend.ID);
         }
-        retVal.add(pi_75_longArmStrike.ID);
+        retVal.add(pi_84_exchange.ID);
 
 
         return retVal;

@@ -52,7 +52,6 @@ public class pi_07_combo extends CustomCard {
                 }
 
         );
-        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
     }
 
     @Override

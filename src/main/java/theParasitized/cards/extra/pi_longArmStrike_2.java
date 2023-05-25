@@ -32,7 +32,7 @@ public class pi_longArmStrike_2 extends CustomCard {
     public pi_longArmStrike_2(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 20;
+        this.damage = this.baseDamage = 15;
         this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import java.util.ArrayList;
@@ -41,20 +42,27 @@ public class jugu extends CustomCard {
         this.selfRetain = true;
         this.exhaust = true;
         this.isInnate = true;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
     ArrayList<Boolean> preMonster = null;
 
     @Override
     public void upgrade() {
-        if(!this.upgraded){
-            this.isInnate = true;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.flash();
+            this.addToBot(
+                    new GainBlockAction(
+                            AbstractDungeon.player, this.magicNumber * 2
+                    )
+            );
+        }else {
+            ++this.timesUpgraded;
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
+            this.upgradeMagicNumber(1);
         }
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
+
     }
     @Override
     public boolean canUpgrade() {

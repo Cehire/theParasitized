@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class pi_explosion_power extends AbstractPower {
@@ -42,7 +43,7 @@ public class pi_explosion_power extends AbstractPower {
         this.flash();
         AbstractCard tmpCard = card.makeStatEquivalentCopy();
         tmpCard.purgeOnUse = true;
-        this.addToBot(new NewQueueCardAction(tmpCard, true, false, true));
+        this.addToBot(new NewQueueCardAction(tmpCard, action.target, false, true));
         this.amount --;
         if (this.amount <= 0){
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

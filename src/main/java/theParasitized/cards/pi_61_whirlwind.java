@@ -35,7 +35,7 @@ public class pi_61_whirlwind extends CustomCard {
     public pi_61_whirlwind(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 12;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -61,7 +61,7 @@ public class pi_61_whirlwind extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
         this.upgradeMagicNumber(1);
     }
     @Override

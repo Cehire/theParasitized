@@ -3,6 +3,7 @@ package theParasitized.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -41,6 +42,13 @@ public class pi_67_awake extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        ModHelper.addToBotAbstract(()->{
+            for (AbstractCard card : abstractPlayer.hand.group) {
+                if (card.type == CardType.CURSE){
+                    this.addToTop(new ExhaustSpecificCardAction(card, abstractPlayer.hand));
+                }
+            }
+        });
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new pi_awake_power(abstractPlayer, this.block), this.block));

@@ -49,6 +49,7 @@ public class pi_35_olfactoryAggression extends CustomCard {
             if (power.type == AbstractPower.PowerType.DEBUFF){
                 this.addToBot(new DrawCardAction(1));
                 this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
+                break;
             }
         }
     }

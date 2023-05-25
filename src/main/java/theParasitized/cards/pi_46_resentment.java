@@ -62,7 +62,7 @@ public class pi_46_resentment extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
     }
     @Override
     public boolean canUpgrade() {

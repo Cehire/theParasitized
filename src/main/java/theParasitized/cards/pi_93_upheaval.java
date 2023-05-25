@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -9,6 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -34,6 +37,7 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
     public pi_93_upheaval(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -41,12 +45,7 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
         for (AbstractPower power : abstractPlayer.powers) {
             if (power.type == AbstractPower.PowerType.DEBUFF){
                 this.addToBot(new RemoveSpecificPowerAction(abstractPlayer, abstractPlayer, power.ID));
-                if (this.upgraded){
-                    this.addToBot(new DrawCardAction(1));
-                }
-            }
-            if (!this.upgraded){
-                this.addToBot(new DrawCardAction(1));
+                this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
             }
         }
     }
@@ -57,6 +56,7 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        this.upgradeMagicNumber(1);
     }
 
     @Override

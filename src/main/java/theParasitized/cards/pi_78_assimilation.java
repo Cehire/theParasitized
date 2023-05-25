@@ -36,7 +36,7 @@ public class pi_78_assimilation extends CustomCard {
     public pi_78_assimilation(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 7;
     }
 
 

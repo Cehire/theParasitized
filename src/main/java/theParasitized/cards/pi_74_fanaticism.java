@@ -33,7 +33,7 @@ public class pi_74_fanaticism extends CustomCard {
     public pi_74_fanaticism(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 

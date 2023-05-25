@@ -34,7 +34,7 @@ public class pi_42_errorStrike extends CustomCard {
     public pi_42_errorStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 12;
+        this.damage = this.baseDamage = 14;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class pi_42_errorStrike extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
     }
     @Override
     public boolean canUpgrade() {

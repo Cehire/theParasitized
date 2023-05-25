@@ -14,8 +14,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.cards.utils.CommonUtil;
 import theParasitized.powers.pi_sacrifice_power;
+import theParasitized.relics.pi_whiteTwig;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -49,10 +51,15 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 3));
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.flash();
+            this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 3));
+        }else {
+            ++this.timesUpgraded;
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
+        }
     }
     @Override
     public boolean canUpgrade() {
@@ -68,6 +75,16 @@ public class callOfParasites extends CustomCard {
             }
         }
     }
+
+    @Override
+    public void triggerOnExhaust() {
+        if (AbstractDungeon.player.hasRelic(pi_whiteTwig.ID)) {
+            AbstractDungeon.player.getRelic(pi_whiteTwig.ID).flash();
+        }
+
+        this.addToBot(new MakeTempCardInHandAction(this.makeCopy()));
+    }
+
     @Override
     public AbstractCard makeCopy(){
         return new callOfParasites(this.timesUpgraded);
@@ -78,8 +95,10 @@ public class callOfParasites extends CustomCard {
     }
     @Override
     public void atTurnStart() {
-        this.flash();
-        this.addToBot(new MakeTempCardInHandAction(CommonUtil.returnRandomCurseIncludeError(), 1));
-    }
+        if (AbstractDungeon.player.hand.contains(this)){
+            this.flash();
+            this.addToBot(new MakeTempCardInHandAction(CommonUtil.returnRandomCurseIncludeError(), 1));
+        }
+     }
 
 }

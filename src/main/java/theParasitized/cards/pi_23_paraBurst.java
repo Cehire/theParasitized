@@ -35,7 +35,7 @@ public class pi_23_paraBurst extends CustomCard {
     public pi_23_paraBurst(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 10;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class pi_23_paraBurst extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(5);
     }
     @Override
     public boolean canUpgrade() {
