@@ -33,25 +33,33 @@ public class pi_46_resentment extends CustomCard {
     public pi_46_resentment(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 10;
+    }
+
+    @Override
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
+        if (mo == null){
+            super.calculateModifiedCardDamage(player, mo, tmp);
+        }else {
+            int ex = 0;
+            for (AbstractPower power : mo.powers) {
+                if (power.type == AbstractPower.PowerType.DEBUFF){
+                    ex += power.amount;
+                }
+            }
+            return super.calculateModifiedCardDamage(player, mo, tmp) + ex;
+        }
+        return super.calculateModifiedCardDamage(player, mo, tmp);
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        int ex = 0;
-        for (AbstractPower power : abstractMonster.powers) {
-            if (power.type == AbstractPower.PowerType.DEBUFF){
-                ex += power.amount;
-            }
-        }
-        int tmp = this.damage;
-        this.damage = this.baseDamage = tmp + ex;
+
         this.addToBot(
                 new DamageAction(
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.damage = this.baseDamage = tmp;
     }
 
 

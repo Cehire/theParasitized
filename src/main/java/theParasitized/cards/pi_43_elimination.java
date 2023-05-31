@@ -3,6 +3,7 @@ package theParasitized.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.watcher.JudgementAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,7 +38,6 @@ public class pi_43_elimination extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new VFXAction(new LightningEffect(abstractMonster.drawX, abstractMonster.drawY), 0.05F));
         ModHelper.addToBotAbstract(()->{
             int n = 0;
             for (AbstractPower power : abstractMonster.powers) {
@@ -46,7 +46,12 @@ public class pi_43_elimination extends CustomCard {
                 }
             }
             if (n > 2){
-                this.addToTop(new InstantKillAction(abstractMonster));
+                this.addToBot(new VFXAction(new LightningEffect(abstractMonster.drawX, abstractMonster.drawY), 0.05F));
+                if (this.upgraded){
+                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 30));
+                }else{
+                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 40));
+                }
             }
         });
     }
@@ -54,8 +59,9 @@ public class pi_43_elimination extends CustomCard {
     @Override
     public void upgrade() {
         this.upgraded = true;
-        this.magicNumber = this.baseMagicNumber = 2;
-        this.upgradedMagicNumber = true;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
+        this.initializeTitle();
     }
 
     @Override

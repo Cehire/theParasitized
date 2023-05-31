@@ -28,14 +28,14 @@ public class pi_90_reekGas extends CustomMutiUpgradeCard {
     public static final int COST = 1;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.SELF;
+    public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_90_reekGas() {
         this(0);
     }
     public pi_90_reekGas(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     @Override

@@ -21,7 +21,7 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 2;
@@ -31,7 +31,6 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
     public pi_60_explosion() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
-        this.exhaust = true;
     }
 
     @Override
@@ -48,12 +47,11 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
     public void upgrade() {
         this.upgraded = true;
         this.upgradeMagicNumber(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeTitle();
+        this.initializeDescription();
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){

@@ -1,6 +1,7 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,5 +45,13 @@ public class pi_suppress_power extends AbstractPower {
             }
         }
         return damageAmount;
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        this.amount--;
+        if (this.amount == 0){
+            this.addToBot(new RemoveSpecificPowerAction(this.owner,null, this.ID));
+        }
     }
 }

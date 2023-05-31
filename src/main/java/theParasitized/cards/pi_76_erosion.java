@@ -36,19 +36,20 @@ public class pi_76_erosion extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 10;
-        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        this.damage += mo.currentBlock;
-        super.calculateCardDamage(mo);
-        this.damage -= mo.currentBlock;
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
+        if (mo == null){
+            super.calculateModifiedCardDamage(player, mo, tmp);
+        }else {
+            return super.calculateModifiedCardDamage(player, mo, tmp) + mo.currentBlock;
+        }
+        return super.calculateModifiedCardDamage(player, mo, tmp);
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.damage += abstractMonster.currentBlock;
         this.addToBot(
                 new DamageAction(
                         abstractMonster, new DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.HP_LOSS)

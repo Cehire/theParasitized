@@ -1,10 +1,7 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +9,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -37,6 +36,7 @@ public class pi_78_assimilation extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
 
@@ -49,7 +49,10 @@ public class pi_78_assimilation extends CustomCard {
         );
         int floorNum = AbstractDungeon.floorNum;
         if (floorNum >= 10){
-            this.addToBot(new DrawCardAction(1));
+            new ApplyPowerAction(
+                    abstractMonster, abstractPlayer,
+                    new WeakPower(abstractMonster, this.magicNumber, false),
+                    this.magicNumber);
         }
         if (floorNum >= 20){
             this.addToBot(new GainBlockAction(abstractPlayer, 5));
@@ -68,6 +71,7 @@ public class pi_78_assimilation extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeDamage(3);
+        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {

@@ -32,18 +32,27 @@ public class pi_21_pumping extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 2;
-        this.block = this.baseBlock = 3;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new DrawCardAction(this.magicNumber));
-        this.addToBot(
-                new ApplyPowerAction(
-                        abstractPlayer, abstractPlayer,
-                        new pi_pumping_power(abstractPlayer, 3),
-                        3)
-        );
+        if (this.upgraded){
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractPlayer, abstractPlayer,
+                            new pi_pumping_power(abstractPlayer, 3),
+                            3)
+            );
+        }else {
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractPlayer, abstractPlayer,
+                            new pi_pumping_power(abstractPlayer, 5),
+                            5)
+            );
+        }
+
     }
 
     @Override
@@ -53,6 +62,8 @@ public class pi_21_pumping extends CustomMutiUpgradeCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeMagicNumber(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

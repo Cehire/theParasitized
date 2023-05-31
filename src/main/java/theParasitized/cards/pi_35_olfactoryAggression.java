@@ -34,7 +34,7 @@ public class pi_35_olfactoryAggression extends CustomCard {
     public pi_35_olfactoryAggression(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 

@@ -48,13 +48,24 @@ public class pi_34_poisonFog extends CustomMutiUpgradeCard {
                                 this.magicNumber)
 
                 );
-                this.addToBot(
-                        new ApplyPowerAction(
-                                monster, abstractPlayer,
-                                new VulnerablePower(monster, this.block, false),
-                                this.block)
+                if (this.upgraded){
+                    this.addToBot(
+                            new ApplyPowerAction(
+                                    monster, abstractPlayer,
+                                    new VulnerablePower(monster, 2, false),
+                                    2)
 
-                );
+                    );
+                }else{
+                    this.addToBot(
+                            new ApplyPowerAction(
+                                    monster, abstractPlayer,
+                                    new VulnerablePower(monster, 3, false),
+                                    3)
+
+                    );
+                }
+
             }
         }
 
@@ -67,7 +78,8 @@ public class pi_34_poisonFog extends CustomMutiUpgradeCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeMagicNumber(2);
-        this.upgradeBlock(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

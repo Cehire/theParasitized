@@ -36,6 +36,7 @@ public class pi_81_bolsterStrike extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.selfRetain = true;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -46,11 +47,7 @@ public class pi_81_bolsterStrike extends CustomCard {
                     )
             );
             if (this.flag){
-                if (this.upgraded){
-                    this.addToBot(new DrawCardAction(2));
-                }else {
-                    this.addToBot(new DrawCardAction(1));
-                }
+                this.addToBot(new DrawCardAction(this.magicNumber));
             }
             this.flag = false;
     }
@@ -63,6 +60,9 @@ public class pi_81_bolsterStrike extends CustomCard {
     @Override
     public void upgrade() {
         ++this.timesUpgraded;
+        if (!this.upgraded){
+            this.upgradeMagicNumber(1);
+        }
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();

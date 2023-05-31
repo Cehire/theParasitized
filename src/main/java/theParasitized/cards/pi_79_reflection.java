@@ -1,6 +1,7 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
@@ -14,6 +15,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import theParasitized.ModHelper;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -26,10 +29,10 @@ public class pi_79_reflection extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.COMMON;
+    public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
@@ -39,7 +42,8 @@ public class pi_79_reflection extends CustomCard {
     public pi_79_reflection(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 14;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     @Override
@@ -49,7 +53,12 @@ public class pi_79_reflection extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-
+        this.addToBot(
+                new ApplyPowerAction(
+                        abstractPlayer, abstractPlayer,
+                        new VulnerablePower(abstractPlayer, this.magicNumber, false),
+                        this.magicNumber)
+        );
     }
 
 

@@ -29,7 +29,7 @@ public class pi_50_theEnd extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 2;
+    public static final int COST = 0;
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;

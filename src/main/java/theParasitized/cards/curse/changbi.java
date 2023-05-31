@@ -5,8 +5,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -45,23 +49,16 @@ public class changbi extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;
+        this.damage = this.baseDamage = 6;
     }
 
     @Override
     public void upgrade() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.flash();
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new StrengthPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
-            this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        }else {
-            ++this.timesUpgraded;
-            ++this.baseMagicNumber;
-            this.magicNumber = this.baseMagicNumber;
-            this.upgraded = true;
-            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-            this.initializeTitle();
-        }
+        ++this.timesUpgraded;
+        this.upgradeMagicNumber(1);
+        this.upgraded = true;
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
     }
     @Override
     public boolean canUpgrade() {

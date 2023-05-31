@@ -2,9 +2,11 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,7 +41,7 @@ public class huangmou extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.baseDamage = 6;
         this.damage = this.baseDamage;
@@ -47,26 +49,14 @@ public class huangmou extends CustomCard {
         this.isInnate = true;
     }
 
+
     @Override
     public void upgrade() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.flash();
-            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                    if (!monster.isDead && !monster.isDying) {
-                        this.addToTop(new LoseHPAction(monster, null,
-                                this.damage, AbstractGameAction.AttackEffect.FIRE));
-                    }
-                }
-            }
-        }else {
             ++this.timesUpgraded;
-            this.baseDamage += 3;
-            this.damage = this.baseDamage;
+            this.upgradeMagicNumber(1);
             this.upgraded = true;
             this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
             this.initializeTitle();
-        }
     }
     @Override
     public boolean canUpgrade() {
@@ -93,25 +83,10 @@ public class huangmou extends CustomCard {
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         if (AbstractDungeon.player.hand.contains(this)){
-            --this.baseMagicNumber;
-            this.magicNumber = this.baseMagicNumber;
-            if(this.baseMagicNumber ==1 ){
-                this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-                this.isGlowing = true;
-            }
-
-            if (this.baseMagicNumber == 0){
-                this.flash();
-                if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                    for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                        if (!monster.isDead && !monster.isDying) {
-                            this.addToTop(new LoseHPAction(monster, null,
-                                    this.damage, AbstractGameAction.AttackEffect.FIRE));
-                        }
-                    }
-                }
-                this.baseMagicNumber = 3;
-                this.magicNumber = this.baseMagicNumber;
+            this.flash();
+            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.magicNumber, true),
+                        DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
             }
         }
     }

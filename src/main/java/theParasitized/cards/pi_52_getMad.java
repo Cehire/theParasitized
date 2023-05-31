@@ -33,7 +33,7 @@ public class pi_52_getMad extends CustomCard {
     public pi_52_getMad(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 10;
     }
 
     @Override

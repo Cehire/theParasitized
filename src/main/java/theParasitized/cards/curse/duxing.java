@@ -48,26 +48,11 @@ public class duxing extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.flash();
-            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                    if (!monster.isDead && !monster.isDying) {
-                        this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
-                                new PoisonPower(monster, AbstractDungeon.player, this.magicNumber), this.magicNumber));
-                        this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
-                                new WeakPower(monster, this.magicNumber, false), this.magicNumber));
-                    }
-                }
-            }
-
-        }else {
             ++this.timesUpgraded;
             this.upgradeMagicNumber(1);
             this.upgraded = true;
             this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
             this.initializeTitle();
-        }
     }
     @Override
     public boolean canUpgrade() {

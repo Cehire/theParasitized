@@ -35,6 +35,7 @@ public class pi_10_parasiticTentacles extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 2;
+        this.exhaust = true;
     }
 
     @Override

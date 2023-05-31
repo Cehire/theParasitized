@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -34,19 +35,43 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
-        this.block = this.baseBlock = 2;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer, new StrengthPower(abstractMonster, -this.magicNumber), -this.magicNumber));
-        this.addToBot(
-                new ApplyPowerAction(
-                        abstractMonster, abstractPlayer,
-                        new VulnerablePower(abstractMonster, this.block, false),
-                        this.block)
+        if(this.upgraded){
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractMonster, abstractPlayer,
+                            new VulnerablePower(abstractMonster, 2, false),
+                            2)
 
-        );
+            );
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractMonster, abstractPlayer,
+                            new WeakPower(abstractMonster, 2, false),
+                            2)
+
+            );
+        }else{
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractMonster, abstractPlayer,
+                            new VulnerablePower(abstractMonster, 3, false),
+                            3)
+
+            );
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractMonster, abstractPlayer,
+                            new WeakPower(abstractMonster, 3, false),
+                            3)
+
+            );
+        }
+
     }
 
     @Override
@@ -57,6 +82,8 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
         this.initializeTitle();
         this.upgradeMagicNumber(1);
         this.upgradeBlock(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

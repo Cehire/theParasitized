@@ -47,16 +47,26 @@ public class pi_71_headOn extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.addToBot(
-                new ApplyPowerAction(
-                        abstractPlayer, abstractPlayer,
-                        new WeakPower(abstractPlayer, this.magicNumber, true),
-                        this.magicNumber)
-        );
+        if (this.upgraded){
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractPlayer, abstractPlayer,
+                            new WeakPower(abstractPlayer, 1, false),
+                            1)
+            );
+        }else {
+            this.addToBot(
+                    new ApplyPowerAction(
+                            abstractPlayer, abstractPlayer,
+                            new WeakPower(abstractPlayer, this.magicNumber, false),
+                            this.magicNumber)
+            );
+        }
+
         this.addToBot(
                 new ApplyPowerAction(
                         abstractMonster, abstractPlayer,
-                        new WeakPower(abstractMonster, this.magicNumber, true),
+                        new WeakPower(abstractMonster, this.magicNumber, false),
                         this.magicNumber)
         );
 
@@ -69,10 +79,10 @@ public class pi_71_headOn extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(4);
-        if (this.magicNumber>1){
-            this.upgradeMagicNumber(-1);
-        }
+        this.upgradeDamage(3);
+        this.upgradeMagicNumber(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
     @Override
     public boolean canUpgrade() {

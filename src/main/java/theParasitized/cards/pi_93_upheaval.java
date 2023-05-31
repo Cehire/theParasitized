@@ -38,14 +38,16 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.block = this.baseBlock = 5;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        this.addToBot(new GainBlockAction(abstractPlayer, this.block));
         for (AbstractPower power : abstractPlayer.powers) {
             if (power.type == AbstractPower.PowerType.DEBUFF){
                 this.addToBot(new RemoveSpecificPowerAction(abstractPlayer, abstractPlayer, power.ID));
-                this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
+                this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
             }
         }
     }

@@ -45,17 +45,12 @@ public class xiezeng extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.flash();
-            this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
-        }else {
-            ++this.timesUpgraded;
-            this.upgraded = true;
-            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-            ++this.baseMagicNumber;
-            this.magicNumber = this.baseMagicNumber;
-            this.initializeTitle();
-        }
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        ++this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber;
+        this.initializeTitle();
     }
     @Override
     public boolean canUpgrade() {

@@ -33,7 +33,7 @@ public class pi_94_chewing extends CustomMutiUpgradeCard {
     public pi_94_chewing(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.block = this.baseBlock = 6;
+        this.block = this.baseBlock = 4;
     }
 
     @Override

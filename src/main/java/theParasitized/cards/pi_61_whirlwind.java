@@ -48,10 +48,11 @@ public class pi_61_whirlwind extends CustomCard {
                 )
         );
         this.addToBot(
+                new DiscardAction(abstractPlayer, abstractPlayer, this.magicNumber, false)
+        );
+        this.addToBot(
                 new DrawCardAction(this.magicNumber)
         );
-
-
     }
 
 

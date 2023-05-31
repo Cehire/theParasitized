@@ -1,6 +1,7 @@
 package theParasitized.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -38,7 +39,7 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
         this.block = this.baseBlock = 2;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override
@@ -48,6 +49,13 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
             this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.block), this.block));
         }
         this.flag = false;
+    }
+
+    @Override
+    public void atTurnStart() {
+        if (AbstractDungeon.player.hand.contains(this)){
+            this.addToBot(new ExhaustAction(1, false, false, false));
+        }
     }
 
     @Override

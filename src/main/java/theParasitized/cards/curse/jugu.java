@@ -48,21 +48,11 @@ public class jugu extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.flash();
-            this.addToBot(
-                    new GainBlockAction(
-                            AbstractDungeon.player, this.magicNumber * 2
-                    )
-            );
-        }else {
             ++this.timesUpgraded;
             this.upgraded = true;
             this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
             this.initializeTitle();
             this.upgradeMagicNumber(1);
-        }
-
     }
     @Override
     public boolean canUpgrade() {

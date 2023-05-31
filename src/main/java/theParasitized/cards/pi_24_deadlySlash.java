@@ -65,9 +65,7 @@ public class pi_24_deadlySlash extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeDamage(5);
-        if (this.timesUpgraded % 2 == 0){
-            this.upgradeMagicNumber(1);
-        }
+        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {

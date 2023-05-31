@@ -16,9 +16,7 @@ public class pi_alacrity_action extends AbstractGameAction {
         this.tickDuration();
         if (this.isDone) {
             for (AbstractCard card : DrawCardAction.drawnCards) {
-                if (card.type == AbstractCard.CardType.SKILL){
                     card.freeToPlayOnce = true;
-                }
                 }
             }
         }

@@ -50,9 +50,9 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (CommonUtil.Skill(abstractPlayer)){
             ArrayList<AbstractCard> stanceChoices = new ArrayList();
-            stanceChoices.add(new pi_bodyEnhance_1());
-            stanceChoices.add(new pi_bodyEnhance_2());
-            stanceChoices.add(new pi_bodyEnhance_3());
+            stanceChoices.add(new pi_bodyEnhance_1(this.timesUpgraded));
+            stanceChoices.add(new pi_bodyEnhance_2(this.timesUpgraded));
+            stanceChoices.add(new pi_bodyEnhance_3(this.timesUpgraded));
             this.addToBot(new ChooseOneAction(stanceChoices));
         }else {
             this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));

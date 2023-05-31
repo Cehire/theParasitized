@@ -27,12 +27,9 @@ public class pi_68_serene extends CustomCard {
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
+
     public pi_68_serene() {
-        this(0);
-    }
-    public pi_68_serene(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -48,19 +45,15 @@ public class pi_68_serene extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
         this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.name += "+";
         this.initializeTitle();
         this.upgradeMagicNumber(-1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
-
     @Override
     public AbstractCard makeCopy(){
-        return new pi_68_serene(this.timesUpgraded);
+        return new pi_68_serene();
     }
 }

@@ -33,6 +33,7 @@ public class pi_29_ironWave extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 4;
+        this.exhaust = true;
     }
 
     @Override

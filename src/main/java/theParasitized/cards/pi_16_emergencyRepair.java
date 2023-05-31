@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -19,7 +20,7 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 0;
@@ -34,6 +35,7 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
         this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 4;
         this.magicNumber = this.baseMagicNumber = 2;
+        this.exhaust = true;
     }
 
     @Override
@@ -44,7 +46,9 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
                 )
         );
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
-        this.addToBot(new MakeTempCardInHandAction(new error(), 1));
+        this.addToBot(
+                new DiscardAction(abstractPlayer, abstractPlayer, 1, false)
+        );
 
     }
 

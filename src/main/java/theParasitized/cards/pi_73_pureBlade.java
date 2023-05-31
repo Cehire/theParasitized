@@ -34,7 +34,7 @@ public class pi_73_pureBlade extends CustomCard {
     public pi_73_pureBlade(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 12;
+        this.damage = this.baseDamage = 16;
     }
 
 
@@ -61,7 +61,7 @@ public class pi_73_pureBlade extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
     }
     @Override
     public boolean canUpgrade() {

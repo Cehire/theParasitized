@@ -36,7 +36,6 @@ public class pi_67_awake extends CustomCard {
     public pi_67_awake() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 5;
-        this.block = this.baseBlock = 1;
         this.exhaust = true;
     }
 
@@ -51,7 +50,12 @@ public class pi_67_awake extends CustomCard {
         });
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new pi_awake_power(abstractPlayer, this.block), this.block));
+        if (this.upgraded){
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new pi_awake_power(abstractPlayer, 2), 2));
+        }else {
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new pi_awake_power(abstractPlayer, 1), 1));
+        }
+
     }
 
 
@@ -59,8 +63,10 @@ public class pi_67_awake extends CustomCard {
     @Override
     public void upgrade() {
         this.upgraded = true;
-        this.upgradeMagicNumber(2);
-        this.upgradeBlock(1);
+        this.upgradeMagicNumber(1);
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeTitle();
+        this.initializeDescription();
     }
 
     @Override

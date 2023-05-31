@@ -40,7 +40,7 @@ public class pi_92_impetus extends CustomMutiUpgradeCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         ModHelper.addToBotAbstract(()->{
-            if (abstractPlayer.maxHealth > abstractMonster.currentHealth){
+            if (abstractPlayer.currentHealth > abstractMonster.currentHealth){
                 this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
             }else {
                 this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
