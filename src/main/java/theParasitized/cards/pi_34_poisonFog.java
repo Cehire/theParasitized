@@ -33,8 +33,7 @@ public class pi_34_poisonFog extends CustomMutiUpgradeCard {
     public pi_34_poisonFog(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 6;
-        this.block = this.baseBlock = 2;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
@@ -60,8 +59,8 @@ public class pi_34_poisonFog extends CustomMutiUpgradeCard {
                     this.addToBot(
                             new ApplyPowerAction(
                                     monster, abstractPlayer,
-                                    new VulnerablePower(monster, 3, false),
-                                    3)
+                                    new VulnerablePower(monster, 1, false),
+                                    1)
 
                     );
                 }

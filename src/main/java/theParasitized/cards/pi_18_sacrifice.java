@@ -44,10 +44,7 @@ public class pi_18_sacrifice extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.isInnate = true;
-        }
+        this.upgradeBaseCost(0);
     }
 
     @Override

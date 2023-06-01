@@ -175,8 +175,8 @@
   },
   "TheParasitized:pi_34_poisonFog": {
     "NAME": "致命瘴气",
-    "DESCRIPTION": " 给予全场 !M! 层中毒，2层易伤 ",
-    "UPGRADE_DESCRIPTION": " 给予全场 !M! 层中毒，3层易伤 "
+    "DESCRIPTION": " 给予全场 !M! 层中毒，1层易伤 ",
+    "UPGRADE_DESCRIPTION": " 给予全场 !M! 层中毒，2层易伤 "
   },
   "TheParasitized:pi_35_olfactoryAggression": {
     "NAME": "汲取",
@@ -369,8 +369,8 @@
   },
   "TheParasitized:pi_78_assimilation": {
     "NAME": "同化",
-    "DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 !E! ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 !E! "
+    "DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 [E] ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 [E] "
   },
   "TheParasitized:pi_79_reflection": {
     "NAME": "反射",
@@ -384,8 +384,8 @@
   },
   "TheParasitized:pi_81_bolsterStrike": {
     "NAME": "协增冲击",
-    "DESCRIPTION": "造成 !D! 点伤害, 若此卡已被保留,抽 !M! 张牌 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害, 若此卡已被保留,抽 !M! 张牌  NL 保留 "
+    "DESCRIPTION": "造成 !D! 点伤害 NL 若此卡已被保留,抽 !M! 张牌 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 若此卡已被保留,抽 !M! 张牌  NL 保留 "
   },
   "TheParasitized:pi_82_extraSlash": {
     "NAME": "追斩",
