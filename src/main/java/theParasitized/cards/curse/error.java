@@ -2,6 +2,7 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +25,7 @@ public class error extends CustomCard {
     public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = -2;
+    public static final int COST = 0;
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -46,27 +47,15 @@ public class error extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        if (abstractPlayer.hasPower(pi_sacrifice_power.POWER_ID)){
-            for (AbstractPower power : abstractPlayer.powers) {
-                if (power.ID.equals(pi_sacrifice_power.POWER_ID)){
-                    power.flash();
-                    this.addToBot(new DrawCardAction(power.amount));}
-            }
-        }
+        this.addToBot(new LoseHPAction(abstractPlayer, null,3));
     }
     @Override
     public AbstractCard makeCopy(){
         return new error(this.timesUpgraded);
     }
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
-    }
+
 
 }

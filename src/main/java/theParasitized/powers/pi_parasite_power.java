@@ -35,7 +35,10 @@ public class pi_parasite_power extends AbstractPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        this.flash();
-        power.amount+=this.amount;
+
+        if (power.type == PowerType.DEBUFF && !target.isPlayer){
+            this.flash();
+            power.amount+=this.amount;
+        }
         }
     }

@@ -46,7 +46,7 @@ public class pi_longArmStrike_2 extends CustomCard {
                 )
         );
 
-        this.addToBot(new MakeTempCardInHandAction(new pi_longArmStrike_3(), 1));
+        this.addToBot(new MakeTempCardInHandAction(new pi_longArmStrike_3(this.timesUpgraded), 1));
 
     }
 

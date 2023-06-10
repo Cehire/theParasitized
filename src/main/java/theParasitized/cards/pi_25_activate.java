@@ -31,6 +31,7 @@ public class pi_25_activate extends CustomMutiUpgradeCard {
     public pi_25_activate() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;
+        this.exhaust = true;
     }
 
     @Override

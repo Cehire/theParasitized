@@ -1,13 +1,13 @@
 {
   "TheParasitized:BaseCurse": {
-    "NAME": "测试",
-    "DESCRIPTION": " 测试",
-    "UPGRADE_DESCRIPTION": " 测试"
+    "NAME": "原始胞体",
+    "DESCRIPTION": "选择并获得一张寄染诅咒 NL  固有 ， 保留 ， 消耗 ",
+    "UPGRADE_DESCRIPTION": "选择并获得一张寄染诅咒 NL  固有 ， 保留 ， 消耗 "
   },
   "TheParasitized:callOfParasites": {
     "NAME": "寄群之唤",
-    "DESCRIPTION": "回合开始时，将1张随机诅咒加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
-    "UPGRADE_DESCRIPTION": "回合开始时，将1张随机诅咒加入到手牌。 NL 无法逃脱， 保留 "
+    "DESCRIPTION": "回合开始时，将1张原始胞体加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "回合开始时，将1张原始胞体加入到手牌。 NL 无法逃脱， 保留 "
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
@@ -21,13 +21,13 @@
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
-    "DESCRIPTION": "回合开始时, 抽 !M! 张牌。 NL  固有 ， 保留 ",
-    "UPGRADE_DESCRIPTION": "回合开始时, 抽 !M! 张牌。 NL  固有 ， 保留 "
+    "DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL  固有 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL  固有 ， 保留 "
   },
   "TheParasitized:duxing": {
     "NAME": "毒腥",
-    "DESCRIPTION": "受到伤害时, 给予全体敌人 !M! 层中毒。 NL  固有 , 保留 ",
-    "UPGRADE_DESCRIPTION": "受到伤害时, 给予全体敌人 !M! 层中毒。 NL  固有 , 保留 "
+    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL  固有 , 保留 ",
+    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL  固有 , 保留 "
   },
   "TheParasitized:huangmou": {
     "NAME": "黄眸",
@@ -41,8 +41,8 @@
   },
   "TheParasitized:error": {
     "NAME": "错误",
-    "DESCRIPTION": " 有时候会这样 NL  固有 , 保留 ",
-    "UPGRADE_DESCRIPTION": " 有时候会这样 NL  固有 , 保留 "
+    "DESCRIPTION": "有时候会这样 NL 失去3生命 NL  固有 , 保留 , 消耗 ",
+    "UPGRADE_DESCRIPTION": "有时候会这样 NL 失去3生命 NL  固有 , 保留 , 消耗 "
   },
   "TheParasitized:pi_01_strike": {
     "NAME": "打击",
@@ -135,8 +135,8 @@
   },
   "TheParasitized:pi_25_activate": {
     "NAME": "激发",
-    "DESCRIPTION": "抽 !M! 张牌 NL 获得 [E] NL 升级一张手牌 ",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌 NL 获得 [E] [E] NL 升级所有手牌 "
+    "DESCRIPTION": "抽 !M! 张牌 NL 获得 [E] NL 升级一张手牌 消耗 ",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌 NL 获得 [E] [E] NL 升级所有手牌 消耗 "
   },
   "TheParasitized:pi_27_bloodShield": {
     "NAME": "驭血术",
@@ -280,8 +280,8 @@
   },
   "TheParasitized:pi_60_explosion": {
     "NAME": "潜能爆发",
-    "DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得2层易伤 ",
-    "UPGRADE_DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得1层易伤 "
+    "DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得2层 易伤 NL 消耗",
+    "UPGRADE_DESCRIPTION": " 选择你的一张手牌, 将其打出 !M! 次, 获得1层 易伤 NL 消耗"
   },
   "TheParasitized:pi_61_whirlwind": {
     "NAME": "回旋斩",
@@ -310,18 +310,18 @@
   },
   "TheParasitized:pi_67_awake": {
     "NAME": "觉醒",
-    "DESCRIPTION": "消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷 NL 回合开始时获得 [E]  消耗 ",
-    "UPGRADE_DESCRIPTION": "消耗你全部的诅咒牌，获得 !M! 点力量，!M!点敏捷 NL 回合开始时获得 [E] [E]  消耗 "
+    "DESCRIPTION": "消耗你全部的诅咒牌 NL 每消耗1张便获得1点 力量 与 敏捷 ，回合开始时获得 [E] NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "消耗你全部的诅咒牌 NL 每消耗1张便获得1点 力量 与 敏捷 ，回合开始时获得 [E] [E] NL 消耗 "
   },
   "TheParasitized:pi_68_serene": {
     "NAME": "宁静",
-    "DESCRIPTION": " 回合开始时，给予所有人2层易伤 ",
-    "UPGRADE_DESCRIPTION": " 回合开始时，给予所有人1层易伤 "
+    "DESCRIPTION": "清除自身的负面状态，回合开始时，给予所有人2层 易伤 ",
+    "UPGRADE_DESCRIPTION": "清除自身的负面状态，回合开始时，给予所有人1层 易伤 "
   },
   "TheParasitized:pi_69_parasite": {
     "NAME": "寄生",
-    "DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B! 点力量 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B!点力量 "
+    "DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B! 点 力量 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B!点 力量 NL 消耗 "
   },
   "TheParasitized:pi_70_stress": {
     "NAME": "应激",
@@ -434,8 +434,8 @@
   },
   "TheParasitized:pi_89_tractionNet": {
     "NAME": "牵引之网",
-    "DESCRIPTION": "使敌人失去 !M! 点力量 NL 给予2层易伤，2层虚弱",
-    "UPGRADE_DESCRIPTION": "使敌人失去 !M! 点力量 NL 给予2层易伤，2层虚弱"
+    "DESCRIPTION": "使敌人失去 !M! 点力量 NL 给予1层 易伤 ，1层 虚弱  NL  消耗 ",
+    "UPGRADE_DESCRIPTION": "使敌人失去 !M! 点力量 NL 给予2层 易伤 ，2层 虚弱  NL  消耗 "
   },
   "TheParasitized:pi_92_impetus": {
     "NAME": "声势",

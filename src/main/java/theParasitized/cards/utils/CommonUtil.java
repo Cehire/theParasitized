@@ -1,6 +1,7 @@
 package theParasitized.cards.utils;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -15,30 +16,34 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 
 public class CommonUtil {
-    public static ArrayList<AbstractCard> curseCardList = new ArrayList<>();
-    public static ArrayList<AbstractCard> curseCardListAndError = new ArrayList<>();
+    public static CardGroup cardGroup = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+    public static CardGroup cardGroupIncludeError = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+
     static {
-        curseCardList.add(new changbi());
-        curseCardList.add(new duxing());
-        curseCardList.add(new huangmou());
-        curseCardList.add(new jugu());
-        curseCardList.add(new xiezeng());
-        curseCardList.add(new zhuxing());
-        curseCardListAndError.add(new changbi());
-        curseCardListAndError.add(new duxing());
-        curseCardListAndError.add(new huangmou());
-        curseCardListAndError.add(new jugu());
-        curseCardListAndError.add(new xiezeng());
-        curseCardListAndError.add(new zhuxing());
-        curseCardListAndError.add(new error());
+
+        cardGroup.group.add(new changbi());
+        cardGroup.group.add(new duxing());
+        cardGroup.group.add(new huangmou());
+        cardGroup.group.add(new jugu());
+        cardGroup.group.add(new xiezeng());
+        cardGroup.group.add(new zhuxing());
+        cardGroupIncludeError.group.add(new changbi());
+        cardGroupIncludeError.group.add(new duxing());
+        cardGroupIncludeError.group.add(new huangmou());
+        cardGroupIncludeError.group.add(new jugu());
+        cardGroupIncludeError.group.add(new xiezeng());
+        cardGroupIncludeError.group.add(new zhuxing());
+        cardGroupIncludeError.group.add(new error());
     }
 
+
+
     public static AbstractCard returnRandomCurse(){
-        return (AbstractCard)curseCardList.get(cardRandomRng.random(curseCardList.size() - 1));
+        return cardGroup.getRandomCard(cardRandomRng);
     }
 
     public static AbstractCard returnRandomCurseIncludeError(){
-        return (AbstractCard)curseCardListAndError.get(cardRandomRng.random(curseCardList.size() - 1));
+        return cardGroupIncludeError.getRandomCard(cardRandomRng);
     }
 
 
@@ -72,4 +77,29 @@ public class CommonUtil {
     public static boolean Skill(AbstractPlayer player){
         return !player.stance.ID.equals(pi_halfMad_stance.STANCE_ID) && !player.stance.ID.equals(pi_mad_stance.STANCE_ID);
     }
+
+
+    public static ArrayList<AbstractCard> generateCurseChoices(){
+        ArrayList<AbstractCard> derp = new ArrayList();
+
+        while(derp.size() != 3) {
+            boolean dupe = false;
+            AbstractCard tmp = null;
+            tmp = returnRandomCurseIncludeError();
+            for (AbstractCard card : derp) {
+                if (card.cardID.equals(tmp.cardID)) {
+                    dupe = true;
+                    break;
+                }
+            }
+            if (!dupe) {
+                derp.add(tmp.makeCopy());
+            }
+        }
+        return derp;
+    }
+
+
+
+
 }

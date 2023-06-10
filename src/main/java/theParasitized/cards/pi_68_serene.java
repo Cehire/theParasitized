@@ -2,11 +2,14 @@ package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import theParasitized.ModHelper;
 import theParasitized.powers.pi_choice_power;
 import theParasitized.powers.pi_serene_power;
 
@@ -35,6 +38,13 @@ public class pi_68_serene extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        ModHelper.addToBotAbstract(()->{
+            for (AbstractPower power : abstractPlayer.powers) {
+                if (power.type == AbstractPower.PowerType.DEBUFF){
+                    this.addToBot(new RemoveSpecificPowerAction(abstractPlayer, null, power.ID));
+                }
+            }
+        });
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
@@ -47,10 +57,11 @@ public class pi_68_serene extends CustomCard {
     public void upgrade() {
         this.upgraded = true;
         this.name += "+";
-        this.initializeTitle();
-        this.upgradeMagicNumber(-1);
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
         this.initializeDescription();
+        this.initializeTitle();
+        this.upgradeMagicNumber(-1);
+
     }
     @Override
     public AbstractCard makeCopy(){

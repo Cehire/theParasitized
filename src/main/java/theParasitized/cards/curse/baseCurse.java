@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import theParasitized.actions.pi_baseCurse_action;
 import theParasitized.powers.pi_sacrifice_power;
 
 public class baseCurse extends CustomCard {
@@ -19,52 +20,34 @@ public class baseCurse extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/basecard_skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.RARE;
+    public static final CardRarity RARITY = CardRarity.BASIC;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = -2;
+    public static final int COST = 0;
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = CardColor.CURSE;
     public static final CardTarget TARGET = CardTarget.NONE;
     public baseCurse() {
-        this(0);
-    }
-    public baseCurse(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.exhaust = true;
+        this.selfRetain = true;
+    }
+    @Override
+    public boolean canUpgrade() {
+        return false;
     }
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
     }
 
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
-    }
-
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        if (abstractPlayer.hasPower(pi_sacrifice_power.POWER_ID)){
-            for (AbstractPower power : abstractPlayer.powers) {
-                if (power.ID.equals(pi_sacrifice_power.POWER_ID)){
-                    power.flash();
-                    this.addToBot(new DrawCardAction(power.amount));}
-            }
-        }
+        this.addToBot(new pi_baseCurse_action());
     }
     @Override
     public AbstractCard makeCopy(){
-        return new baseCurse(this.timesUpgraded);
+        return new baseCurse();
     }
 
 

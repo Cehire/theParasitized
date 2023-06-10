@@ -24,7 +24,7 @@ public class pi_wither_power extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.BUFF;
+        this.type = PowerType.DEBUFF;
         this.amount = amount;
         String path_128 = "parasitizedResources/images/powers/wither_p.png";
         String path_48 = "parasitizedResources/images/powers/wither.png";
@@ -47,7 +47,10 @@ public class pi_wither_power extends AbstractPower {
                 this.addToBot(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
             }
             this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            this.amount /= 2;
+            if (this.amount==0){
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            }
         }
     }
 }

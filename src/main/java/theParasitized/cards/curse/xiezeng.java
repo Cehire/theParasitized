@@ -30,6 +30,7 @@ public class xiezeng extends CustomCard {
     public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
+    private int times;
     public xiezeng() {
         this(0);
     }
@@ -41,6 +42,7 @@ public class xiezeng extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;
+        this.times = 0;
     }
 
     @Override
@@ -74,11 +76,19 @@ public class xiezeng extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
     }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        this.times++;
+        if (this.times==3){
+            this.flash();
+            this.addToBot(new DrawCardAction(this.magicNumber));
+            this.times++;
+        }
+    }
+
     @Override
     public void atTurnStart() {
-        if (AbstractDungeon.player.hand.contains(this)){
-            this.flash();
-            this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
-        }
+        this.times = 0;
     }
 }

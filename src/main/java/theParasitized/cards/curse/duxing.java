@@ -78,7 +78,6 @@ public class duxing extends CustomCard {
     }
 
     public void tookDamage() {
-
         if (AbstractDungeon.player.hand.contains(this)){
             this.flash();
             if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {

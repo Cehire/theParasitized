@@ -36,14 +36,14 @@ public class pi_scab_power extends AbstractPower {
 
 
     @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
+    public int onLoseHp(int damageAmount) {
         this.flash();
         this.addToBot(
                 new GainBlockAction(
                         this.owner, this.amount
                 )
         );
-        return damageAmount;
+        return super.onLoseHp(damageAmount);
     }
 
 }

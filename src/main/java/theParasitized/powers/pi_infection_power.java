@@ -34,8 +34,9 @@ public class pi_infection_power extends AbstractPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (!target.isPlayer && source.isPlayer){
-            this.addToBot(new ApplyPowerAction(target, source, power, power.amount));
+        if (power.type == PowerType.DEBUFF && !target.isPlayer){
+            this.flash();
+            power.amount+=this.amount;
         }
     }
 }

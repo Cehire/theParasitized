@@ -27,7 +27,7 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
     public static final int COST = 2;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
-    public static final CardTarget TARGET = CardTarget.SELF;
+    public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_89_tractionNet() {
         this(0);
     }
@@ -35,6 +35,7 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
+        this.exhaust = true;
     }
 
     @Override
@@ -59,14 +60,14 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
             this.addToBot(
                     new ApplyPowerAction(
                             abstractMonster, abstractPlayer,
-                            new VulnerablePower(abstractMonster, 3, false),
+                            new VulnerablePower(abstractMonster, 1, false),
                             3)
 
             );
             this.addToBot(
                     new ApplyPowerAction(
                             abstractMonster, abstractPlayer,
-                            new WeakPower(abstractMonster, 3, false),
+                            new WeakPower(abstractMonster, 1, false),
                             3)
 
             );

@@ -2,6 +2,10 @@ package theParasitized.stances;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.CharacterManager;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,6 +14,7 @@ import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.vfx.stance.DivinityParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import theParasitized.ModHelper;
 import theParasitized.stances.particle.pi_mad_particle;
 
 public class pi_mad_stance extends AbstractStance {
@@ -39,6 +44,13 @@ public class pi_mad_stance extends AbstractStance {
     }
 
     @Override
+    public void onPlayCard(AbstractCard card) {
+        if (card.type== AbstractCard.CardType.ATTACK){
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+        }
+    }
+
+    @Override
     public void updateAnimation() {
         if (!Settings.DISABLE_EFFECTS) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
@@ -56,4 +68,8 @@ public class pi_mad_stance extends AbstractStance {
         }
     }
 
+    @Override
+    public void atStartOfTurn() {
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 2));
+    }
 }

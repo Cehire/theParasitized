@@ -31,6 +31,7 @@ public class pi_60_explosion extends CustomMutiUpgradeCard {
     public pi_60_explosion() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.exhaust = true;
     }
 
     @Override

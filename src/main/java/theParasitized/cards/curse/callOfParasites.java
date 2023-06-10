@@ -1,10 +1,9 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.unique.ExhaustAllNonAttackAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -49,6 +48,23 @@ public class callOfParasites extends CustomCard {
     }
 
     @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hand.group.size() == 10){
+            for (AbstractCard card : p.hand.group) {
+                if (card.type != CardType.CURSE){
+                    this.isGlowing = false;
+                    return false;
+                }
+            }
+            this.isGlowing = true;
+            return true;
+        }else {
+            this.isGlowing = false;
+            return false;
+        }
+    }
+
+    @Override
     public void upgrade() {
         ++this.timesUpgraded;
         this.upgraded = true;
@@ -62,6 +78,8 @@ public class callOfParasites extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        this.addToBot(new ExhaustAllNonAttackAction());
+        this.addToBot(new LoseHPAction(abstractPlayer, null,20, AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -82,7 +100,7 @@ public class callOfParasites extends CustomCard {
     public void atTurnStart() {
         if (AbstractDungeon.player.hand.contains(this)){
             this.flash();
-            this.addToBot(new MakeTempCardInHandAction(CommonUtil.returnRandomCurseIncludeError(), 1));
+            this.addToBot(new MakeTempCardInHandAction(new baseCurse(), 1));
         }
      }
 

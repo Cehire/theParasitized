@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 
 public class pi_witherEnchantment_power extends AbstractPower {
-    public static final String POWER_ID = "TheParasitized:pi_nesting_power";
+    public static final String POWER_ID = "TheParasitized:pi_witherEnchantment_power";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = POWER_STRINGS.NAME;

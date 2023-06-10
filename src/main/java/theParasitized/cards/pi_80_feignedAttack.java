@@ -46,10 +46,10 @@ public class pi_80_feignedAttack extends CustomCard {
         );
         if (this.upgraded){
             this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer,1));
-            this.addToBot(new DrawCardAction(1));
+            this.addToBot(new DrawCardAction(3));
         }else {
             this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer,3));
-            this.addToBot(new DrawCardAction(3));
+            this.addToBot(new DrawCardAction(1));
         }
     }
 
