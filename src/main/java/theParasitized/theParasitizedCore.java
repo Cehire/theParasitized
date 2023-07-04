@@ -2,12 +2,11 @@ package theParasitized;
 
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -20,12 +19,15 @@ import theParasitized.characters.apiTheParasitized;
 import theParasitized.relics.pi_whiteTwig;
 
 
+import java.nio.charset.StandardCharsets;
+
+import static com.megacrit.cardcrawl.core.Settings.language;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
-, EditRelicsSubscriber {
+, EditRelicsSubscriber, EditKeywordsSubscriber {
 
     // ===================== to do
     // 人物选择界面按钮的图片
@@ -170,7 +172,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     @Override
     public void receiveEditStrings() {
         String lang;
-        if(Settings.language == Settings.GameLanguage.ZHS){
+        if(language == Settings.GameLanguage.ZHS){
             lang = "ZHS";
         }else {
             lang = "ENG";
@@ -186,5 +188,27 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new pi_whiteTwig(), RelicType.SHARED);
+    }
+
+
+
+
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String lang = "eng";
+        if (language == Settings.GameLanguage.ZHS) {
+            lang = "ZHS";
+        }
+        String json = Gdx.files.internal("parasitizedResources/localization/" + lang + "/keywords.json")
+                .readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                System.out.println("====================key words===============");
+                System.out.println(keyword.NAMES[0]);
+                BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
     }
 }

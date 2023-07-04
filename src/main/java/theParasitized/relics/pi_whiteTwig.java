@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.callOfParasites;
@@ -45,52 +46,4 @@ public class pi_whiteTwig extends CustomRelic {
         this.addToBot(new MakeTempCardInHandAction(new callOfParasites(), 1));
     }
 
-
-    @Override
-    public void onObtainCard(AbstractCard c) {
-        int n = 0;
-        AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard card : p.hand.group) {
-            if (card.type == AbstractCard.CardType.CURSE){
-                n++;
-            }
-        }
-        if (n <= 3 && !p.stance.ID.equals(NeutralStance.STANCE_ID)){
-            AbstractDungeon.player.img = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
-            this.addToBot(new ChangeStanceAction(NeutralStance.STANCE_ID));
-        }
-
-        if (n > 3 && n < 6 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance")){
-            this.addToBot(new ChangeStanceAction(new pi_halfMad_stance()));
-        }
-
-        if (n > 5 && !p.stance.ID.equals("TheParasitized:pi_mad_stance")){
-            this.addToBot(new ChangeStanceAction(new pi_mad_stance()));
-        }
-    }
-
-    @Override
-    public void onDrawOrDiscard() {
-        int n = 0;
-        AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard card : p.hand.group) {
-            if (card.type == AbstractCard.CardType.CURSE){
-                n++;
-            }
-        }
-
-        if (n <= 3 && !p.stance.ID.equals(NeutralStance.STANCE_ID)){
-            AbstractDungeon.player.img = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
-            this.addToBot(new ChangeStanceAction(NeutralStance.STANCE_ID));
-        }
-
-
-        if (n > 3 && n < 6 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance")){
-            this.addToBot(new ChangeStanceAction(new pi_halfMad_stance()));
-        }
-
-        if (n > 5 && !p.stance.ID.equals("TheParasitized:pi_mad_stance")){
-            this.addToBot(new ChangeStanceAction(new pi_mad_stance()));
-        }
-    }
 }

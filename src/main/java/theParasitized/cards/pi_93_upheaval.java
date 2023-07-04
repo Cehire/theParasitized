@@ -7,11 +7,13 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -41,6 +43,30 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
         this.block = this.baseBlock = 5;
     }
 
+    private int BaseAttackNum = 3;
+    private int attackNum = BaseAttackNum;
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        AbstractPlayer player = AbstractDungeon.player;
+        if (player.drawPile.contains(this)){
+            if (c.type == CardType.ATTACK){
+                this.attackNum--;
+                if (this.attackNum<0){
+                    this.attackNum = 0;
+                }
+                if (this.attackNum == 0){
+                    System.out.println("======= active!!! ====");
+                    this.attackNum = this.BaseAttackNum;
+                    this.addToBot(new pi_drawPileToHandAction_specific(1,this));
+                }
+            }
+        }
+    }
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        this.attackNum = this.BaseAttackNum;
+    }
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new GainBlockAction(abstractPlayer, this.block));
@@ -54,6 +80,9 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
+        if (!this.upgraded){
+            this.BaseAttackNum--;
+        }
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;

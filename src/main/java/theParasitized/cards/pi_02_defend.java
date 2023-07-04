@@ -32,7 +32,7 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 5;
-
+        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override

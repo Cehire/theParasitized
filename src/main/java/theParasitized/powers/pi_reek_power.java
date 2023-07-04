@@ -46,4 +46,6 @@ public class pi_reek_power extends AbstractPower {
     public void onGainedBlock(float blockAmount) {
         this.addToBot(new LoseHPAction(this.owner, AbstractDungeon.player, (int) blockAmount));
     }
+
+
 }

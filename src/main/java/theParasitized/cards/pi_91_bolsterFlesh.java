@@ -5,8 +5,10 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -34,6 +36,30 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
         this.block = this.baseBlock = 7;
         this.magicNumber = this.baseMagicNumber = 1;
         this.selfRetain = true;
+    }
+
+    private final int BaseAttackNum = 2;
+    private int attackNum = BaseAttackNum;
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        AbstractPlayer player = AbstractDungeon.player;
+        if (player.drawPile.contains(this)){
+            if (c.type == CardType.ATTACK){
+                this.attackNum--;
+                if (this.attackNum<0){
+                    this.attackNum = 0;
+                }
+                if (this.attackNum == 0){
+                    System.out.println("======= active!!! ====");
+                    this.attackNum = this.BaseAttackNum;
+                    this.addToBot(new pi_drawPileToHandAction_specific(1,this));
+                }
+            }
+        }
+    }
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        this.attackNum = this.BaseAttackNum;
     }
 
     @Override

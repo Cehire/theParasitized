@@ -42,6 +42,6 @@ public class pi_thornyFlesh_power extends AbstractPower {
             this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new VulnerablePower(info.owner, this.amount, false)));
             this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new PoisonPower(info.owner, AbstractDungeon.player,this.amount)));
         }
-        return 0;
+        return damageAmount;
     }
 }

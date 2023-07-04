@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.vfx.stance.DivinityParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import theParasitized.ModHelper;
+import theParasitized.characters.apiTheParasitized;
 import theParasitized.stances.particle.pi_mad_particle;
 
 public class pi_mad_stance extends AbstractStance {
@@ -34,7 +35,7 @@ public class pi_mad_stance extends AbstractStance {
 
     @Override
     public void onEnterStance() {
-        AbstractDungeon.player.img = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
+        apiTheParasitized.toStage3 = true;
         if (sfxId != -1L) {
             this.stopIdleSfx();
         }
@@ -70,6 +71,6 @@ public class pi_mad_stance extends AbstractStance {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 2));
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 3));
     }
 }

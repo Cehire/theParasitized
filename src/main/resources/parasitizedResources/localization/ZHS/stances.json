@@ -1,14 +1,14 @@
 {
   "TheParasitized:pi_halfMad_stance": {
-    "NAME": "halfMad",
+    "NAME": "感染",
     "DESCRIPTION": [
-      "阶段二"
+      "回合开始时，抽牌数减1"
     ]
   },
   "TheParasitized:pi_mad_stance": {
-    "NAME": "Mad",
+    "NAME": "狂乱",
     "DESCRIPTION": [
-      "阶段三"
+      "回合开始时，抽牌数减3 NL 打出攻击牌时，获得 [E] "
     ]
   }
 }

@@ -49,10 +49,10 @@ public class pi_78_assimilation extends CustomCard {
         );
         int floorNum = AbstractDungeon.floorNum;
         if (floorNum >= 10){
-            new ApplyPowerAction(
+            this.addToBot(new ApplyPowerAction(
                     abstractMonster, abstractPlayer,
                     new WeakPower(abstractMonster, this.magicNumber, false),
-                    this.magicNumber);
+                    this.magicNumber));
         }
         if (floorNum >= 20){
             this.addToBot(new GainBlockAction(abstractPlayer, 5));

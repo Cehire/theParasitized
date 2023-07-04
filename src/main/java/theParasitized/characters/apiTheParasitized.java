@@ -2,9 +2,11 @@ package theParasitized.characters;
 
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Armaments;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,19 +14,26 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.Vajra;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.stances.NeutralStance;
+import theParasitized.ModHelper;
 import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_75_longArmStrike;
 import theParasitized.cards.pi_84_exchange;
+import theParasitized.stances.pi_halfMad_stance;
+import theParasitized.stances.pi_mad_stance;
 import theParasitized.theParasitizedCore;
 
 import java.util.ArrayList;
@@ -34,6 +43,10 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZ
 
 // 继承CustomPlayer类
 public class apiTheParasitized extends CustomPlayer {
+    public static boolean toStage1 = true;
+    public static boolean toStage2 = true;
+    public static boolean toStage3 = true;
+
     // 火堆的人物立绘（行动前）
     private static final String MY_CHARACTER_SHOULDER_1 = "parasitizedResources/images/char/shoulder1.png";
     // 火堆的人物立绘（行动后）
@@ -58,10 +71,15 @@ public class apiTheParasitized extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("theParasitized:Api");
+    private final Texture image1;
+    private final Texture image2;
+    private final Texture image3;
 
     public apiTheParasitized(String name) {
         super(name, PI_THE_PARASITIZED,ORB_TEXTURES,"parasitizedResources/images/UI/orb/vfx.png", LAYER_SPEED, null, null);
-
+        this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
+        this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
+        this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
         this.drawY -= 20.0;
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
@@ -129,6 +147,43 @@ public class apiTheParasitized extends CustomPlayer {
     @Override
     public String getTitle(PlayerClass playerClass) {
         return characterStrings.NAMES[0];
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
+            int n = 0;
+            AbstractPlayer p = AbstractDungeon.player;
+            for (AbstractCard c : p.hand.group) {
+                if (c.type == AbstractCard.CardType.CURSE){
+                    n++;
+                }
+            }
+            if (n <= 3 && !p.stance.ID.equals(NeutralStance.STANCE_ID) && toStage1){
+                toStage1 = false;
+                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(NeutralStance.STANCE_ID));
+                ModHelper.addToBotAbstract(()->{
+                    toStage1 = true;
+                });
+                System.out.println("=======stage 0===============");
+                AbstractDungeon.player.img = image1;
+            }
+            if (n > 3 && n < 6 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance") && toStage2){
+                toStage2 = false;
+                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_halfMad_stance()));
+                System.out.println("=======stage 1===============");
+                AbstractDungeon.player.img = image2;
+            }
+
+            if (n > 5 && !p.stance.ID.equals("TheParasitized:pi_mad_stance") && toStage3){
+                toStage3 = false;
+                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_mad_stance()));
+                System.out.println("=======stage 2===============");
+                AbstractDungeon.player.img = image3;
+            }
+        }
+
     }
 
     // 你的卡牌颜色（这个枚举在最下方创建）
