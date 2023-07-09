@@ -24,7 +24,7 @@ public class pi_48_alacrity extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 2;
+    public static final int COST = 3;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -36,15 +36,15 @@ public class pi_48_alacrity extends CustomCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new DrawCardAction(this.magicNumber, new pi_alacrity_action()));
-
     }
 
 
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(2);
+        if (!this.upgraded){
+            this.upgradeBaseCost(2);
+        }
     }
 
     @Override

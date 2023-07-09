@@ -21,7 +21,7 @@ public class pi_31_witherStrike extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.UNCOMMON;
+    public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
@@ -34,7 +34,7 @@ public class pi_31_witherStrike extends CustomCard {
     public pi_31_witherStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 3;
     }
 

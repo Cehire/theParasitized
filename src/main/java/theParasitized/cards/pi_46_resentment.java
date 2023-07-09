@@ -47,6 +47,9 @@ public class pi_46_resentment extends CustomCard {
                     ex += power.amount;
                 }
             }
+            if (this.upgraded){
+                ex *= 2;
+            }
             return super.calculateModifiedCardDamage(player, mo, tmp) + ex;
         }
         return super.calculateModifiedCardDamage(player, mo, tmp);
@@ -66,19 +69,17 @@ public class pi_46_resentment extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(4);
+        if(!this.upgraded){
+            this.upgradeName();
+            this.upgradeDamage(4);
+            this.rawDescription =CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_46_resentment(this.timesUpgraded);
+        return new pi_46_resentment();
     }
 }

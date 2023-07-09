@@ -81,7 +81,7 @@ public class CommonUtil {
 
     public static ArrayList<AbstractCard> generateCurseChoices(){
         ArrayList<AbstractCard> derp = new ArrayList();
-
+        derp.add(new error());
         while(derp.size() != 3) {
             boolean dupe = false;
             AbstractCard tmp = null;

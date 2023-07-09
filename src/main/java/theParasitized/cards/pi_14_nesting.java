@@ -26,11 +26,7 @@ public class pi_14_nesting extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_14_nesting() {
-        this(0);
-    }
-    public pi_14_nesting(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -46,19 +42,14 @@ public class pi_14_nesting extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        if (!this.upgraded){
+            this.upgradeName();
+            this.isInnate = true;
+        }
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_14_nesting(this.timesUpgraded);
+        return new pi_14_nesting();
     }
 }

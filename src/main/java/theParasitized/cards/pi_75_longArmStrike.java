@@ -49,7 +49,11 @@ public class pi_75_longArmStrike extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.addToBot(new MakeTempCardInHandAction(new pi_longArmStrike_2(this.timesUpgraded), 1));
+        pi_longArmStrike_2 pi_longArmStrike_2 = new pi_longArmStrike_2();
+        for (int i = 0; i < this.timesUpgraded; i++) {
+            pi_longArmStrike_2.upgrade();
+        }
+        this.addToBot(new MakeTempCardInHandAction(pi_longArmStrike_2, 1));
     }
 
 

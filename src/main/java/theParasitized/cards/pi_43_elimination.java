@@ -33,7 +33,7 @@ public class pi_43_elimination extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_43_elimination() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 20;
     }
 
     @Override
@@ -48,9 +48,9 @@ public class pi_43_elimination extends CustomCard {
             if (n > 2){
                 this.addToBot(new VFXAction(new LightningEffect(abstractMonster.drawX, abstractMonster.drawY), 0.05F));
                 if (this.upgraded){
-                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 30));
+                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 20));
                 }else{
-                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 40));
+                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 30));
                 }
             }
         });
@@ -58,10 +58,10 @@ public class pi_43_elimination extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
-        this.initializeTitle();
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(10);
+        }
     }
 
     @Override

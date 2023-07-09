@@ -1,9 +1,6 @@
 package theParasitized.cards;
 
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -47,7 +44,7 @@ public class pi_16_emergencyRepair extends CustomMutiUpgradeCard {
         );
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
         this.addToBot(
-                new DiscardAction(abstractPlayer, abstractPlayer, 1, false)
+                new ExhaustAction(abstractPlayer, abstractPlayer, 1, false)
         );
 
     }

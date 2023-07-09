@@ -22,7 +22,7 @@ public class pi_04_choice extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -47,11 +47,10 @@ public class pi_04_choice extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgradeBaseCost(1);
+            this.upgradeName();
+        }
     }
     @Override
     public boolean canUpgrade() {
@@ -60,6 +59,6 @@ public class pi_04_choice extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_04_choice(this.timesUpgraded);
+        return new pi_04_choice();
     }
 }

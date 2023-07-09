@@ -21,7 +21,7 @@ public class pi_18_sacrifice extends CustomCard {
     public static final CardRarity RARITY = CardRarity.RARE;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -32,8 +32,6 @@ public class pi_18_sacrifice extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-
-
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
@@ -44,7 +42,7 @@ public class pi_18_sacrifice extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgradeBaseCost(0);
+        this.upgradeBaseCost(1);
     }
 
     @Override

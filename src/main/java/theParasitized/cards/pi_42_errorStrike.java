@@ -67,7 +67,7 @@ public class pi_42_errorStrike extends CustomCard {
     public pi_42_errorStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 14;
+        this.damage = this.baseDamage = 10;
     }
 
     @Override

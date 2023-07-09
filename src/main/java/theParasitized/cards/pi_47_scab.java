@@ -33,7 +33,7 @@ public class pi_47_scab extends CustomCard {
     public pi_47_scab(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 8;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class pi_47_scab extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(3);
+        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {

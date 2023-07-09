@@ -1,6 +1,7 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import theParasitized.ModHelper;
 import theParasitized.actions.pi_alacrity_action;
 import theParasitized.cards.curse.error;
@@ -41,33 +43,25 @@ public class pi_50_theEnd extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 2, true, true));
-    }
-
-    @Override
-    public void atTurnStart() {
-        AbstractPlayer player = AbstractDungeon.player;
-        if (player.hand.size() == 10){
-            int n = 0;
-            for (AbstractCard card : player.hand.group) {
-                if (card.type == CardType.CURSE){
-                    n++;
-                    System.out.println(n);
-                }
+        int n = 0;
+        for (AbstractCard card : abstractPlayer.hand.group) {
+            if (card.type == CardType.CURSE){
+                n++;
             }
-            if (n == 10){
-                for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    this.addToBot(new InstantKillAction(monster));
-                }
+        }
+        System.out.println("======================THE END" + n + "=======================");
+        if (n==10){
+            for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                this.addToBot(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), 0.05F));
+                this.addToBot(new InstantKillAction(monster));
             }
+        }else {
+            this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 2, true, true));
         }
     }
 
-
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(2);
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.error;
+import theParasitized.cards.utils.CommonUtil;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -43,7 +44,7 @@ public class pi_83_illusionSlash extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ModHelper.addToBotAbstract(
                 ()->{
-                    for (int i = 0; i < this.magicNumber; i++) {
+                    for (int i = 0; i < this.magicNumber + (CommonUtil.Skill(p)?1:0); i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                         if (i < this.magicNumber - 1) {
                             AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));

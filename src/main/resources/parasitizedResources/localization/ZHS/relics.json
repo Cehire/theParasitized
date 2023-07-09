@@ -1,9 +1,9 @@
 {
   "TheParasitized:pi_whiteTwig": {
     "NAME": "嫩白树枝",
-    "FLAVOR": "这个人很懒，什么都没写",
+    "FLAVOR": "它似乎还在生长...",
     "DESCRIPTIONS": [
-      "嫩白树枝"
+      "战斗结束时，恢复10-X点生命，X为战斗结束时你手牌中的诅咒数"
     ]
   }
 }

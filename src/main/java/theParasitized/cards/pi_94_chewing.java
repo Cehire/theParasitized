@@ -60,6 +60,7 @@ public class pi_94_chewing extends CustomMutiUpgradeCard {
         }
     }
 
+
     @Override
     public void onMoveToDiscard() {
         this.flag = false;

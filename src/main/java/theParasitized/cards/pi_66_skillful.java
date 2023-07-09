@@ -28,11 +28,7 @@ public class pi_66_skillful extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_66_skillful() {
-        this(0);
-    }
-    public pi_66_skillful(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -48,19 +44,15 @@ public class pi_66_skillful extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_66_skillful(this.timesUpgraded);
+        return new pi_66_skillful();
     }
 }

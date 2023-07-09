@@ -29,7 +29,7 @@ public class pi_callOfSwarm_power extends AbstractPower {
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     @Override
@@ -39,4 +39,5 @@ public class pi_callOfSwarm_power extends AbstractPower {
             this.addToBot(new ArmamentsAction(true));
         }
     }
+
 }

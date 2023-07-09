@@ -43,7 +43,6 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
-        this.block = this.baseBlock = 5;
     }
 
     @Override

@@ -42,26 +42,15 @@ public class pi_88_phantom extends CustomMutiUpgradeCard {
     }
 
     @Override
-    public void onRetained() {
-        super.onRetained();
-    }
-
-    @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeBaseCost(0);
+        if (!this.upgraded){
+            this.upgradeBaseCost(0);
+        }
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_88_phantom(this.timesUpgraded);
+        return new pi_88_phantom();
     }
 }

@@ -33,7 +33,7 @@ public class pi_68_serene extends CustomCard {
 
     public pi_68_serene() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -55,13 +55,9 @@ public class pi_68_serene extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.name += "+";
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
-        this.initializeTitle();
-        this.upgradeMagicNumber(-1);
-
+        if (!this.upgraded){
+            this.upgradeBaseCost(0);
+        }
     }
     @Override
     public AbstractCard makeCopy(){

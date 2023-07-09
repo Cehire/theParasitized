@@ -30,7 +30,7 @@ public class pi_27_bloodShield extends CustomMutiUpgradeCard {
     public pi_27_bloodShield(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.block = this.baseBlock = 4;
+        this.block = this.baseBlock = 3;
     }
 
     @Override

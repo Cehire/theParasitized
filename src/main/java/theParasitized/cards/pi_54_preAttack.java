@@ -36,11 +36,7 @@ public class pi_54_preAttack extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_54_preAttack() {
-        this(0);
-    }
-    public pi_54_preAttack(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }
@@ -50,35 +46,26 @@ public class pi_54_preAttack extends CustomMutiUpgradeCard {
         this.addToBot(
                 new ApplyPowerAction(
                         abstractPlayer, abstractPlayer,
-                        new pi_double_power(abstractPlayer, this.magicNumber),
-                        this.magicNumber)
+                        new pi_double_power(abstractPlayer, 1),
+                        1)
         );
         if (CommonUtil.Skill(abstractPlayer)){
-            if (this.upgraded){
-                this.addToBot(new DrawCardAction(2));
-            }
-            this.addToBot(new DrawCardAction(1));
+            this.addToBot(new DrawCardAction(this.magicNumber));
         }
     }
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
+        if (!this.upgraded){
+            this.upgradeMagicNumber(1);
+            this.upgradeName();
+        }
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_54_preAttack(this.timesUpgraded);
+        return new pi_54_preAttack();
     }
 }

@@ -30,7 +30,7 @@ public class pi_33_cognitiveFilter extends CustomMutiUpgradeCard {
     public pi_33_cognitiveFilter(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 8;
+        this.magicNumber = this.baseMagicNumber = 6;
     }
 
     @Override

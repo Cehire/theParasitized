@@ -36,7 +36,6 @@ public class pi_scab_power extends AbstractPower {
 
     @Override
     public void wasHPLost(DamageInfo info, int damageAmount) {
-        super.wasHPLost(info, damageAmount);
         this.flash();
         this.addToBot(
                 new GainBlockAction(

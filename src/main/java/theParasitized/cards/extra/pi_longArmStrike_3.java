@@ -50,7 +50,7 @@ public class pi_longArmStrike_3 extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(9);
     }
     @Override
     public boolean canUpgrade() {

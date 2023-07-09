@@ -34,7 +34,7 @@ public class pi_12_deterioration extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new ExhaustAction(this.magicNumber, false, true, true));
+        this.addToBot(new ExhaustAction(this.magicNumber, false, false, true));
         for (int i = 0; i < this.magicNumber; i++) {
             this.addToBot(new MakeTempCardInHandAction(returnRandomCurse(), 1));
         }
@@ -42,8 +42,10 @@ public class pi_12_deterioration extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgraded = true;
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override

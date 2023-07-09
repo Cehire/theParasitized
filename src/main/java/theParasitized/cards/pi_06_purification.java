@@ -43,11 +43,10 @@ public class pi_06_purification extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        this.upgradeMagicNumber(1);
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        if (!this.upgraded){
+            this.upgradeMagicNumber(1);
+            this.upgradeName();
+        }
     }
 
     @Override
@@ -57,6 +56,6 @@ public class pi_06_purification extends CustomMutiUpgradeCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_06_purification(this.timesUpgraded);
+        return new pi_06_purification();
     }
 }

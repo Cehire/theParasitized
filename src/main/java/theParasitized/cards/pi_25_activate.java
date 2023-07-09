@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -14,7 +15,7 @@ import theParasitized.cards.curse.error;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_25_activate extends CustomMutiUpgradeCard {
+public class pi_25_activate extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_25_activate";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -43,12 +44,13 @@ public class pi_25_activate extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.name += "+";
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+
     }
 
 

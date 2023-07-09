@@ -26,12 +26,8 @@ public class pi_85_parry extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_85_parry() {
-        this(0);
-    }
-    public pi_85_parry(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
-        this.block = this.baseBlock = 5;
+        this.block = this.baseBlock = 6;
     }
 
     @Override
@@ -52,20 +48,14 @@ public class pi_85_parry extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeBlock(2);
+        if (!this.upgraded){
+            this.upgradeBlock(2);
+        }
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_85_parry(this.timesUpgraded);
+        return new pi_85_parry();
     }
 }

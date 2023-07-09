@@ -1,7 +1,9 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,7 +33,9 @@ public class pi_whiteTwig extends CustomRelic {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
     }
 
+    private static int curseCount = 0;
     // 获取遗物描述，但原版游戏只在初始化和获取遗物时调用，故该方法等于初始描述
+
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }
@@ -41,9 +45,40 @@ public class pi_whiteTwig extends CustomRelic {
     }
 
     @Override
-    public void atBattleStartPreDraw() {
-        this.flash();
-        this.addToBot(new MakeTempCardInHandAction(new callOfParasites(), 1));
+    public void atTurnStartPostDraw() {
+        super.atTurnStartPostDraw();
+        ModHelper.addToBotAbstract(()->{
+            curseCount = 0;
+            for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                if (card.type == AbstractCard.CardType.CURSE){
+                    curseCount++;
+                }
+            }
+            System.out.println("====================CurseCount"+curseCount+ "===============================");
+        });
     }
 
+    @Override
+    public void atBattleStart() {
+        ModHelper.addToBotAbstract(()->{
+            curseCount = 0;
+            for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                if (card.type == AbstractCard.CardType.CURSE){
+                    curseCount++;
+                }
+            }
+            System.out.println("====================CurseCount"+curseCount+ "===============================");
+        });
+        super.atBattleStart();
+    }
+
+    @Override
+    public void onVictory() {
+        this.flash();
+        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p.currentHealth > 0) {
+            p.heal(10-curseCount);
+        }
+    }
 }

@@ -18,7 +18,7 @@ public class pi_growth extends CustomMutiUpgradeCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final CardRarity RARITY = CardRarity.BASIC;
+    public static final CardRarity RARITY = CardRarity.SPECIAL;
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 0;
@@ -34,14 +34,18 @@ public class pi_growth extends CustomMutiUpgradeCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ArmamentsAction(false));
-        this.addToBot(new DrawCardAction(this.magicNumber));
+        if (this.upgraded){
+            this.addToBot(new DrawCardAction(1));
+        }
     }
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgradeName();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
 
     @Override

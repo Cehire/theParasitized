@@ -32,14 +32,12 @@ public class pi_84_exchange extends CustomCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.NONE;
-    private boolean turnFlag;
     public pi_84_exchange() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.selfRetain = true;
-        this.turnFlag = false;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class pi_84_exchange extends CustomCard {
 
     @Override
     public void tookDamage() {
-        if (AbstractDungeon.player.hand.contains(this) && this.turnFlag){
+        if (AbstractDungeon.player.hand.contains(this) && !AbstractDungeon.actionManager.turnHasEnded){
             this.flash();
             this.addToBot(new GainEnergyAction(1));
         }

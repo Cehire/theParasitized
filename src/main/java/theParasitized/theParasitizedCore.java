@@ -87,8 +87,6 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new error());
         //===============================   extra part  ==============================
         BaseMod.addCard(new pi_growth());
-        BaseMod.addCard(new pi_intoMad());
-        BaseMod.addCard(new pi_intoHalfMad());
         //===============================   normal part  ==============================
         BaseMod.addCard(new pi_01_strike());
         BaseMod.addCard(new pi_35_olfactoryAggression());
@@ -166,6 +164,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_41_crustShield());
         BaseMod.addCard(new pi_95_prepare());
         BaseMod.addCard(new pi_84_exchange());
+        BaseMod.addCard(new pi_96_tactics());
 
     }
 

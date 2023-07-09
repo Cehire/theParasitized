@@ -57,7 +57,7 @@ public class pi_17_graspingAtCurses extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(3);
+        this.upgradeMagicNumber(2);
     }
 
     @Override
@@ -67,6 +67,6 @@ public class pi_17_graspingAtCurses extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_17_graspingAtCurses();
+        return new pi_17_graspingAtCurses(this.timesUpgraded);
     }
 }

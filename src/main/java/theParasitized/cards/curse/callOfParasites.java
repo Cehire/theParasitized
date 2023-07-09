@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import theParasitized.ModHelper;
 import theParasitized.cards.utils.CommonUtil;
 import theParasitized.powers.pi_sacrifice_power;
 import theParasitized.relics.pi_whiteTwig;
@@ -37,11 +38,7 @@ public class callOfParasites extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public callOfParasites() {
-        this(0);
-    }
-    public callOfParasites(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.selfRetain = true;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
@@ -63,16 +60,8 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.initializeDescription();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ExhaustAllNonAttackAction());
@@ -90,7 +79,7 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new callOfParasites(this.timesUpgraded);
+        return new callOfParasites();
     }
 
     @Override
@@ -100,5 +89,6 @@ public class callOfParasites extends CustomCard {
             this.addToBot(new MakeTempCardInHandAction(new baseCurse(), 1));
         }
      }
+
 
 }

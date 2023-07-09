@@ -55,6 +55,8 @@ public class pi_74_fanaticism extends CustomCard {
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
+
+
     @Override
     public void upgrade() {
         ++this.timesUpgraded;

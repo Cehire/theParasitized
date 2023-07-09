@@ -50,8 +50,10 @@ public class pi_95_prepare extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(1);
+        if (!upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override

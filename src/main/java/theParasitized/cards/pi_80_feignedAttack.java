@@ -44,13 +44,11 @@ public class pi_80_feignedAttack extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        if (this.upgraded){
-            this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer,1));
-            this.addToBot(new DrawCardAction(3));
-        }else {
-            this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer,3));
-            this.addToBot(new DrawCardAction(1));
-        }
+        this.addToBot(
+                new DamageAction(
+                        abstractPlayer, new DamageInfo(abstractPlayer, 1, DamageInfo.DamageType.THORNS)
+                )
+        );
     }
 
     @Override
@@ -59,7 +57,7 @@ public class pi_80_feignedAttack extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(2);
     }
     @Override
     public boolean canUpgrade() {

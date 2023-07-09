@@ -37,13 +37,9 @@ public class pi_79_reflection extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_79_reflection() {
-        this(0);
-    }
-    public pi_79_reflection(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 14;
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -55,8 +51,8 @@ public class pi_79_reflection extends CustomCard {
         );
         this.addToBot(
                 new ApplyPowerAction(
-                        abstractPlayer, abstractPlayer,
-                        new VulnerablePower(abstractPlayer, this.magicNumber, false),
+                        abstractMonster, abstractPlayer,
+                        new VulnerablePower(abstractMonster, this.magicNumber, false),
                         this.magicNumber)
         );
     }
@@ -75,11 +71,10 @@ public class pi_79_reflection extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(3);
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeDamage(5);
+        }
     }
     @Override
     public boolean canUpgrade() {
@@ -88,6 +83,6 @@ public class pi_79_reflection extends CustomCard {
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_79_reflection(this.timesUpgraded);
+        return new pi_79_reflection();
     }
 }

@@ -49,8 +49,10 @@ public class pi_03_eclosion extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(2);
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(2);
+        }
     }
 
     @Override

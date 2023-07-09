@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theParasitized.ModHelper;
+import theParasitized.cards.utils.CommonUtil;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -30,13 +32,9 @@ public class pi_61_whirlwind extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_61_whirlwind() {
-        this(0);
-    }
-    public pi_61_whirlwind(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 12;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
 
@@ -48,30 +46,28 @@ public class pi_61_whirlwind extends CustomCard {
                 )
         );
         this.addToBot(
-                new DiscardAction(abstractPlayer, abstractPlayer, this.magicNumber, false)
+                new ExhaustAction(abstractPlayer, abstractPlayer, this.magicNumber, false)
         );
         this.addToBot(
                 new DrawCardAction(this.magicNumber)
         );
+        if (CommonUtil.Skill(abstractPlayer)){
+            this.addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer,
+                    new StrengthPower(abstractMonster, -this.magicNumber), -this.magicNumber));
+        }
     }
 
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(4);
-        this.upgradeMagicNumber(1);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_61_whirlwind(this.timesUpgraded);
+        return new pi_61_whirlwind();
     }
 }

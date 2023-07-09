@@ -30,11 +30,7 @@ public class error extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public error() {
-        this(0);
-    }
-    public error(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.selfRetain = true;
         this.exhaust = true;
         this.isInnate = true;
@@ -42,10 +38,6 @@ public class error extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
     }
 
     @Override
@@ -54,7 +46,7 @@ public class error extends CustomCard {
     }
     @Override
     public AbstractCard makeCopy(){
-        return new error(this.timesUpgraded);
+        return new error();
     }
 
 

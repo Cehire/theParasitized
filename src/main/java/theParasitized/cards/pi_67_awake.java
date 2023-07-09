@@ -62,11 +62,13 @@ public class pi_67_awake extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeTitle();
-        this.initializeDescription();
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+
+        }
     }
 
     @Override

@@ -26,12 +26,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import theParasitized.ModHelper;
+import theParasitized.cards.*;
+import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
-import theParasitized.cards.pi_01_strike;
-import theParasitized.cards.pi_02_defend;
-import theParasitized.cards.pi_75_longArmStrike;
-import theParasitized.cards.pi_84_exchange;
 import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
 import theParasitized.theParasitizedCore;
@@ -52,7 +50,7 @@ public class apiTheParasitized extends CustomPlayer {
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "parasitizedResources/images/char/shoulder2.png";
     // 人物死亡图像
-    private static final String CORPSE_IMAGE = "parasitizedResources/images/char/stance1.png";
+    private static final String CORPSE_IMAGE = "parasitizedResources/images/char/new/down.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
             "parasitizedResources/images/UI/orb/layer5.png",
@@ -108,13 +106,15 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             retVal.add(pi_01_strike.ID);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             retVal.add(pi_02_defend.ID);
         }
         retVal.add(pi_84_exchange.ID);
+        retVal.add(callOfParasites.ID);
+        retVal.add(pi_96_tactics.ID);
 
 
         return retVal;
@@ -149,6 +149,7 @@ public class apiTheParasitized extends CustomPlayer {
         return characterStrings.NAMES[0];
     }
 
+
     @Override
     public void update() {
         super.update();
@@ -165,22 +166,26 @@ public class apiTheParasitized extends CustomPlayer {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(NeutralStance.STANCE_ID));
                 ModHelper.addToBotAbstract(()->{
                     toStage1 = true;
+                    System.out.println("=======stage 0===============");
+                    AbstractDungeon.player.img = image1;
                 });
-                System.out.println("=======stage 0===============");
-                AbstractDungeon.player.img = image1;
             }
             if (n > 3 && n < 6 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance") && toStage2){
                 toStage2 = false;
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_halfMad_stance()));
-                System.out.println("=======stage 1===============");
-                AbstractDungeon.player.img = image2;
+                ModHelper.addToBotAbstract(()->{
+                    System.out.println("=======stage 1===============");
+                    AbstractDungeon.player.img = image2;
+                });
             }
 
             if (n > 5 && !p.stance.ID.equals("TheParasitized:pi_mad_stance") && toStage3){
                 toStage3 = false;
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_mad_stance()));
-                System.out.println("=======stage 2===============");
-                AbstractDungeon.player.img = image3;
+                ModHelper.addToBotAbstract(()->{
+                    System.out.println("=======stage 2===============");
+                    AbstractDungeon.player.img = image3;
+                });
             }
         }
 

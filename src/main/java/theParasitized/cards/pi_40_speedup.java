@@ -26,11 +26,7 @@ public class pi_40_speedup extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_40_speedup() {
-        this(0);
-    }
-    public pi_40_speedup(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 3;
     }
 
@@ -46,20 +42,16 @@ public class pi_40_speedup extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgradeMagicNumber(1);
+            this.upgradeName();
+        }
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_40_speedup(this.timesUpgraded);
+        return new pi_40_speedup();
     }
 }

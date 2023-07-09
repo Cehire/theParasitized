@@ -2,9 +2,11 @@ package theParasitized.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -20,7 +22,7 @@ public class pi_36_sideStep extends CustomMutiUpgradeCard {
     public static final CardRarity RARITY = CardRarity.COMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = -2;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -30,20 +32,21 @@ public class pi_36_sideStep extends CustomMutiUpgradeCard {
     public pi_36_sideStep(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.block = this.baseBlock = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 4;
+        this.isEthereal = true;
+    }
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
+    @Override
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(
-                new GainBlockAction(
-                        abstractPlayer, block
-                )
-        );
-        this.addToBot(
-                new DrawCardAction(this.magicNumber)
-        );
+    public void triggerOnExhaust() {
+        this.addToBot(new HealAction(AbstractDungeon.player,AbstractDungeon.player,this.magicNumber));
     }
 
     @Override
@@ -52,7 +55,7 @@ public class pi_36_sideStep extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeBlock(3);
+        this.upgradeMagicNumber(2);
     }
 
     @Override

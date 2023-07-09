@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,11 +29,7 @@ public class pi_87_waited extends CustomMutiUpgradeCard {
     public static final CardTarget TARGET = CardTarget.SELF;
     private boolean flag = false;
     public pi_87_waited() {
-        this(0);
-    }
-    public pi_87_waited(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 2;
         this.selfRetain = true;
     }
@@ -41,13 +38,10 @@ public class pi_87_waited extends CustomMutiUpgradeCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new DrawCardAction(this.magicNumber));
         if (this.flag){
-            if (this.upgraded){
-                this.addToBot(new DrawCardAction(2));
-            }else {
-                this.addToBot(new DrawCardAction(1));
-            }
+            this.addToBot(new DrawCardAction(1));
         }
-        this.flag = false;
+        this.addToBot(new DiscardAction(abstractPlayer, abstractPlayer, 1, false)
+        );
     }
 
     @Override
@@ -57,22 +51,14 @@ public class pi_87_waited extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
-    }
-
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_87_waited(this.timesUpgraded);
+        return new pi_87_waited();
     }
 }

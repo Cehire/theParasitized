@@ -21,7 +21,7 @@ public class pi_30_thornyFlesh extends CustomMutiUpgradeCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = 1;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_30_thornyFlesh() {
@@ -30,7 +30,7 @@ public class pi_30_thornyFlesh extends CustomMutiUpgradeCard {
     public pi_30_thornyFlesh(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

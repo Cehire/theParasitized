@@ -52,6 +52,11 @@ public class pi_pumping_power extends AbstractPower {
     }
 
     @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+    }
+
+    @Override
     public void stackPower(int stackAmount) {
         this.amount = Math.min(stackAmount, this.amount);
     }

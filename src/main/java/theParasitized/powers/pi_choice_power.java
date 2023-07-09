@@ -3,6 +3,7 @@ package theParasitized.powers;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -38,10 +39,7 @@ public class pi_choice_power extends AbstractPower {
     public void atStartOfTurnPostDraw() {
         this.flash();
         this.addToBot(
-                new DrawCardAction(this.owner, this.amount)
-        );
-        this.addToBot(
-                new DiscardAction(this.owner, this.owner, this.amount, false)
+                new ExhaustAction(this.owner, this.owner, this.amount, false)
         );
     }
 

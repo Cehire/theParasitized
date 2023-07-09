@@ -50,8 +50,12 @@ public class pi_65_suppress extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgraded = true;
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
 
     @Override

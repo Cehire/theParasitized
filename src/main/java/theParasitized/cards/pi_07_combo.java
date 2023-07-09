@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.error;
+import theParasitized.cards.utils.CommonUtil;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -31,11 +32,9 @@ public class pi_07_combo extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public static final CardRarity RARITY = CardRarity.COMMON;
-    public pi_07_combo() { this(0);}
-    public pi_07_combo(int upgrades){
+    public pi_07_combo(){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -43,7 +42,7 @@ public class pi_07_combo extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ModHelper.addToBotAbstract(
                 ()->{
-                    for (int i = 0; i < this.magicNumber; i++) {
+                    for (int i = 0; i < this.magicNumber + (CommonUtil.Skill(p)?1:0); i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                         if (i < this.magicNumber - 1) {
                             AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
@@ -61,16 +60,12 @@ public class pi_07_combo extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(2);
+        if (!this.upgraded){
+            this.upgradeName();
+            this.upgradeDamage(2);
+        }
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 }
 

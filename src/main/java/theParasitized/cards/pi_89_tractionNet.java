@@ -34,7 +34,7 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
     public pi_89_tractionNet(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.exhaust = true;
     }
 
@@ -82,7 +82,6 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeMagicNumber(1);
-        this.upgradeBlock(1);
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
         this.initializeDescription();
     }

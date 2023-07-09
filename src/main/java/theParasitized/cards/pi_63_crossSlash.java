@@ -36,11 +36,7 @@ public class pi_63_crossSlash extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_63_crossSlash() {
-        this(0);
-    }
-    public pi_63_crossSlash(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
     }
@@ -62,20 +58,15 @@ public class pi_63_crossSlash extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(3);
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded){
+            this.upgradeDamage(3);
+            this.upgradeMagicNumber(1);
+        }
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_63_crossSlash(this.timesUpgraded);
+        return new pi_63_crossSlash();
     }
 }
