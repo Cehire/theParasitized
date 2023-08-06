@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,7 @@ import theParasitized.powers.pi_pumping_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_21_pumping extends CustomMutiUpgradeCard {
+public class pi_21_pumping extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_21_pumping";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

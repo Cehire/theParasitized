@@ -27,11 +27,7 @@ public class pi_04_choice extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_04_choice() {
-        this(0);
-    }
-    public pi_04_choice(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -51,10 +47,6 @@ public class pi_04_choice extends CustomCard {
             this.upgradeBaseCost(1);
             this.upgradeName();
         }
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
     }
 
     @Override

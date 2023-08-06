@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -12,7 +13,7 @@ import theParasitized.cards.utils.CommonUtil;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_87_waited extends CustomMutiUpgradeCard {
+public class pi_87_waited extends CustomCard {
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_87_waited";

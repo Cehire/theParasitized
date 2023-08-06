@@ -28,6 +28,7 @@ public class pi_18_sacrifice extends CustomCard {
     public pi_18_sacrifice() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;
+        this.isEthereal = true;
     }
 
     @Override
@@ -42,7 +43,12 @@ public class pi_18_sacrifice extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgradeBaseCost(1);
+        if (!this.upgraded){
+            this.isEthereal = false;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.upgradeName();
+        }
     }
 
     @Override

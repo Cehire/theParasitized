@@ -40,7 +40,7 @@ public class duxing extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;

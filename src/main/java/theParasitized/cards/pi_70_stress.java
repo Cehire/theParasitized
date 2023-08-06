@@ -45,7 +45,10 @@ public class pi_70_stress extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
-            this.upgradeMagicNumber(1);
+            this.upgradeName();
+            this.selfRetain = true;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

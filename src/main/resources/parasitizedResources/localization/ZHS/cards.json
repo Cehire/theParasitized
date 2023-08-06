@@ -44,6 +44,11 @@
     "DESCRIPTION": "你还在抵抗着 NL 失去3生命 NL  固有 , 保留 , 消耗 ",
     "UPGRADE_DESCRIPTION": "你还在抵抗着 NL 失去3生命 NL  固有 , 保留 , 消耗 "
   },
+  "TheParasitized:pi_error": {
+    "NAME": "错误",
+    "DESCRIPTION": "你还在抵抗着 NL 失去3生命 NL  固有 , 保留 , 消耗 ",
+    "UPGRADE_DESCRIPTION": "你还在抵抗着 NL 失去3生命 NL  固有 , 保留 , 消耗 "
+  },
   "TheParasitized:pi_01_strike": {
     "NAME": "打击",
     "DESCRIPTION": "造成 !D! 点伤害 NL 感染 ",
@@ -95,7 +100,7 @@
   },
   "TheParasitized:pi_14_nesting": {
     "NAME": "筑巢",
-    "DESCRIPTION": "回合开始时，将 !M! 张生长加入手牌 NL 固有 ",
+    "DESCRIPTION": "回合开始时，将 !M! 张生长加入手牌",
     "UPGRADE_DESCRIPTION": "回合开始时，将 !M! 张生长加入手牌 NL 固有 "
   },
   "TheParasitized:pi_15_whipping": {
@@ -115,7 +120,7 @@
   },
   "TheParasitized:pi_18_sacrifice": {
     "NAME": "牺牲",
-    "DESCRIPTION": "你可以打出 寄染 的诅咒牌，打出这些牌时，抽 !M! 张牌",
+    "DESCRIPTION": "你可以打出 寄染 的诅咒牌，打出这些牌时，抽 !M! 张牌 NL 虚无",
     "UPGRADE_DESCRIPTION": "你可以打出 寄染 的诅咒牌，打出这些牌时，抽 !M! 张牌"
   },
   "TheParasitized:pi_21_pumping": {
@@ -190,8 +195,8 @@
   },
   "TheParasitized:pi_39_witherEnchantment": {
     "NAME": "凋零附魔",
-    "DESCRIPTION": "当你造成伤害时，同时赋予1层 凋零 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "当你造成伤害时，同时赋予2层 凋零 NL 感染 "
+    "DESCRIPTION": "当你造成伤害时，同时赋予 !M! 层 凋零 NL 感染 ",
+    "UPGRADE_DESCRIPTION": "当你造成伤害时，同时赋予 !M! 层 凋零 NL 感染 "
   },
   "TheParasitized:pi_40_speedup": {
     "NAME": "加速",
@@ -235,8 +240,8 @@
   },
   "TheParasitized:pi_50_theEnd": {
     "NAME": "末日",
-    "DESCRIPTION": "此牌无法被升级，当你手牌有10张诅咒时，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "此牌无法被升级，当你手牌有10张诅咒时，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 "
+    "DESCRIPTION": "若你的手牌有10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "若你的手牌有10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 "
   },
   "TheParasitized:pi_bodyEnhance_1": {
     "NAME": "力量强化",
@@ -270,8 +275,8 @@
   },
   "TheParasitized:pi_54_preAttack": {
     "NAME": "居合",
-    "DESCRIPTION": "你的下次攻击造成双倍伤害 NL 技巧 ：抽 !M! 张牌",
-    "UPGRADE_DESCRIPTION": "你的下次攻击造成双倍伤害 NL 技巧 ：抽 !M! 张牌"
+    "DESCRIPTION": "你的下次攻击造成双倍伤害 NL 技巧 ：抽 !M! 张牌 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "你的下次攻击造成双倍伤害 NL 技巧 ：抽 !M! 张牌 NL 消耗 "
   },
   "TheParasitized:pi_58_parasiticArm": {
     "NAME": "寄染之臂",
@@ -320,18 +325,18 @@
   },
   "TheParasitized:pi_69_parasite": {
     "NAME": "寄生",
-    "DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B! 点 力量 NL 消耗 , 感染 ",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，增加 !B!点 力量 NL 消耗 , 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得恢复生命值一半的 力量 NL 消耗 , 感染 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得恢复生命值一半的 力量 NL 消耗 , 感染 "
   },
   "TheParasitized:pi_70_stress": {
     "NAME": "应激",
     "DESCRIPTION": "失去生命时，抽 !M! 张牌",
-    "UPGRADE_DESCRIPTION": "失去生命时，抽 !M! 张牌"
+    "UPGRADE_DESCRIPTION": " 固有 NL 失去生命时，抽 !M! 张牌"
   },
   "TheParasitized:pi_71_headOn": {
     "NAME": "硬碰硬",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人和自己 !M! 层虚弱",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人 !M! 层虚弱 NL 给予自己1层虚弱"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人和自己 !M! 层虚弱 NL 感染 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人 !M! 层虚弱 NL 给予自己1层虚弱 NL 感染 "
   },
   "TheParasitized:pi_72_fall": {
     "NAME": "降临",
@@ -456,6 +461,11 @@
     "NAME": "准备",
     "DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点 NL  保留 , 消耗 ",
     "UPGRADE_DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点 NL  保留 , 消耗 "
+  },
+  "TheParasitized:pi_97_expand": {
+    "NAME": "扩张",
+    "DESCRIPTION": "手牌上限增加 !M! NL 感染 ",
+    "UPGRADE_DESCRIPTION": "手牌上限增加 !M! NL 感染 "
   },
   "TheParasitized:pi_intoHalfMad": {
     "NAME": "阶段二",

@@ -9,13 +9,18 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.extra.pi_growth;
 import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.characters.apiTheParasitized;
+import theParasitized.event.testEvent;
+import theParasitized.relics.pi_kaofish;
 import theParasitized.relics.pi_whiteTwig;
 
 
@@ -27,7 +32,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZ
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
-, EditRelicsSubscriber, EditKeywordsSubscriber {
+, EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber {
 
     // ===================== to do
     // 人物选择界面按钮的图片
@@ -165,8 +170,16 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_95_prepare());
         BaseMod.addCard(new pi_84_exchange());
         BaseMod.addCard(new pi_96_tactics());
+        BaseMod.addCard(new pi_97_expand());
 
     }
+
+
+    @Override
+    public void receiveRelicGet(AbstractRelic relic){
+        AbstractDungeon.shopRelicPool.remove(BlueCandle.ID);
+    }
+
 
     @Override
     public void receiveEditStrings() {
@@ -181,16 +194,14 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.loadCustomStringsFile(PowerStrings.class, "parasitizedResources/localization/" + lang + "/powers.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, "parasitizedResources/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(StanceStrings.class, "parasitizedResources/localization/" + lang + "/stances.json");
-
+        BaseMod.loadCustomStringsFile(EventStrings.class, "parasitizedResources/localization/" + lang + "/events.json");
     }
 
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new pi_whiteTwig(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_kaofish(), RelicType.SHARED);
     }
-
-
-
 
     @Override
     public void receiveEditKeywords() {
@@ -209,5 +220,10 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
                 BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        BaseMod.addEvent("PI_TESTEVENT", testEvent.class, "Exordium","TheBeyond","TheCity");
     }
 }

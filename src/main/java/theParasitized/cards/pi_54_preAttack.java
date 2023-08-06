@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -21,7 +22,7 @@ import theParasitized.stances.pi_mad_stance;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_54_preAttack extends CustomMutiUpgradeCard {
+public class pi_54_preAttack extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_54_preAttack";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

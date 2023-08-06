@@ -1,5 +1,6 @@
 package theParasitized.characters;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -53,17 +54,17 @@ public class apiTheParasitized extends CustomPlayer {
     private static final String CORPSE_IMAGE = "parasitizedResources/images/char/new/down.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
-            "parasitizedResources/images/UI/orb/layer5.png",
-            "parasitizedResources/images/UI/orb/layer4.png",
-            "parasitizedResources/images/UI/orb/layer3.png",
-            "parasitizedResources/images/UI/orb/layer2.png",
             "parasitizedResources/images/UI/orb/layer1.png",
+            "parasitizedResources/images/UI/orb/layer2.png",
+            "parasitizedResources/images/UI/orb/layer3.png",
+            "parasitizedResources/images/UI/orb/layer4.png",
+            "parasitizedResources/images/UI/orb/layer5.png",
             "parasitizedResources/images/UI/orb/layer6.png",
-            "parasitizedResources/images/UI/orb/layer5d.png",
-            "parasitizedResources/images/UI/orb/layer4d.png",
-            "parasitizedResources/images/UI/orb/layer3d.png",
+            "parasitizedResources/images/UI/orb/layer1d.png",
             "parasitizedResources/images/UI/orb/layer2d.png",
-            "parasitizedResources/images/UI/orb/layer1d.png"
+            "parasitizedResources/images/UI/orb/layer3d.png",
+            "parasitizedResources/images/UI/orb/layer4d.png",
+            "parasitizedResources/images/UI/orb/layer5d.png"
     };
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
@@ -124,6 +125,7 @@ public class apiTheParasitized extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("TheParasitized:pi_whiteTwig");
+        retVal.add("TheParasitized:pi_kaofish");
         return retVal;
     }
 
@@ -153,6 +155,14 @@ public class apiTheParasitized extends CustomPlayer {
     @Override
     public void update() {
         super.update();
+        if (AbstractDungeon.getCurrRoom().isBattleOver){
+            toStage1 = toStage2 = toStage3 = true;
+            AbstractDungeon.player.img = image1;
+        }
+        if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT){
+            toStage1 = toStage2 = toStage3 = true;
+            AbstractDungeon.player.img = image1;
+        }
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
             int n = 0;
             AbstractPlayer p = AbstractDungeon.player;
@@ -187,8 +197,9 @@ public class apiTheParasitized extends CustomPlayer {
                     AbstractDungeon.player.img = image3;
                 });
             }
+        }else {
+            toStage1 = toStage2 = toStage3 = true;
         }
-
     }
 
     // 你的卡牌颜色（这个枚举在最下方创建）

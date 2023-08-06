@@ -4,10 +4,13 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.actions.unique.ExhaustAllNonAttackAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -16,6 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.NecronomicurseEffect;
 import theParasitized.ModHelper;
 import theParasitized.cards.utils.CommonUtil;
 import theParasitized.powers.pi_sacrifice_power;
@@ -44,6 +48,14 @@ public class callOfParasites extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;
+    }
+
+    @Override
+    public void onRemoveFromMasterDeck() {
+        if (AbstractDungeon.player.hasRelic(pi_whiteTwig.ID)) {
+            AbstractDungeon.player.getRelic(pi_whiteTwig.ID).flash();
+        }
+        AbstractDungeon.effectsQueue.add(new NecronomicurseEffect(new callOfParasites(), (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
     }
 
     @Override

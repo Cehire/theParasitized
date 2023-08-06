@@ -17,7 +17,7 @@ public class pi_longArmStrike_3 extends CustomCard {
     public static final String ID = "TheParasitized:pi_longArmStrike_3";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/長臂3_attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.SPECIAL;
 

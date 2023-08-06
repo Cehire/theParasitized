@@ -44,6 +44,8 @@ public class pi_14_nesting extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
             this.isInnate = true;
         }
     }

@@ -78,7 +78,7 @@ public class pi_whiteTwig extends CustomRelic {
         this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         AbstractPlayer p = AbstractDungeon.player;
         if (p.currentHealth > 0) {
-            p.heal(10-curseCount);
+            p.heal(Math.max((10 - curseCount), 0));
         }
     }
 }

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
+import theParasitized.ModHelper;
 
 
 public class pi_pumping_power extends AbstractPower {
@@ -17,6 +17,7 @@ public class pi_pumping_power extends AbstractPower {
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = POWER_STRINGS.NAME;
+    private static boolean flag = true;
     // 能力的描述
     private static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
     public pi_pumping_power(AbstractCreature owner, int amount){
@@ -48,12 +49,18 @@ public class pi_pumping_power extends AbstractPower {
 
     @Override
     public void onRemove() {
-        this.addToBot(new PressEndTurnButtonAction());
+        if (flag){
+            this.addToBot(new PressEndTurnButtonAction());
+        }
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
+        flag = false;
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        ModHelper.addToBotAbstract(()->{
+            flag = true;
+        });
     }
 
     @Override

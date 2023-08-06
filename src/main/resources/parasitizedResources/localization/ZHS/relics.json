@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "战斗结束时，恢复10-X点生命，X为战斗结束时你手牌中的诅咒数"
     ]
-  }
+  },
+  "TheParasitized:pi_kaofish": {
+  "NAME": "烤鱼",
+  "FLAVOR": "一把烤鱼形状的棒槌",
+  "DESCRIPTIONS": [
+    "还没想好"
+  ]
+}
 }

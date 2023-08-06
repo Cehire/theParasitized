@@ -43,7 +43,7 @@ public class pi_12_deterioration extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
-            this.upgraded = true;
+            this.upgradeName();
             this.upgradeMagicNumber(1);
         }
     }

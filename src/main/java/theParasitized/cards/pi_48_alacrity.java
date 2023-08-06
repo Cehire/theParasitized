@@ -43,6 +43,7 @@ public class pi_48_alacrity extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
+            this.upgradeName();
             this.upgradeBaseCost(2);
         }
     }

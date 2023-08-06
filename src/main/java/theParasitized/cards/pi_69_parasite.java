@@ -35,7 +35,6 @@ public class pi_69_parasite extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 10;
         this.magicNumber = this.baseMagicNumber = 2;
-        this.block = this.baseBlock = this.magicNumber / 2;
         this.exhaust = true;
     }
 
@@ -61,6 +60,7 @@ public class pi_69_parasite extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeDamage(3);
+        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {

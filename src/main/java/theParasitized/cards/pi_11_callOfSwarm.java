@@ -43,8 +43,8 @@ public class pi_11_callOfSwarm extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
-            this.upgraded = true;
             this.upgradeMagicNumber(1);
+            this.upgradeName();
         }
     }
 

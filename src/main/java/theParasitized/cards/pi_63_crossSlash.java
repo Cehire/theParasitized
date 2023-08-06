@@ -59,6 +59,7 @@ public class pi_63_crossSlash extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
+            this.upgradeName();
             this.upgradeDamage(3);
             this.upgradeMagicNumber(1);
         }

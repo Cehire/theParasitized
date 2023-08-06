@@ -17,7 +17,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import theParasitized.ModHelper;
+import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -62,10 +64,7 @@ public class pi_79_reflection extends CustomCard {
     public void tookDamage() {
         AbstractPlayer player = AbstractDungeon.player;
         if (player.drawPile.contains(this)){
-            ModHelper.addToBotAbstract(()->{
-                player.drawPile.moveToHand(this);
-                this.freeToPlayOnce = true;
-            });
+            this.addToBot(new pi_drawPileToHandAction_specific(1, this));
         }
     }
 

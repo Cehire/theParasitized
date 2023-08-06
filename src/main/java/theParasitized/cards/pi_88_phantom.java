@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +13,7 @@ import theParasitized.powers.pi_phantom_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_88_phantom extends CustomMutiUpgradeCard {
+public class pi_88_phantom extends CustomCard {
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_88_phantom";
@@ -45,6 +46,7 @@ public class pi_88_phantom extends CustomMutiUpgradeCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeBaseCost(0);
+            this.upgradeName();
         }
     }
 

@@ -23,7 +23,7 @@
     "NAME": "凋零",
     "DESCRIPTIONS": [
       "回合结束时，失去",
-      "点生命，施加者恢复同等生命"
+      "点生命，施加者恢复同等生命并使层数减半"
     ]
   },
   "TheParasitized:pi_nesting_power": {
@@ -178,6 +178,12 @@
     "NAME": "威压",
     "DESCRIPTIONS": [
       "回合内，有负面状态的敌人对你的伤害为0"
+    ]
+  },
+  "TheParasitized:pi_expand_power": {
+    "NAME": "扩张",
+    "DESCRIPTIONS": [
+      "你的手牌上限增加"
     ]
   }
 }
