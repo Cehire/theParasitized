@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
-import com.sun.java.swing.action.ActionManager;
 import theParasitized.ModHelper;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;

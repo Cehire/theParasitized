@@ -54,17 +54,17 @@ public class apiTheParasitized extends CustomPlayer {
     private static final String CORPSE_IMAGE = "parasitizedResources/images/char/new/down.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
-            "parasitizedResources/images/UI/orb/layer1.png",
-            "parasitizedResources/images/UI/orb/layer2.png",
-            "parasitizedResources/images/UI/orb/layer3.png",
-            "parasitizedResources/images/UI/orb/layer4.png",
             "parasitizedResources/images/UI/orb/layer5.png",
+            "parasitizedResources/images/UI/orb/layer4.png",
+            "parasitizedResources/images/UI/orb/layer3.png",
+            "parasitizedResources/images/UI/orb/layer2.png",
+            "parasitizedResources/images/UI/orb/layer1.png",
             "parasitizedResources/images/UI/orb/layer6.png",
-            "parasitizedResources/images/UI/orb/layer1d.png",
-            "parasitizedResources/images/UI/orb/layer2d.png",
-            "parasitizedResources/images/UI/orb/layer3d.png",
+            "parasitizedResources/images/UI/orb/layer5d.png",
             "parasitizedResources/images/UI/orb/layer4d.png",
-            "parasitizedResources/images/UI/orb/layer5d.png"
+            "parasitizedResources/images/UI/orb/layer3d.png",
+            "parasitizedResources/images/UI/orb/layer2d.png",
+            "parasitizedResources/images/UI/orb/layer1d.png"
     };
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};

@@ -20,6 +20,4 @@ public class pi_alacrity_action extends AbstractGameAction {
                 }
             }
         }
-
-
     }
