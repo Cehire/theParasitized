@@ -12,5 +12,33 @@
   "DESCRIPTIONS": [
     "还没想好"
   ]
-}
+},
+  "TheParasitized:pi_diamondChestplate": {
+    "NAME": "附魔钻石甲",
+    "FLAVOR": "坚硬的护甲，有被穿戴过的痕迹，在尖塔中却似乎有点突兀",
+    "DESCRIPTIONS": [
+      "当你受到不超过自身格挡的伤害时，格挡损失值-2"
+    ]
+  },
+  "TheParasitized:pi_worktable": {
+    "NAME": "工作台",
+    "FLAVOR": "一个便携工作台，可以在合适的地方展开",
+    "DESCRIPTIONS": [
+      "进入休息处时，升级你牌组中的一张随机攻击牌"
+    ]
+  },
+  "TheParasitized:pi_pants": {
+    "NAME": "紫色幸运内裤",
+    "FLAVOR": "穿上它给自己带来好运气",
+    "DESCRIPTIONS": [
+      "拾起时，获得750金币，将一张凡庸加入到牌组"
+    ]
+  },
+  "TheParasitized:pi_parasitedCore": {
+    "NAME": "寄染核心",
+    "FLAVOR": "它散发着与正常生灵截然不同的气息。",
+    "DESCRIPTIONS": [
+      "拾起时，手牌上限+2"
+    ]
+  }
 }

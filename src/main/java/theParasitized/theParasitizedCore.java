@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.cards.*;
@@ -20,8 +21,9 @@ import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.characters.apiTheParasitized;
 import theParasitized.event.testEvent;
-import theParasitized.relics.pi_kaofish;
-import theParasitized.relics.pi_whiteTwig;
+import theParasitized.event.testEvent2;
+import theParasitized.monsters.kaofish;
+import theParasitized.relics.*;
 
 
 import java.nio.charset.StandardCharsets;
@@ -195,12 +197,17 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.loadCustomStringsFile(RelicStrings.class, "parasitizedResources/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(StanceStrings.class, "parasitizedResources/localization/" + lang + "/stances.json");
         BaseMod.loadCustomStringsFile(EventStrings.class, "parasitizedResources/localization/" + lang + "/events.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, "parasitizedResources/localization/" + lang + "/monsters.json");
     }
 
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new pi_whiteTwig(), RelicType.SHARED);
         BaseMod.addRelic(new pi_kaofish(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_diamondChestplate(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_worktable(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_pants(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_parasitedCore(), RelicType.SHARED);
     }
 
     @Override
@@ -224,6 +231,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
 
     @Override
     public void receivePostInitialize() {
-        BaseMod.addEvent("PI_TESTEVENT", testEvent.class, "Exordium","TheBeyond","TheCity");
+        BaseMod.addEvent("PI_TESTEVENT2", testEvent2.class, "Exordium","TheBeyond","TheCity");
+        BaseMod.addMonster("kaofish", kaofish::get);
     }
 }

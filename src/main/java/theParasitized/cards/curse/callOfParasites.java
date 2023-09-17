@@ -60,24 +60,15 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hand.group.size() == 10){
-            this.glowColor = Color.YELLOW;
-            this.isGlowing = true;
-            return true;
-        }else {
-            this.isGlowing = false;
-            return false;
-        }
+        return false;
     }
-
     @Override
     public void upgrade() {
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new ExhaustAllNonAttackAction());
-        this.addToBot(new LoseHPAction(abstractPlayer, null,20, AbstractGameAction.AttackEffect.FIRE));
+
     }
 
     @Override

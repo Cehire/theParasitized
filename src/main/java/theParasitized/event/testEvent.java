@@ -18,7 +18,7 @@ public class testEvent extends AbstractEvent {
 
     public testEvent() {
         this.screen = testEvent.CurScreen.INTRO;
-        this.initializeImage("parasitizedResources/images/events/sphereClosed.png", 1120.0F * Settings.scale, AbstractDungeon.floorY - 50.0F * Settings.scale);
+        this.initializeImage("parasitizedResources/images/events/kaoyu.png", 1120.0F * Settings.scale, AbstractDungeon.floorY - 50.0F * Settings.scale);
         this.body = INTRO_MSG;
         this.roomEventText.addDialogOption(OPTIONS[0]);
         this.roomEventText.addDialogOption(OPTIONS[1]);

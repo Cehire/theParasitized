@@ -125,7 +125,10 @@ public class apiTheParasitized extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("TheParasitized:pi_whiteTwig");
-        retVal.add("TheParasitized:pi_kaofish");
+        retVal.add("TheParasitized:pi_diamondChestplate");
+        retVal.add("TheParasitized:pi_worktable");
+        retVal.add("TheParasitized:pi_pants");
+        retVal.add("TheParasitized:pi_parasitedCore");
         return retVal;
     }
 
