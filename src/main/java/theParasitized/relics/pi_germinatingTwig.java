@@ -1,6 +1,7 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -20,17 +21,17 @@ import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
 
 // 继承CustomRelic
-public class pi_whiteTwig extends CustomRelic {
+public class pi_germinatingTwig extends CustomRelic {
     // 遗物ID
-    public static final String ID = "TheParasitized:pi_whiteTwig";
+    public static final String ID = "TheParasitized:pi_germinatingTwig";
     // 图片路径
     private static final String IMG_PATH = "parasitizedResources/images/relics/whiteTwig.png";
     // 遗物类型
-    private static final RelicTier RELIC_TIER = RelicTier.STARTER;
+    private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public pi_whiteTwig() {
+    public pi_germinatingTwig() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
     }
 
@@ -41,13 +42,26 @@ public class pi_whiteTwig extends CustomRelic {
     }
 
     public AbstractRelic makeCopy() {
-        return new pi_whiteTwig();
+        return new pi_germinatingTwig();
     }
 
     @Override
-    public void atBattleStartPreDraw() {
-        ModHelper.addToBotAbstract(()->{
-            AbstractDungeon.player.drawPile.addToRandomSpot(new pi_84_exchange());
-        });
+    public void onLoseHp(int damageAmount) {
+        if (!AbstractDungeon.actionManager.turnHasEnded){
+            this.flash();
+            this.addToBot(new GainEnergyAction(1));
+            this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+        }
+    }
+    public void obtain() {
+        if (AbstractDungeon.player.hasRelic("TheParasitized:pi_whiteTwig")) {
+            this.instantObtain(AbstractDungeon.player, 0, false);
+        } else {
+            super.obtain();
+        }
+
+    }
+    public boolean canSpawn() {
+        return AbstractDungeon.player.hasRelic("TheParasitized:pi_whiteTwig");
     }
 }

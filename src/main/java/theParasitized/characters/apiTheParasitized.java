@@ -107,13 +107,12 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             retVal.add(pi_01_strike.ID);
         }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             retVal.add(pi_02_defend.ID);
         }
-        retVal.add(pi_84_exchange.ID);
         retVal.add(callOfParasites.ID);
         retVal.add(pi_96_tactics.ID);
 
@@ -125,10 +124,6 @@ public class apiTheParasitized extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("TheParasitized:pi_whiteTwig");
-        retVal.add("TheParasitized:pi_diamondChestplate");
-        retVal.add("TheParasitized:pi_worktable");
-        retVal.add("TheParasitized:pi_pants");
-        retVal.add("TheParasitized:pi_parasitedCore");
         return retVal;
     }
 

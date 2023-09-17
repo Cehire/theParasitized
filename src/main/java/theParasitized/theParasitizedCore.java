@@ -208,6 +208,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addRelic(new pi_worktable(), RelicType.SHARED);
         BaseMod.addRelic(new pi_pants(), RelicType.SHARED);
         BaseMod.addRelic(new pi_parasitedCore(), RelicType.SHARED);
+        BaseMod.addRelic(new pi_germinatingTwig(), RelicType.SHARED);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -47,6 +48,10 @@ public class pi_expand_power extends AbstractPower {
 
     @Override
     public void onVictory() {
-        BaseMod.MAX_HAND_SIZE = 10;
+        if(AbstractDungeon.player.hasRelic("TheParasitized:pi_parasitedCore")){
+            BaseMod.MAX_HAND_SIZE = 12;
+        }else {
+            BaseMod.MAX_HAND_SIZE = 10;
+        }
     }
 }

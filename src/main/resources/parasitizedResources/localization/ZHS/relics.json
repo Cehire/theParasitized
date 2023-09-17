@@ -1,9 +1,9 @@
 {
   "TheParasitized:pi_whiteTwig": {
     "NAME": "嫩白树枝",
-    "FLAVOR": "它似乎还在生长...",
+    "FLAVOR": "你记得，它似乎还在生长...",
     "DESCRIPTIONS": [
-      "战斗结束时，恢复10-X点生命，X为战斗结束时你手牌中的诅咒数"
+      "战斗开始时，将一张本能加入到抽牌堆"
     ]
   },
   "TheParasitized:pi_kaofish": {
@@ -40,5 +40,12 @@
     "DESCRIPTIONS": [
       "拾起时，手牌上限+2"
     ]
-  }
+  },
+  "TheParasitized:pi_germinatingTwig": {
+  "NAME": "发芽树枝",
+  "FLAVOR": "正如此刻。。。",
+  "DESCRIPTIONS": [
+    "替换嫩白树枝，当你在自己的回合中受到伤害时，回复2生命，获得 [E] "
+  ]
+}
 }

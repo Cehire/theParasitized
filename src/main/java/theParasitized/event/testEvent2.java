@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import theParasitized.relics.pi_kaofish;
 
 public class testEvent2 extends AbstractImageEvent {
     public static final String ID = "PI_TESTEVENT2";
@@ -24,13 +25,8 @@ public class testEvent2 extends AbstractImageEvent {
 
     public testEvent2() {
         super(NAME, DESCRIPTIONS[0], "parasitizedResources/images/events/kaoyu.png");
-        if (AbstractDungeon.player.gold >= 85) {
-            this.imageEventText.setDialogOption(OPTIONS[0] + 85 + OPTIONS[1], AbstractDungeon.player.gold < 85);
-        } else {
-            this.imageEventText.setDialogOption(OPTIONS[2] + 85 + OPTIONS[3], AbstractDungeon.player.gold < 85);
-        }
-        this.imageEventText.setDialogOption(OPTIONS[4]);
-        this.imageEventText.setDialogOption(OPTIONS[5]);
+        this.imageEventText.setDialogOption(OPTIONS[0]);
+        this.imageEventText.setDialogOption(OPTIONS[1]);
     }
 
     protected void buttonEffect(int buttonPressed) {
@@ -39,14 +35,8 @@ public class testEvent2 extends AbstractImageEvent {
                 switch (buttonPressed) {
                     case 0:
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                        if (AbstractDungeon.player.gold >= 85) {
-                            this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                            this.imageEventText.clearRemainingOptions();
-                        }
-                        break;
-                    case 1:
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
+                        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new pi_kaofish());
+                        this.imageEventText.updateDialogOption(0, OPTIONS[1]);
                         this.imageEventText.clearRemainingOptions();
                         break;
                     default:
