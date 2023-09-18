@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Armaments;
@@ -31,6 +32,8 @@ import theParasitized.cards.*;
 import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.extra.pi_intoHalfMad;
 import theParasitized.cards.extra.pi_intoMad;
+import theParasitized.powers.pi_cognitiveFilter_power;
+import theParasitized.powers.pi_initial;
 import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
 import theParasitized.theParasitizedCore;
@@ -107,10 +110,10 @@ public class apiTheParasitized extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             retVal.add(pi_01_strike.ID);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             retVal.add(pi_02_defend.ID);
         }
         retVal.add(callOfParasites.ID);
@@ -198,6 +201,14 @@ public class apiTheParasitized extends CustomPlayer {
         }else {
             toStage1 = toStage2 = toStage3 = true;
         }
+    }
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+                AbstractDungeon.player, AbstractDungeon.player,
+                new pi_initial(AbstractDungeon.player)));
     }
 
     // 你的卡牌颜色（这个枚举在最下方创建）
@@ -303,8 +314,12 @@ public class apiTheParasitized extends CustomPlayer {
 
         @SpireEnum(name = "PI_COLOR")
         public static AbstractCard.CardColor PI_COLOR;
+        @SpireEnum(name = "PI_COLOR_CURSE")
+        public static AbstractCard.CardColor PI_COLOR_CURSE;
 
         @SpireEnum(name = "PI_COLOR")
         public static CardLibrary.LibraryType PI_COLOR_LIB;
+        @SpireEnum(name = "PI_COLOR_CURSE")
+        public static CardLibrary.LibraryType PI_COLOR_CURSE_LIB;
     }
 }

@@ -91,6 +91,8 @@ public class pi_81_bolsterStrike extends CustomCard {
         }
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
         this.initializeTitle();
         this.upgradeDamage(3);
     }

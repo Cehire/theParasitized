@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import theParasitized.cards.CustomMutiUpgradeCard;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class pi_error extends CustomMutiUpgradeCard {
     //func test ok
@@ -26,7 +27,7 @@ public class pi_error extends CustomMutiUpgradeCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.SELF;
 
     public pi_error() {

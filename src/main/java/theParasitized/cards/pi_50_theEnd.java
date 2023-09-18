@@ -43,6 +43,9 @@ public class pi_50_theEnd extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if(this.upgraded){
+            this.addToBot(new DrawCardAction(1));
+        }
         int n = 0;
         for (AbstractCard card : abstractPlayer.hand.group) {
             if (card.type == CardType.CURSE){
@@ -56,12 +59,24 @@ public class pi_50_theEnd extends CustomCard {
                 this.addToBot(new InstantKillAction(monster));
             }
         }else {
-            this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 2, true, true));
+            AbstractCard card = this.makeCopy();
+            card.upgrade();
+            this.addToBot(new MakeTempCardInDrawPileAction(card, 1, true, true));
+            this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
         }
+
+    }
+
+    @Override
+    public boolean canUpgrade() {
+        return !upgraded;
     }
 
     @Override
     public void upgrade() {
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
+        this.upgradeName();
     }
 
     @Override

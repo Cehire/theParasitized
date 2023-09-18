@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
 import theParasitized.ModHelper;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class pi_84_exchange extends CustomCard {
     //func test ok
@@ -32,7 +33,7 @@ public class pi_84_exchange extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.NONE;
     public pi_84_exchange() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -44,14 +45,14 @@ public class pi_84_exchange extends CustomCard {
         return false;
     }
 
-
-    @Override
-    public void tookDamage() {
-        if (AbstractDungeon.player.hand.contains(this) && !AbstractDungeon.actionManager.turnHasEnded){
-            this.flash();
-            this.addToBot(new GainEnergyAction(1));
-        }
-    }
+//
+//    @Override
+//    public void tookDamage() {
+//        if (AbstractDungeon.player.hand.contains(this) && !AbstractDungeon.actionManager.turnHasEnded){
+//            this.flash();
+//            this.addToBot(new GainEnergyAction(1));
+//        }
+//    }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

@@ -16,12 +16,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class changbi extends CustomCard {
 
@@ -36,7 +38,7 @@ public class changbi extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.SELF;
     public changbi() {
         this(0);
@@ -54,15 +56,28 @@ public class changbi extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgradeMagicNumber(1);
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        if(AbstractDungeon.player == null){
+            System.out.println("aaaaaa");
+        }else if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
+            boolean flag = true;
+            StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : trace) {
+                if (element.getClassName().equals("com.megacrit.cardcrawl.screens.select.HandCardSelectScreen")) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                this.flash();
+                if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 2)));
+                }
+            }
+        }
     }
     @Override
     public boolean canUpgrade() {
-        return true;
+        return AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

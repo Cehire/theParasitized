@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class duxing extends CustomCard {
 
@@ -31,7 +32,7 @@ public class duxing extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.SELF;
     public duxing() {
         this(0);
@@ -40,7 +41,7 @@ public class duxing extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;
@@ -48,15 +49,33 @@ public class duxing extends CustomCard {
 
     @Override
     public void upgrade() {
-            ++this.timesUpgraded;
-            this.upgradeMagicNumber(1);
-            this.upgraded = true;
-            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-            this.initializeTitle();
+        if(AbstractDungeon.player == null){
+            System.out.println("aaaaaa");
+        }else if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
+            boolean flag = true;
+            StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : trace) {
+                if (element.getClassName().equals("com.megacrit.cardcrawl.screens.select.HandCardSelectScreen")) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                this.flash();
+                if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                    for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                        if (!monster.isDead && !monster.isDying) {
+                            this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
+                                    new PoisonPower(monster, AbstractDungeon.player, 3), 3));
+                        }
+                    }
+                }
+            }
+        }
     }
     @Override
     public boolean canUpgrade() {
-        return true;
+        return AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
@@ -90,6 +109,8 @@ public class duxing extends CustomCard {
             }
         }
     }
+
+
 
 
 

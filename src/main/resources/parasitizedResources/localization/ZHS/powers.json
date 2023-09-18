@@ -185,5 +185,11 @@
     "DESCRIPTIONS": [
       "你的手牌上限增加"
     ]
+  },
+  "TheParasitized:pi_initial": {
+    "NAME": "寄染之人",
+    "DESCRIPTIONS": [
+      "当你手牌中的诅咒数大于3时，攻击牌伤害+3；大于5时，改为打出攻击牌时获得 [E] "
+    ]
   }
 }

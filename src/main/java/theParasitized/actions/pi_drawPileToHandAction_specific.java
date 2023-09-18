@@ -1,5 +1,6 @@
 package theParasitized.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -41,7 +42,7 @@ public class pi_drawPileToHandAction_specific extends AbstractGameAction {
                 }
             }
 
-            if (tmp.size() == 0) {
+            if (tmp.isEmpty()) {
                 this.isDone = true;
                 return;
             }
@@ -51,7 +52,7 @@ public class pi_drawPileToHandAction_specific extends AbstractGameAction {
                     tmp.shuffle();
                     card = tmp.getBottomCard();
                     tmp.removeCard(card);
-                    if (this.p.hand.size() == 10) {
+                    if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
                         this.p.drawPile.moveToDiscardPile(card);
                         this.p.createHandIsFullDialog();
                     } else {
@@ -64,6 +65,7 @@ public class pi_drawPileToHandAction_specific extends AbstractGameAction {
                         card.current_y = CardGroup.DRAW_PILE_Y;
                         this.p.drawPile.removeCard(card);
                         AbstractDungeon.player.hand.addToTop(card);
+                        card.freeToPlayOnce = true;
                         AbstractDungeon.player.hand.refreshHandLayout();
                         AbstractDungeon.player.hand.applyPowers();
                     }

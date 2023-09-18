@@ -36,7 +36,7 @@ public class pi_83_illusionSlash extends CustomCard {
     public pi_83_illusionSlash(int upgrades){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 

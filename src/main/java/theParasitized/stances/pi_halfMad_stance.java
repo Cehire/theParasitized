@@ -3,6 +3,7 @@ package theParasitized.stances;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,9 +34,6 @@ public class pi_halfMad_stance extends AbstractStance {
         if (sfxId != -1L) {
             this.stopIdleSfx();
         }
-
-        CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
-        sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
     }
 
     @Override
@@ -54,7 +52,8 @@ public class pi_halfMad_stance extends AbstractStance {
         }
     }
     @Override
-    public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 1));
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        damage+=3;
+        return super.atDamageGive(damage, type);
     }
 }

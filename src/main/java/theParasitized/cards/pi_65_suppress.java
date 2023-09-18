@@ -34,6 +34,8 @@ public class pi_65_suppress extends CustomCard {
     public pi_65_suppress() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.exhaust = true;
+        this.isEthereal = true;
     }
 
     @Override

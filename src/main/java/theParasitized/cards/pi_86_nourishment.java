@@ -38,7 +38,7 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
-        this.block = this.baseBlock = 2;
+        this.baseBlock = 2;
         this.selfRetain = true;
     }
 
@@ -46,7 +46,7 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer,this.magicNumber));
         if (this.flag){
-            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.block), this.block));
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.baseBlock), this.baseBlock));
         }
         this.flag = false;
     }

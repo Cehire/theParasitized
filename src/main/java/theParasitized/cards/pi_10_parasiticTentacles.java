@@ -61,7 +61,6 @@ public class pi_10_parasiticTentacles extends CustomCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeDamage(2);
-        this.upgradeMagicNumber(1);
     }
     @Override
     public boolean canUpgrade() {

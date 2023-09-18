@@ -11,33 +11,33 @@
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
-    "DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:zhuxing": {
     "NAME": "蛛形",
-    "DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
-    "DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:duxing": {
     "NAME": "毒腥",
-    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人3层中毒。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人3层中毒。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:huangmou": {
     "NAME": "黄眸",
-    "DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去4生命。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去4生命。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:jugu": {
     "NAME": "咀骨",
-    "DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 升级时，获得7点格挡。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 升级时，获得7点格挡。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:error": {
     "NAME": "错误",
@@ -61,8 +61,8 @@
   },
   "TheParasitized:pi_03_eclosion": {
     "NAME": "羽化",
-    "DESCRIPTION": " 升级你的手牌 !M! 次",
-    "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次"
+    "DESCRIPTION": " 升级你的手牌 !M! 次 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " 升级你的手牌 !M! 次 NL 消耗 "
   },
   "TheParasitized:pi_04_choice": {
     "NAME": "抵抗",
@@ -90,8 +90,8 @@
   },
   "TheParasitized:pi_11_callOfSwarm": {
     "NAME": "大群的呼唤",
-    "DESCRIPTION": "回合开始时, 升级你的所有手牌 !M! 次",
-    "UPGRADE_DESCRIPTION": "回合开始时, 升级你的所有手牌 !M! 次"
+    "DESCRIPTION": "回合开始时, 升级你的所有手牌 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "回合开始时, 升级你的所有手牌"
   },
   "TheParasitized:pi_12_deterioration": {
     "NAME": "堕天",
@@ -235,13 +235,13 @@
   },
   "TheParasitized:pi_48_alacrity": {
     "NAME": "迅捷",
-    "DESCRIPTION": "抽 !M! 张牌，这些牌在本回合中耗能为0",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌，这些牌在本回合中耗能为0"
+    "DESCRIPTION": "抽 !M! 张牌，这些牌在本回合中耗能为0 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌，这些牌在本回合中耗能为0 NL 消耗 "
   },
   "TheParasitized:pi_50_theEnd": {
     "NAME": "末日",
     "DESCRIPTION": "若你的手牌有10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "若你的手牌有10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 "
+    "UPGRADE_DESCRIPTION": "抽1张牌，若你的手牌有10张诅咒，消灭所有敌人，否则，将1张同名牌与1张升级后的同名牌加入抽牌堆 NL 保留 "
   },
   "TheParasitized:pi_bodyEnhance_1": {
     "NAME": "力量强化",
@@ -305,8 +305,8 @@
   },
   "TheParasitized:pi_65_suppress": {
     "NAME": "压制",
-    "DESCRIPTION": "本回合内，拥有负面状态的敌人对你的伤害为0 ",
-    "UPGRADE_DESCRIPTION": "2回合内，拥有负面状态的敌人对你的伤害为0 "
+    "DESCRIPTION": "本回合内，拥有负面状态的敌人对你的伤害为0 NL 消耗 ， 虚无 ",
+    "UPGRADE_DESCRIPTION": "2回合内，拥有负面状态的敌人对你的伤害为0 NL 消耗 ， 虚无 "
   },
   "TheParasitized:pi_66_skillful": {
     "NAME": "超凡技艺",
@@ -379,8 +379,8 @@
   },
   "TheParasitized:pi_79_reflection": {
     "NAME": "反射",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 层易伤 NL 当你失去生命时，将此卡从抽牌堆抽至手牌并使其耗能为0",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 层易伤 NL 当你失去生命时，将此卡从抽牌堆抽至手牌并使其耗能为0"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 层易伤 NL 当你失去生命时，将此卡从抽牌堆加入手牌并使其耗能为0",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 层易伤 NL 当你失去生命时，将此卡从抽牌堆加入手牌并使其耗能为0"
   },
   "TheParasitized:pi_80_feignedAttack": {
     "NAME": "佯攻",
@@ -414,8 +414,8 @@
   },
   "TheParasitized:pi_86_nourishment": {
     "NAME": "滋养",
-    "DESCRIPTION": " 恢复 !M! 点生命 NL 若此卡被保留，则额外获得 !B! 点力量 NL 回合开始时若此卡在手中,消耗1张手牌 NL 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": " 恢复 !M! 点生命 NL 若此卡被保留，则额外获得 !B! 点力量 NL 回合开始时若此卡在手中,消耗1张手牌 NL  保留 , 感染 "
+    "DESCRIPTION": " 恢复 !M! 点生命 NL 若此卡被保留，则额外获得 !myKey! 点力量 NL 回合开始时若此卡在手中,消耗1张手牌 NL 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": " 恢复 !M! 点生命 NL 若此卡被保留，则额外获得 !myKey! 点力量 NL 回合开始时若此卡在手中,消耗1张手牌 NL  保留 , 感染 "
   },
   "TheParasitized:pi_87_waited": {
     "NAME": "伺机而动",

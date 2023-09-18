@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class error extends CustomCard {
 
@@ -27,7 +28,7 @@ public class error extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = 0;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.SELF;
     public error() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -42,7 +43,7 @@ public class error extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new LoseHPAction(abstractPlayer, null,3));
+        this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer,3));
     }
     @Override
     public AbstractCard makeCopy(){

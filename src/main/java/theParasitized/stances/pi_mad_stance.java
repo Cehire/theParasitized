@@ -39,9 +39,6 @@ public class pi_mad_stance extends AbstractStance {
         if (sfxId != -1L) {
             this.stopIdleSfx();
         }
-
-        CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
-        sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
     }
 
     @Override
@@ -71,6 +68,6 @@ public class pi_mad_stance extends AbstractStance {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 3));
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, "Draw Reduction", 2));
     }
 }

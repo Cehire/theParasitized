@@ -31,6 +31,7 @@ public class pi_48_alacrity extends CustomCard {
     public pi_48_alacrity() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 3;
+        this.exhaust = true;
     }
 
     @Override

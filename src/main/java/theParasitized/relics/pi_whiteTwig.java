@@ -1,6 +1,7 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -46,6 +47,8 @@ public class pi_whiteTwig extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
+        this.flash();
+        this.addToBot(new DrawCardAction(1));
         ModHelper.addToBotAbstract(()->{
             AbstractDungeon.player.drawPile.addToRandomSpot(new pi_84_exchange());
         });

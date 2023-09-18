@@ -27,7 +27,7 @@ public class pi_diamondChestplate extends CustomRelic {
     // 图片路径
     private static final String IMG_PATH = "parasitizedResources/images/relics/diamondChestplate.png";
     // 遗物类型
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    private static final RelicTier RELIC_TIER = RelicTier.RARE;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
@@ -44,16 +44,15 @@ public class pi_diamondChestplate extends CustomRelic {
         return new pi_diamondChestplate();
     }
 
-    @Override
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-        return super.onAttackedToChangeDamage(info, damageAmount);
-    }
 
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if (AbstractDungeon.player.currentBlock > 0){
-            AbstractDungeon.player.currentBlock += Math.min(info.output, 2);
-        }
-        return super.onAttacked(info, damageAmount);
-    }
+//    @Override
+//    public int onAttacked(DamageInfo info, int damageAmount) {
+//        if (info.type == DamageInfo.DamageType.NORMAL){
+//            if (AbstractDungeon.player.currentBlock > 0){
+//                AbstractDungeon.player.currentBlock += Math.min(info.output, 2);
+//            }
+//            return super.onAttacked(info, damageAmount);
+//        }
+//        return super.onAttacked(info, damageAmount);
+//    }
 }

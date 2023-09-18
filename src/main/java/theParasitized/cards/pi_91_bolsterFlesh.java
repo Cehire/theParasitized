@@ -80,6 +80,11 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
     }
     @Override
     public void upgrade() {
+        if (!this.upgraded){
+            this.upgradeMagicNumber(1);
+        }
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;

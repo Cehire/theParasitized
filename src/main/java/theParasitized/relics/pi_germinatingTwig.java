@@ -1,10 +1,7 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -60,6 +57,11 @@ public class pi_germinatingTwig extends CustomRelic {
             super.obtain();
         }
 
+    }
+    @Override
+    public void atBattleStartPreDraw() {
+        this.flash();
+        this.addToBot(new DrawCardAction(1));
     }
     public boolean canSpawn() {
         return AbstractDungeon.player.hasRelic("TheParasitized:pi_whiteTwig");

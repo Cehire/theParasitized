@@ -7,34 +7,42 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.extra.pi_growth;
-import theParasitized.cards.extra.pi_intoHalfMad;
-import theParasitized.cards.extra.pi_intoMad;
 import theParasitized.characters.apiTheParasitized;
-import theParasitized.event.testEvent;
-import theParasitized.event.testEvent2;
-import theParasitized.monsters.kaofish;
 import theParasitized.relics.*;
+import theParasitized.cards.utils.MyVariable;
+import theParasitized.stances.pi_halfMad_stance;
 
 
 import java.nio.charset.StandardCharsets;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
-, EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber {
+, EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber, OnPlayerDamagedSubscriber  {
 
     // ===================== to do
     // 人物选择界面按钮的图片
@@ -61,11 +69,13 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     private static final String ENEYGY_ORB = "parasitizedResources/images/char/cost_orb.png";
     // ============================ to do
     public static final Color Pi_Color = new Color(236.0F/255.0F,102.0F/255.0F,172.0F/255.0F,1);
+    public static final Color Pi_Color_Curse = new Color(236.0F/255.0F,102.0F/255.0F,172.0F/255.0F,1);
 
     // 构造方法
     public theParasitizedCore() {
         BaseMod.subscribe(this);
         BaseMod.addColor(PI_COLOR, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color, Pi_Color,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
+        BaseMod.addColor(PI_COLOR_CURSE, Pi_Color_Curse, Pi_Color_Curse, Pi_Color_Curse, Pi_Color_Curse, Pi_Color_Curse, Pi_Color_Curse, Pi_Color_Curse,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
 
     }
 
@@ -180,6 +190,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     @Override
     public void receiveRelicGet(AbstractRelic relic){
         AbstractDungeon.shopRelicPool.remove(BlueCandle.ID);
+        AbstractDungeon.uncommonRelicPool.remove(BlueCandle.ID);
     }
 
 
@@ -232,7 +243,42 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
 
     @Override
     public void receivePostInitialize() {
-        BaseMod.addEvent("PI_TESTEVENT2", testEvent2.class, "Exordium","TheBeyond","TheCity");
-        BaseMod.addMonster("kaofish", kaofish::get);
+//        BaseMod.addEvent("PI_TESTEVENT2", testEvent2.class, "Exordium","TheBeyond","TheCity");
+        BaseMod.addDynamicVariable(new MyVariable());
+    }
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+        if (abstractPower.owner == AbstractDungeon.player && abstractPower.type == AbstractPower.PowerType.DEBUFF){
+            if (AbstractDungeon.player != null && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
+                for (AbstractPower power : AbstractDungeon.player.powers) {
+                    if (power.ID.equals("TheParasitized:pi_cognitiveFilter_power")){
+                        power.flash();
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, power.amount));
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public int receiveOnPlayerDamaged(int i, DamageInfo damageInfo) {
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic.relicId.equals("TheParasitized:pi_diamondChestplate")){
+                if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output < AbstractDungeon.player.currentBlock){
+                    i -= 2;
+                    i = Math.max(i, 0);
+                }
+            }
+        }
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+
+            if (card.cardID.equals(pi_84_exchange.ID)
+                    && damageInfo.owner == AbstractDungeon.player){
+                card.flash();
+                AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+            }
+            }
+
+        return i;
     }
 }

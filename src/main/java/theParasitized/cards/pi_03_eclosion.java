@@ -28,6 +28,7 @@ public class pi_03_eclosion extends CustomCard {
     public pi_03_eclosion() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 3;
+        this.exhaust = true;
     }
 
     @Override
@@ -51,7 +52,7 @@ public class pi_03_eclosion extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
         }
     }
 

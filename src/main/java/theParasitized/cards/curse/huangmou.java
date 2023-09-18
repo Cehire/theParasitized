@@ -2,6 +2,7 @@ package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -13,11 +14,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
+import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class huangmou extends CustomCard {
 
@@ -32,7 +35,7 @@ public class huangmou extends CustomCard {
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
     public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR;
+    public static final CardColor COLOR = PI_COLOR_CURSE;
     public static final CardTarget TARGET = CardTarget.SELF;
     public huangmou() {
         this(0);
@@ -52,15 +55,29 @@ public class huangmou extends CustomCard {
 
     @Override
     public void upgrade() {
-            ++this.timesUpgraded;
-            this.upgradeMagicNumber(1);
-            this.upgraded = true;
-            this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-            this.initializeTitle();
+        if(AbstractDungeon.player == null){
+            System.out.println("aaaaaa");
+        }else if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
+            boolean flag = true;
+            StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : trace) {
+                if (element.getClassName().equals("com.megacrit.cardcrawl.screens.select.HandCardSelectScreen")) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                this.flash();
+                if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+                    this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(4, true),
+                            DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.FIRE, true));
+                }
+            }
+        }
     }
     @Override
     public boolean canUpgrade() {
-        return true;
+        return AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
@@ -86,7 +103,7 @@ public class huangmou extends CustomCard {
             this.flash();
             if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.magicNumber, true),
-                        DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+                        DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.FIRE, true));
             }
         }
     }
