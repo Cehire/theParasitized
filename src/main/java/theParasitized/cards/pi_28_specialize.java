@@ -1,5 +1,7 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,7 +12,7 @@ import theParasitized.actions.pi_specialize_action;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_28_specialize extends CustomMutiUpgradeCard {
+public class pi_28_specialize extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_28_specialize";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,26 +36,23 @@ public class pi_28_specialize extends CustomMutiUpgradeCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new pi_specialize_action(this.energyOnUse, this.freeToPlayOnce, this.upgraded));
+        if (this.energyOnUse != 0 || this.upgraded){
+            this.addToBot(new pi_specialize_action(this.energyOnUse, this.freeToPlayOnce, this.upgraded));
+        }
     }
+
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
         this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        this.upgradeName();
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
         this.initializeDescription();
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_28_specialize(this.timesUpgraded);
+        return new pi_28_specialize();
     }
 }

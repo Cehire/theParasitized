@@ -39,6 +39,11 @@ public class pi_97_expand extends CustomCard {
     }
 
     @Override
+    public boolean canUpgrade() {
+        return true;
+    }
+
+    @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(
                 new ApplyPowerAction(

@@ -18,6 +18,7 @@ public class pi_specialize_action extends AbstractGameAction {
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList();
     private boolean upgraded;
     private int times;
+    private int preTimes = 0;
     private int energy = 0;
 
     public pi_specialize_action(int times, boolean freeToPlayOnce, boolean upgraded) {
@@ -25,17 +26,18 @@ public class pi_specialize_action extends AbstractGameAction {
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
         this.times = times;
+        this.preTimes = times;
         this.freeToPlayOnce = freeToPlayOnce;
         this.upgraded = upgraded;
     }
 
 
     public void update() {
+        if (this.upgraded){
+            this.energy = -1;
+            this.times = preTimes+1;
+        }
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            if (this.upgraded){
-                this.energy--;
-            }
-
             for (AbstractCard card : this.p.hand.group) {
                 if (!card.canUpgrade()) {
                     this.cannotUpgrade.add(card);
@@ -43,14 +45,15 @@ public class pi_specialize_action extends AbstractGameAction {
             }
 
             if (this.cannotUpgrade.size() == this.p.hand.group.size()) {
+                //没有能升级的牌
                 this.isDone = true;
                 return;
             }
 
             if (this.p.hand.group.size() - this.cannotUpgrade.size() == 1) {
+                //能升级的牌只有一张
                 for (AbstractCard card : this.p.hand.group) {
                     if (card.canUpgrade()) {
-                        energy = 0;
                         while (card.canUpgrade() && times > 0){
                             card.upgrade();
                             card.superFlash();
@@ -76,7 +79,6 @@ public class pi_specialize_action extends AbstractGameAction {
             }
 
             if (this.p.hand.group.size() == 1) {
-                energy = 0;
                 while (this.p.hand.getTopCard().canUpgrade() && times > 0){
                     this.p.hand.getTopCard().upgrade();
                     this.p.hand.getTopCard().superFlash();
@@ -95,7 +97,6 @@ public class pi_specialize_action extends AbstractGameAction {
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                energy = 0;
                 while(c.canUpgrade() && times > 0){
                     c.upgrade();
                     c.superFlash();

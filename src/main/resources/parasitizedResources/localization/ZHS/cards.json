@@ -86,7 +86,7 @@
   },
   "TheParasitized:pi_10_parasiticTentacles": {
     "NAME": "寄染之触",
-    "DESCRIPTION": "造成 !D! 伤害, 恢复 !M! 生命, 你的手牌中每有1张诅咒便重复一次 NL 消耗 , 感染 "
+    "DESCRIPTION": "随机造成 !D! 伤害, 恢复 !M! 生命, 你的手牌中每有1张诅咒便重复一次 NL 消耗 , 感染 "
   },
   "TheParasitized:pi_11_callOfSwarm": {
     "NAME": "大群的呼唤",
@@ -150,8 +150,8 @@
   },
   "TheParasitized:pi_28_specialize": {
     "NAME": "特化",
-    "DESCRIPTION": " 选择一张手牌，升级 X 次，X为你当前的能量 ",
-    "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X + 1 次，X为你当前的能量 "
+    "DESCRIPTION": " 选择一张手牌，升级 X 次",
+    "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X + 1 次"
   },
   "TheParasitized:pi_29_ironWave": {
     "NAME": "御血术",
