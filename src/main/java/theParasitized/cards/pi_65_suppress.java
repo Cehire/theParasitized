@@ -2,17 +2,12 @@ package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theParasitized.ModHelper;
-import theParasitized.actions.pi_alacrity_action;
-import theParasitized.powers.pi_double_power;
 import theParasitized.powers.pi_suppress_power;
-import theParasitized.stances.pi_mad_stance;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 

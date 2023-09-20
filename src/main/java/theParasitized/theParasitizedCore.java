@@ -7,11 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -19,26 +16,20 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
-import theParasitized.cards.*;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.extra.pi_growth;
+import theParasitized.cards.*;
+import theParasitized.cards.utils.MyVariable;
 import theParasitized.characters.apiTheParasitized;
 import theParasitized.relics.*;
-import theParasitized.cards.utils.MyVariable;
-import theParasitized.stances.pi_halfMad_stance;
-
 
 import java.nio.charset.StandardCharsets;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
-import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
+import static theParasitized.characters.apiTheParasitized.Enums.*;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber

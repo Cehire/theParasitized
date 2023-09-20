@@ -1,31 +1,18 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
-import com.megacrit.cardcrawl.actions.unique.ExhaustAllNonAttackAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.BlueCandle;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.NecronomicurseEffect;
-import theParasitized.ModHelper;
-import theParasitized.cards.utils.CommonUtil;
-import theParasitized.powers.pi_sacrifice_power;
+import theParasitized.actions.pi_baseCurse_action;
 import theParasitized.relics.pi_whiteTwig;
 
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class callOfParasites extends CustomCard {
@@ -90,9 +77,11 @@ public class callOfParasites extends CustomCard {
     public void atTurnStart() {
         if (AbstractDungeon.player.hand.contains(this)){
             this.flash();
-            this.addToBot(new MakeTempCardInHandAction(new baseCurse(), 1));
+            this.addToBot(new pi_baseCurse_action());
         }
      }
+
+
 
 
 }

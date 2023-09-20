@@ -1,6 +1,5 @@
 package theParasitized.cards.curse;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -12,12 +11,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class zhuxing extends CustomCard {

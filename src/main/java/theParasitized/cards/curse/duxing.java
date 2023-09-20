@@ -11,12 +11,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.BlueCandle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.powers.pi_sacrifice_power;
 
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class duxing extends CustomCard {

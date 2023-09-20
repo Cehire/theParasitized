@@ -6,8 +6,8 @@
   },
   "TheParasitized:callOfParasites": {
     "NAME": "寄群之唤",
-    "DESCRIPTION": "回合开始时，将1张原始胞体加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
-    "UPGRADE_DESCRIPTION": "回合开始时，将1张原始胞体加入到手牌。 NL 无法逃脱， 保留 "
+    "DESCRIPTION": "回合开始时，从三张寄染诅咒中选择一张加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "回合开始时，从三张寄染诅咒中选择一张加入到手牌。 NL 无法逃脱， 保留 "
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",

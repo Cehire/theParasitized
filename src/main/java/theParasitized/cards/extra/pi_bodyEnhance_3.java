@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import com.megacrit.cardcrawl.powers.RegenPower;
 import theParasitized.cards.CustomMutiUpgradeCard;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;

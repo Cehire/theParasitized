@@ -1,18 +1,13 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.BlueCandle;
-import theParasitized.powers.pi_sacrifice_power;
 
-import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
 public class error extends CustomCard {

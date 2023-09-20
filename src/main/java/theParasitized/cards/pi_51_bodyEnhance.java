@@ -5,18 +5,13 @@ import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theParasitized.cards.extra.pi_bodyEnhance_1;
 import theParasitized.cards.extra.pi_bodyEnhance_2;
 import theParasitized.cards.extra.pi_bodyEnhance_3;
 import theParasitized.cards.utils.CommonUtil;
-import theParasitized.powers.pi_wither_power;
-import theParasitized.stances.pi_halfMad_stance;
-import theParasitized.stances.pi_mad_stance;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,6 @@
 package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
-
 import com.megacrit.cardcrawl.cards.curses.Normality;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;

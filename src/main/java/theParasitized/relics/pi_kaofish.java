@@ -1,6 +1,5 @@
 package theParasitized.relics;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
