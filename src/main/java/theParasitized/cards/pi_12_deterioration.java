@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.actions.pi_baseCurse_action;
+import theParasitized.cards.curse.baseCurse;
 
 import static theParasitized.cards.utils.CommonUtil.returnRandomCurse;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -22,7 +24,7 @@ public class pi_12_deterioration extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 0;
+    public static final int COST = 1;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -34,9 +36,11 @@ public class pi_12_deterioration extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.addToBot(new ExhaustAction(this.magicNumber, false, false, true));
-        for (int i = 0; i < this.magicNumber; i++) {
-            this.addToBot(new MakeTempCardInHandAction(returnRandomCurse(), 1));
+        this.addToBot(new ExhaustAction(1, false, false, false));
+        this.addToBot(new pi_baseCurse_action());
+        this.addToBot(new pi_baseCurse_action());
+        if (this.upgraded){
+            this.addToBot(new pi_baseCurse_action());
         }
     }
 

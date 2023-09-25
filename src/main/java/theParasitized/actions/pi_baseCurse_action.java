@@ -22,7 +22,7 @@ public class pi_baseCurse_action extends AbstractGameAction {
     public void update() {
         ArrayList<AbstractCard> generatedCards = CommonUtil.generateCurseChoices();
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], false);
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, "钟声响起。。。", false);
             this.tickDuration();
         } else {
             if (!this.retrieveCard) {

@@ -59,7 +59,7 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(1);
+        this.upgradeMagicNumber(2);
     }
 
     @Override

@@ -6,8 +6,8 @@
   },
   "TheParasitized:callOfParasites": {
     "NAME": "寄群之唤",
-    "DESCRIPTION": "回合开始时，从三张寄染诅咒中选择一张加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
-    "UPGRADE_DESCRIPTION": "回合开始时，从三张寄染诅咒中选择一张加入到手牌。 NL 无法逃脱， 保留 "
+    "DESCRIPTION": "回合开始时，随机将一张寄染诅咒加入到手牌。 NL 无法逃脱， 固有 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "回合开始时，随机将一张寄染诅咒加入到手牌。 NL 无法逃脱， 保留 "
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
@@ -26,8 +26,8 @@
   },
   "TheParasitized:duxing": {
     "NAME": "毒腥",
-    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人3层中毒。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人3层中毒。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人4层中毒。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人4层中毒。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:huangmou": {
     "NAME": "黄眸",
@@ -95,8 +95,8 @@
   },
   "TheParasitized:pi_12_deterioration": {
     "NAME": "堕天",
-    "DESCRIPTION": "消耗 !M! 张牌，往手牌中加入 !M! 张随机诅咒 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "消耗 !M! 张牌，往手牌中加入 !M! 张随机诅咒 NL  消耗 "
+    "DESCRIPTION": "消耗1张手牌，选择 !M! 张寄染诅咒加入手牌 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "消耗1张手牌，选择 !M! 张寄染诅咒加入手牌 NL 消耗 "
   },
   "TheParasitized:pi_14_nesting": {
     "NAME": "筑巢",
@@ -325,8 +325,8 @@
   },
   "TheParasitized:pi_69_parasite": {
     "NAME": "寄生",
-    "DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得恢复生命值一半的 力量 NL 消耗 , 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得恢复生命值一半的 力量 NL 消耗 , 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得1点 力量 NL 消耗 , 感染 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，每当目标敌人受到攻击时，你恢复 !M! 点生命，获得1点 力量 NL 消耗 , 感染 "
   },
   "TheParasitized:pi_70_stress": {
     "NAME": "应激",

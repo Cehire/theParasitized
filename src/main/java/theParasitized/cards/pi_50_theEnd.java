@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -38,7 +39,7 @@ public class pi_50_theEnd extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        if(this.upgraded){
+            if(this.upgraded){
             this.addToBot(new DrawCardAction(1));
         }
         int n = 0;
@@ -50,12 +51,15 @@ public class pi_50_theEnd extends CustomCard {
         System.out.println("======================THE END" + n + "=======================");
         if (n==10){
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                this.addToBot(new VFXAction(abstractPlayer, new ScreenOnFireEffect(), 1.0F));
                 this.addToBot(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), 0.05F));
                 this.addToBot(new InstantKillAction(monster));
             }
         }else {
             AbstractCard card = this.makeCopy();
-            card.upgrade();
+            if (this.upgraded){
+                card.upgrade();
+            }
             this.addToBot(new MakeTempCardInDrawPileAction(card, 1, true, true));
             this.addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
         }

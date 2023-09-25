@@ -39,7 +39,7 @@ public class duxing extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.selfRetain = true;
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isInnate = true;
@@ -64,7 +64,7 @@ public class duxing extends CustomCard {
                     for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                         if (!monster.isDead && !monster.isDying) {
                             this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player,
-                                    new PoisonPower(monster, AbstractDungeon.player, 3), 3));
+                                    new PoisonPower(monster, AbstractDungeon.player, 4), 4));
                         }
                     }
                 }

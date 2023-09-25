@@ -45,7 +45,7 @@ public class pi_70_stress extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
-            this.selfRetain = true;
+            this.isInnate = true;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

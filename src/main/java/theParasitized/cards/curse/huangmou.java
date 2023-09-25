@@ -65,7 +65,7 @@ public class huangmou extends CustomCard {
             if (flag){
                 this.flash();
                 if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                    this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(4, true),
+                    this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(6, true),
                             DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.FIRE, true));
                 }
             }

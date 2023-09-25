@@ -24,7 +24,7 @@ public class pi_bodyEnhance_3 extends CustomMutiUpgradeCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
-    public static final CardType TYPE = CardType.SKILL;
+    public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_bodyEnhance_3() {
@@ -33,7 +33,7 @@ public class pi_bodyEnhance_3 extends CustomMutiUpgradeCard {
     public pi_bodyEnhance_3(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber = 4 + this.timesUpgraded * 2;
     }
 
 

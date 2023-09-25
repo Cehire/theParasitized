@@ -41,7 +41,7 @@ public class pi_06_purification extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
             this.upgradeName();
         }
     }
