@@ -39,6 +39,7 @@ public class pi_78_assimilation extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.block = this.baseBlock = 5;
     }
 
 
@@ -74,6 +75,7 @@ public class pi_78_assimilation extends CustomCard {
         this.initializeTitle();
         this.upgradeDamage(3);
         this.upgradeMagicNumber(1);
+        this.upgradeBlock(2);
     }
     @Override
     public boolean canUpgrade() {

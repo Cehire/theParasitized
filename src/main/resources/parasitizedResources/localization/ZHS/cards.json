@@ -31,8 +31,8 @@
   },
   "TheParasitized:huangmou": {
     "NAME": "黄眸",
-    "DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去4生命。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去4生命。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去6生命。 NL 固有 , 保留 , 感染 ",
+    "UPGRADE_DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去6生命。 NL 固有 , 保留 , 感染 "
   },
   "TheParasitized:jugu": {
     "NAME": "咀骨",
@@ -240,8 +240,8 @@
   },
   "TheParasitized:pi_50_theEnd": {
     "NAME": "末日",
-    "DESCRIPTION": "若你的手牌有10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "抽1张牌，若你的手牌有10张诅咒，消灭所有敌人，否则，将1张同名牌与1张升级后的同名牌加入抽牌堆 NL 保留 "
+    "DESCRIPTION": "若你的手牌有大于10张诅咒，消灭所有敌人，否则，将2张同名牌加入抽牌堆 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "抽1张牌，若你的手牌有大于10张诅咒，消灭所有敌人，否则，将1张同名牌与1张升级后的同名牌加入抽牌堆 NL 保留 "
   },
   "TheParasitized:pi_bodyEnhance_1": {
     "NAME": "力量强化",
@@ -374,8 +374,8 @@
   },
   "TheParasitized:pi_78_assimilation": {
     "NAME": "同化",
-    "DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 [E] NL 感染",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得5格挡；30，获得 [E] NL 感染 "
+    "DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得 !B! 格挡；30，获得 [E] NL 感染",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害， 若当前楼层数大于10，给予 !M! 层虚弱；20，获得 !B! 格挡；30，获得 [E] NL 感染 "
   },
   "TheParasitized:pi_79_reflection": {
     "NAME": "反射",

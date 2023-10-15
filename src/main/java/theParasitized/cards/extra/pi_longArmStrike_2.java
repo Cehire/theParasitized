@@ -36,6 +36,7 @@ public class pi_longArmStrike_2 extends CustomCard {
         this.damage = this.baseDamage = 15;
         this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
+        this.cardsToPreview = new pi_longArmStrike_3();
     }
 
 

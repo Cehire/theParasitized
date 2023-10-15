@@ -255,7 +255,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     public int receiveOnPlayerDamaged(int i, DamageInfo damageInfo) {
         for (AbstractRelic relic : AbstractDungeon.player.relics) {
             if (relic.relicId.equals("TheParasitized:pi_diamondChestplate")){
-                if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output < AbstractDungeon.player.currentBlock){
+                if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output <= AbstractDungeon.player.currentBlock){
                     i -= 2;
                     i = Math.max(i, 0);
                 }

@@ -3,10 +3,12 @@ package theParasitized.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.cards.extra.pi_growth;
 import theParasitized.powers.pi_nesting_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -28,6 +30,7 @@ public class pi_14_nesting extends CustomCard {
     public pi_14_nesting() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.cardsToPreview = new pi_growth();
     }
 
     @Override

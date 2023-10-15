@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.cards.extra.pi_error;
 import theParasitized.powers.pi_getMad_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -33,6 +34,7 @@ public class pi_52_getMad extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 10;
+        this.cardsToPreview = new pi_error();
     }
 
     @Override

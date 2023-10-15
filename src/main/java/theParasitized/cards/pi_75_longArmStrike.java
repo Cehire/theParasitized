@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.cards.extra.pi_error;
 import theParasitized.cards.extra.pi_longArmStrike_2;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -36,6 +37,7 @@ public class pi_75_longArmStrike extends CustomCard {
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.cardsToPreview = new pi_longArmStrike_2();
     }
 
 

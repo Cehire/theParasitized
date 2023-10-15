@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class pi_thornyFlesh_power extends AbstractPower {
     public static final String POWER_ID = "TheParasitized:pi_thornyFlesh_power";
@@ -39,7 +40,7 @@ public class pi_thornyFlesh_power extends AbstractPower {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (!info.owner.isPlayer){
-            this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new VulnerablePower(info.owner, this.amount, false)));
+            this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new WeakPower(info.owner, this.amount, true)));
             this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new PoisonPower(info.owner, AbstractDungeon.player,this.amount)));
         }
         return damageAmount;

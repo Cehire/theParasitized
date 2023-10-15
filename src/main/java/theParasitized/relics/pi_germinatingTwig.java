@@ -38,7 +38,7 @@ public class pi_germinatingTwig extends CustomRelic {
         if (!AbstractDungeon.actionManager.turnHasEnded){
             this.flash();
             this.addToBot(new GainEnergyAction(1));
-            this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 1));
+            this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 2));
         }
     }
     public void obtain() {

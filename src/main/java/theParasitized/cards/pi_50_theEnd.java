@@ -39,7 +39,7 @@ public class pi_50_theEnd extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-            if(this.upgraded){
+        if(this.upgraded){
             this.addToBot(new DrawCardAction(1));
         }
         int n = 0;
@@ -49,9 +49,9 @@ public class pi_50_theEnd extends CustomCard {
             }
         }
         System.out.println("======================THE END" + n + "=======================");
-        if (n==10){
+        if (n>9){
+            this.addToBot(new VFXAction(abstractPlayer, new ScreenOnFireEffect(), 1.0F));
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                this.addToBot(new VFXAction(abstractPlayer, new ScreenOnFireEffect(), 1.0F));
                 this.addToBot(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), 0.05F));
                 this.addToBot(new InstantKillAction(monster));
             }

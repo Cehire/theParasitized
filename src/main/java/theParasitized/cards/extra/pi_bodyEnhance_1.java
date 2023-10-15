@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import theParasitized.cards.CustomMutiUpgradeCard;
 
@@ -44,6 +45,7 @@ public class pi_bodyEnhance_1 extends CustomMutiUpgradeCard {
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+
     }
 
     @Override
