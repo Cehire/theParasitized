@@ -260,8 +260,8 @@
   },
   "TheParasitized:pi_51_bodyEnhance": {
     "NAME": "身体强化",
-    "DESCRIPTION": "技巧 ：选择：获得 !M! 点 力量 、!M! 点 敏捷 或 !M! 层 多层护甲 ；否则：获得 !M! 点 力量 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "技巧 ：选择：获得 !M! 点 力量 、!M! 点 敏捷 或 !M! 层 多层护甲 ；否则：获得 !M! 点 力量 NL 感染 "
+    "DESCRIPTION": "技巧 ：获得 !M! 点 力量 、!M! 点 敏捷 和 !myKey! 层 多层护甲 ；否则：获得 !myKey! 点 力量 NL 感染 ",
+    "UPGRADE_DESCRIPTION": "技巧 ：获得 !M! 点 力量 、!M! 点 敏捷 和 !myKey! 层 多层护甲 ；否则：获得 !myKey!力量 NL 感染 "
   },
   "TheParasitized:pi_52_getMad": {
     "NAME": "狂躁",
@@ -404,8 +404,8 @@
   },
   "TheParasitized:pi_84_exchange": {
     "NAME": "本能",
-    "DESCRIPTION": "无法被打出，无法被升级，当你在自己的回合中受到伤害时，获得 [E] NL 保留 ",
-    "UPGRADE_DESCRIPTION": "无法被打出，无法被升级，当你在自己的回合中受到伤害时，获得 [E] NL 保留 "
+    "DESCRIPTION": "无法被打出，无法被升级，当你对自己造成伤害时，获得 [E] NL 保留 ",
+    "UPGRADE_DESCRIPTION": "无法被打出，无法被升级，当你对自己造成伤害时，获得 [E] NL 保留 "
   },
   "TheParasitized:pi_85_parry": {
     "NAME": "剑格",

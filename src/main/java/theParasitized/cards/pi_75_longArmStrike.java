@@ -25,7 +25,7 @@ public class pi_75_longArmStrike extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
@@ -35,7 +35,7 @@ public class pi_75_longArmStrike extends CustomCard {
     public pi_75_longArmStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 8;
         this.magicNumber = this.baseMagicNumber = 1;
         this.cardsToPreview = new pi_longArmStrike_2();
     }

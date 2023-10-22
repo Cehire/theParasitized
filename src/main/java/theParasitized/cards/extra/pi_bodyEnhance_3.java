@@ -33,7 +33,7 @@ public class pi_bodyEnhance_3 extends CustomMutiUpgradeCard {
     public pi_bodyEnhance_3(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 4 + this.timesUpgraded * 2;
+        this.magicNumber =  this.baseMagicNumber = 2 + this.timesUpgraded;;
     }
 
 

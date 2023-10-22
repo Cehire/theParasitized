@@ -32,8 +32,8 @@ public class pi_longArmStrike_3 extends CustomCard {
     public pi_longArmStrike_3(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 20;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.damage = this.baseDamage = 15;
+        this.magicNumber = this.baseMagicNumber = 0;
         this.exhaust = true;
     }
 

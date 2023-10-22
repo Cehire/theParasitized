@@ -70,9 +70,11 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("theParasitized:Api");
-    private final Texture image1;
-    private final Texture image2;
-    private final Texture image3;
+    private Texture image1;
+    private Texture image2;
+    private Texture image3;
+
+    public boolean paraFlag = false;
 
     public apiTheParasitized(String name) {
 
@@ -204,6 +206,7 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     @Override
     public void preBattlePrep() {
         super.preBattlePrep();
+        this.paraFlag = false;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 AbstractDungeon.player, AbstractDungeon.player,
                 new pi_initial(AbstractDungeon.player)));
@@ -307,6 +310,16 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     @Override
     public void onRightClick() {
         System.out.println("==========右键点击了能量球=============");
+        this.paraFlag = !this.paraFlag;
+        if (this.paraFlag){
+            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
+            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
+            this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
+        }else {
+            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
+            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
+            this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
+        }
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

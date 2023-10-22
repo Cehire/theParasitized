@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import theParasitized.cards.extra.pi_bodyEnhance_1;
 import theParasitized.cards.extra.pi_bodyEnhance_2;
@@ -37,19 +39,21 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
     public pi_51_bodyEnhance(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.block = this.baseBlock = 4;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+
+
         if (CommonUtil.Skill(abstractPlayer)){
-            ArrayList<AbstractCard> stanceChoices = new ArrayList();
-            stanceChoices.add(new pi_bodyEnhance_1(this.timesUpgraded));
-            stanceChoices.add(new pi_bodyEnhance_2(this.timesUpgraded));
-            stanceChoices.add(new pi_bodyEnhance_3(this.timesUpgraded));
-            this.addToBot(new ChooseOneAction(stanceChoices));
-        }else {
             this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.magicNumber), this.magicNumber));
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, this.magicNumber), this.magicNumber));
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new PlatedArmorPower(abstractPlayer, this.baseBlock), this.baseBlock));
+
+        }else {
+            this.addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, this.baseBlock), this.baseBlock));
         }
     }
 
@@ -59,7 +63,8 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeMagicNumber(2);
+        this.upgradeMagicNumber(1);
+        this.upgradeBlock(2);
     }
 
     @Override

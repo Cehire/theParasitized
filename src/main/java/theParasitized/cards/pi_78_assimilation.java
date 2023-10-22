@@ -58,7 +58,7 @@ public class pi_78_assimilation extends CustomCard {
                     this.magicNumber));
         }
         if (floorNum >= 20){
-            this.addToBot(new GainBlockAction(abstractPlayer, 5));
+            this.addToBot(new GainBlockAction(abstractPlayer, this.block));
         }
         if (floorNum >= 30){
             this.addToBot(new GainEnergyAction(1));

@@ -43,7 +43,7 @@ public class pi_64_doubleBlade extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.addToBot(new LoseHPAction(abstractPlayer, null, 3));
+        this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer, 3));
     }
 
     @Override
