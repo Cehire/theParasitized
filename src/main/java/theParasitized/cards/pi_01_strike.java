@@ -56,6 +56,29 @@ public class pi_01_strike extends CustomCard {
 
     @Override
     public void upgrade() {
+        if(AbstractDungeon.player == null){
+            System.out.println("aaaaaa");
+        }else{
+            boolean flag = true;
+            StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : trace) {
+                    if (element.getClassName().equals("com.megacrit.cardcrawl.screens.select.HandCardSelectScreen")||
+                        element.getClassName().equals("com.megacrit.cardcrawl.screens.select.GridCardSelectScreen")||
+                        element.getClassName().equals("com.megacrit.cardcrawl.screens.SingleCardViewPopup")) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                if (AbstractDungeon.player.hasRelic("Dream Catcher")) {
+                    AbstractDungeon.player.getRelic("Dream Catcher").flash();
+                    ArrayList<AbstractCard> rewardCards = AbstractDungeon.getRewardCards();
+                    if (rewardCards != null && !rewardCards.isEmpty()) {
+                        AbstractDungeon.cardRewardScreen.open(rewardCards, (RewardItem)null, TEXT[0]);
+                    }
+                }
+            }
+        }
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;

@@ -5,6 +5,8 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
@@ -33,7 +36,8 @@ import static theParasitized.characters.apiTheParasitized.Enums.*;
 
 @SpireInitializer
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
-, EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber, OnPlayerDamagedSubscriber  {
+, EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber,
+        OnPlayerDamagedSubscriber{
 
     // ===================== to do
     // 人物选择界面按钮的图片
@@ -82,7 +86,6 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // =============  卡牌注册在这里  =============
     @Override
     public void receiveEditCards() {
-
         //===============================   curse part  ==============================
         BaseMod.addCard(new baseCurse());
         BaseMod.addCard(new callOfParasites());
@@ -175,6 +178,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_96_tactics());
         BaseMod.addCard(new pi_97_expand());
 
+
     }
 
 
@@ -182,7 +186,11 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     public void receiveRelicGet(AbstractRelic relic){
         AbstractDungeon.shopRelicPool.remove(BlueCandle.ID);
         AbstractDungeon.uncommonRelicPool.remove(BlueCandle.ID);
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+
+        }
     }
+
 
 
     @Override

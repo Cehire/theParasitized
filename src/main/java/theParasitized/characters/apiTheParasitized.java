@@ -29,6 +29,7 @@ import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_96_tactics;
+import theParasitized.interfaces.ClickableEnergyPanel;
 import theParasitized.powers.pi_initial;
 import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
@@ -40,7 +41,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
 
 // 继承CustomPlayer类
-public class apiTheParasitized extends CustomPlayer {
+public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPanel {
     public static boolean toStage1 = true;
     public static boolean toStage2 = true;
     public static boolean toStage3 = true;
@@ -74,6 +75,7 @@ public class apiTheParasitized extends CustomPlayer {
     private final Texture image3;
 
     public apiTheParasitized(String name) {
+
         super(name, PI_THE_PARASITIZED,ORB_TEXTURES,"parasitizedResources/images/UI/orb/vfx.png", LAYER_SPEED, null, null);
         this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
         this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
@@ -300,6 +302,11 @@ public class apiTheParasitized extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+    }
+
+    @Override
+    public void onRightClick() {
+        System.out.println("==========右键点击了能量球=============");
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
