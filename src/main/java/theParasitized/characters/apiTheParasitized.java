@@ -54,11 +54,11 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     private static final String CORPSE_IMAGE = "parasitizedResources/images/char/new/down.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
-            "parasitizedResources/images/UI/orb/layer5.png",
-            "parasitizedResources/images/UI/orb/layer4.png",
-            "parasitizedResources/images/UI/orb/layer3.png",
-            "parasitizedResources/images/UI/orb/layer2.png",
             "parasitizedResources/images/UI/orb/layer1.png",
+            "parasitizedResources/images/UI/orb/layer2.png",
+            "parasitizedResources/images/UI/orb/layer3.png",
+            "parasitizedResources/images/UI/orb/layer4.png",
+            "parasitizedResources/images/UI/orb/layer5.png",
             "parasitizedResources/images/UI/orb/layer6.png",
             "parasitizedResources/images/UI/orb/layer5d.png",
             "parasitizedResources/images/UI/orb/layer4d.png",
@@ -74,7 +74,7 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     private Texture image2;
     private Texture image3;
 
-    public boolean paraFlag = false;
+    public static boolean paraFlag = false;
 
     public apiTheParasitized(String name) {
 
@@ -310,16 +310,24 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     @Override
     public void onRightClick() {
         System.out.println("==========右键点击了能量球=============");
-        this.paraFlag = !this.paraFlag;
-        if (this.paraFlag){
+        paraFlag = !paraFlag;
+        if (!paraFlag){
             this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
             this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
             this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
         }else {
-            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
-            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
+            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
+            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
             this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
         }
+        if (toStage1){
+            AbstractDungeon.player.img = this.image1;
+        }else if (toStage2){
+            AbstractDungeon.player.img = this.image1;
+        }else if (toStage3){
+            AbstractDungeon.player.img = this.image1;
+        }
+
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

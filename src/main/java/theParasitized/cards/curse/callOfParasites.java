@@ -1,6 +1,7 @@
 package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.vfx.NecronomicurseEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import theParasitized.actions.pi_baseCurse_action;
 import theParasitized.cards.utils.CommonUtil;
+import theParasitized.characters.apiTheParasitized;
 import theParasitized.relics.pi_whiteTwig;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
@@ -77,9 +79,15 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public void atTurnStart() {
+
         if (AbstractDungeon.player.hand.contains(this)){
             this.flash();
-            this.addToBot(new pi_baseCurse_action());
+            if (!apiTheParasitized.paraFlag){
+                this.addToBot(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 3));
+            }else {
+                this.addToBot(new MakeTempCardInHandAction(CommonUtil.returnRandomCurse(), 1));
+
+            }
         }
      }
 
