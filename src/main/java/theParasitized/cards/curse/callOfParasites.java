@@ -3,6 +3,7 @@ package theParasitized.cards.curse;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -79,7 +80,6 @@ public class callOfParasites extends CustomCard {
 
     @Override
     public void atTurnStart() {
-
         if (AbstractDungeon.player.hand.contains(this)){
             this.flash();
             if (!apiTheParasitized.paraFlag){

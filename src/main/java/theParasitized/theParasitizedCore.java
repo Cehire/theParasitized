@@ -199,7 +199,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         if(language == Settings.GameLanguage.ZHS){
             lang = "ZHS";
         }else {
-            lang = "ENG";
+            lang = "ZHS";
         }
         BaseMod.loadCustomStringsFile(CardStrings.class, "parasitizedResources/localization/" + lang + "/cards.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "parasitizedResources/localization/" + lang + "/characters.json");
@@ -224,7 +224,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String lang = "eng";
+        String lang = "ZHS";
         if (language == Settings.GameLanguage.ZHS) {
             lang = "ZHS";
         }
