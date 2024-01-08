@@ -64,7 +64,6 @@ public class pi_drawPileToHandAction_specific extends AbstractGameAction {
                         card.current_y = CardGroup.DRAW_PILE_Y;
                         this.p.drawPile.removeCard(card);
                         AbstractDungeon.player.hand.addToTop(card);
-                        card.freeToPlayOnce = true;
                         AbstractDungeon.player.hand.refreshHandLayout();
                         AbstractDungeon.player.hand.applyPowers();
                     }

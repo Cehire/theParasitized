@@ -79,17 +79,13 @@ public class callOfParasites extends CustomCard {
     }
 
     @Override
-    public void atTurnStart() {
-        if (AbstractDungeon.player.hand.contains(this)){
-            this.flash();
-            if (!apiTheParasitized.paraFlag){
-                this.addToBot(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 3));
-            }else {
-                this.addToBot(new MakeTempCardInHandAction(CommonUtil.returnRandomCurse(), 1));
+    public void onRetained() {
+        this.flash();
+        this.addToBot(new pi_baseCurse_action());
 
-            }
-        }
-     }
+    }
+
+
 
 
 

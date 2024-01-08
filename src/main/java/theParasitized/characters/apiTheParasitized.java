@@ -41,7 +41,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 import static theParasitized.characters.apiTheParasitized.Enums.PI_THE_PARASITIZED;
 
 // 继承CustomPlayer类
-public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPanel {
+public class apiTheParasitized extends CustomPlayer{
     public static boolean toStage1 = true;
     public static boolean toStage2 = true;
     public static boolean toStage3 = true;
@@ -305,29 +305,6 @@ public class apiTheParasitized extends CustomPlayer implements ClickableEnergyPa
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
-    }
-
-    @Override
-    public void onRightClick() {
-        System.out.println("==========右键点击了能量球=============");
-        paraFlag = !paraFlag;
-        if (!paraFlag){
-            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance1.png");
-            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance2.png");
-            this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
-        }else {
-            this.image1 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
-            this.image2 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
-            this.image3 = ImageMaster.loadImage("parasitizedResources/images/char/stance3.png");
-        }
-        if (toStage1){
-            AbstractDungeon.player.img = this.image1;
-        }else if (toStage2){
-            AbstractDungeon.player.img = this.image1;
-        }else if (toStage3){
-            AbstractDungeon.player.img = this.image1;
-        }
-
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
