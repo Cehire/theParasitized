@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theParasitized.cards.curse.*;
 import theParasitized.cards.extra.pi_growth;
 import theParasitized.cards.*;
@@ -177,8 +178,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_84_exchange());
         BaseMod.addCard(new pi_96_tactics());
         BaseMod.addCard(new pi_97_expand());
-
-
+        
     }
 
 
@@ -186,9 +186,6 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     public void receiveRelicGet(AbstractRelic relic){
         AbstractDungeon.shopRelicPool.remove(BlueCandle.ID);
         AbstractDungeon.uncommonRelicPool.remove(BlueCandle.ID);
-        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-
-        }
     }
 
 
@@ -201,6 +198,8 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         }else {
             lang = "ZHS";
         }
+        // todo:
+        lang = "ZHS";
         BaseMod.loadCustomStringsFile(CardStrings.class, "parasitizedResources/localization/" + lang + "/cards.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "parasitizedResources/localization/" + lang + "/characters.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "parasitizedResources/localization/" + lang + "/powers.json");
@@ -228,6 +227,8 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         if (language == Settings.GameLanguage.ZHS) {
             lang = "ZHS";
         }
+        //todo:
+        lang = "ZHS";
         String json = Gdx.files.internal("parasitizedResources/localization/" + lang + "/keywords.json")
                 .readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
