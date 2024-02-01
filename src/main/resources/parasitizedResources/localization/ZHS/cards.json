@@ -340,8 +340,8 @@
   },
   "TheParasitized:pi_72_fall": {
     "NAME": "降临",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害  施加 !M! 层虚弱 NL 感染",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害  施加 !M! 层虚弱 NL 感染 "
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL 施加 !M! 层虚弱 NL 感染",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL 施加 !M! 层虚弱 NL 感染 "
   },
   "TheParasitized:pi_73_pureBlade": {
     "NAME": "纯洁之刃",
