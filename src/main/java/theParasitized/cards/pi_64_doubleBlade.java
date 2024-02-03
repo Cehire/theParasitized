@@ -18,7 +18,7 @@ public class pi_64_doubleBlade extends CustomCard {
     public static final String ID = "TheParasitized:pi_64_doubleBlade";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/双刃剑_attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.COMMON;
 

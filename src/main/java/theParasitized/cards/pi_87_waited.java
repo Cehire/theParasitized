@@ -17,7 +17,7 @@ public class pi_87_waited extends CustomCard {
     public static final String ID = "TheParasitized:pi_87_waited";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/结局2-伺机而动_skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.COMMON;
 

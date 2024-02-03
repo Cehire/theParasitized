@@ -23,7 +23,7 @@ public class pi_83_illusionSlash extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/剑舞_attack.png";
     public static final int COST = 1;
 
     public static final CardType TYPE = CardType.ATTACK;

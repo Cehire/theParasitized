@@ -20,7 +20,7 @@ public class pi_43_elimination extends CustomCard {
     public static final String ID = "TheParasitized:pi_43_elimination";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/淘汰_attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
