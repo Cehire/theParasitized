@@ -22,7 +22,7 @@ public class pi_42_errorStrike extends CustomCard {
     public static final String ID = "TheParasitized:pi_42_errorStrike";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/attack.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/阻断刺击_attack.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.COMMON;
 
@@ -93,4 +93,6 @@ public class pi_42_errorStrike extends CustomCard {
     public AbstractCard makeCopy(){
         return new pi_42_errorStrike(this.timesUpgraded);
     }
+
+
 }

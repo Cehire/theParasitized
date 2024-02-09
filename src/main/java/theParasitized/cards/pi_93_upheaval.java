@@ -22,7 +22,7 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
     public static final String ID = "TheParasitized:pi_93_upheaval";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/剧变_skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 

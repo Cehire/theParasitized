@@ -154,7 +154,7 @@
     "UPGRADE_DESCRIPTION": " 选择一张手牌，升级 X + 1 次"
   },
   "TheParasitized:pi_29_ironWave": {
-    "NAME": "御血术",
+    "NAME": "收割",
     "DESCRIPTION": "造成 !D! 点伤害 NL 恢复等量生命值 NL 消耗 , 感染 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 恢复等量生命值 NL 消耗 , 感染 "
   },
@@ -423,7 +423,7 @@
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌，弃1张牌，若此卡被保留，则额外抽1张 NL 保留 "
   },
   "TheParasitized:pi_88_phantom": {
-    "NAME": "幻影",
+    "NAME": "架势",
     "DESCRIPTION": " 你的下 !M! 次攻击同时获得等量攻击伤害的格挡 ",
     "UPGRADE_DESCRIPTION": " 你的下 !M! 次攻击同时获得等量攻击伤害的格挡 "
   },
@@ -453,12 +453,12 @@
     "UPGRADE_DESCRIPTION": "获得!B!点格挡 NL 清除你的负面状态，每有一种，获得 !M! 点力量 NL 狂热 2, 感染 "
   },
   "TheParasitized:pi_94_chewing": {
-    "NAME": "咀骨",
+    "NAME": "狂怒",
     "DESCRIPTION": " 获得 !B! 点格挡， 若本回合中打出过攻击牌，则再获得一次 NL 感染 ",
     "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡， 若本回合中打出过攻击牌，则格挡翻倍 NL 感染 "
   },
   "TheParasitized:pi_95_prepare": {
-    "NAME": "准备",
+    "NAME": "起步",
     "DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点 NL  保留 , 消耗 ",
     "UPGRADE_DESCRIPTION": " 获得 !M! 点能量, 如果此牌已被保留则再获得1点 NL  保留 , 消耗 "
   },
