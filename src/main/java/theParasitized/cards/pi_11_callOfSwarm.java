@@ -16,7 +16,7 @@ public class pi_11_callOfSwarm extends CustomCard {
     public static final String ID = "TheParasitized:pi_11_callOfSwarm";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/power.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/大群的呼唤_power.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.RARE;
 
