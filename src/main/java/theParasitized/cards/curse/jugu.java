@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
-public class jugu extends CustomCard {
+public class jugu extends CustomCard implements parasitizationCard{
 
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:jugu";
@@ -29,8 +29,8 @@ public class jugu extends CustomCard {
     public static final CardRarity RARITY = CardRarity.RARE;
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
-    public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR_CURSE;
+    public static final CardType TYPE = CardType.STATUS;
+    public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.SELF;
     public jugu() {
         this(0);

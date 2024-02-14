@@ -1,4 +1,4 @@
-package theParasitized.cards;
+package theParasitized.cards.curse;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
-public class pi_84_exchange extends CustomCard {
+public class pi_84_exchange extends CustomCard implements parasitizationCard{
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_84_exchange";
@@ -21,8 +21,8 @@ public class pi_84_exchange extends CustomCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
-    public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR_CURSE;
+    public static final CardType TYPE = CardType.STATUS;
+    public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.NONE;
     public pi_84_exchange() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

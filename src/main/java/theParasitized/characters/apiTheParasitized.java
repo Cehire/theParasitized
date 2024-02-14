@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import theParasitized.ModHelper;
 import theParasitized.cards.curse.callOfParasites;
+import theParasitized.cards.curse.parasitizationCard;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_96_tactics;
@@ -168,7 +169,7 @@ public class apiTheParasitized extends CustomPlayer{
             int n = 0;
             AbstractPlayer p = AbstractDungeon.player;
             for (AbstractCard c : p.hand.group) {
-                if (c.type == AbstractCard.CardType.CURSE){
+                if (c instanceof parasitizationCard){
                     n++;
                 }
             }

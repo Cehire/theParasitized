@@ -18,7 +18,7 @@ import theParasitized.powers.pi_sacrifice_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
-public class huangmou extends CustomCard {
+public class huangmou extends CustomCard implements parasitizationCard{
 
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:huangmou";
@@ -30,8 +30,8 @@ public class huangmou extends CustomCard {
 
     // type, color, cost, cardTarget是固定的
     public static final int COST = -2;
-    public static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = PI_COLOR_CURSE;
+    public static final CardType TYPE = CardType.STATUS;
+    public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.SELF;
     public huangmou() {
         this(0);

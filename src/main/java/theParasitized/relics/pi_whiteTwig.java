@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theParasitized.ModHelper;
-import theParasitized.cards.pi_84_exchange;
+import theParasitized.cards.curse.pi_84_exchange;
 
 // 继承CustomRelic
 public class pi_whiteTwig extends CustomRelic {
