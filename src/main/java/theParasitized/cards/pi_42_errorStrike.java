@@ -56,11 +56,7 @@ public class pi_42_errorStrike extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_42_errorStrike() {
-        this(0);
-    }
-    public pi_42_errorStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 10;
         this.cardsToPreview = new pi_error();
     }
@@ -78,20 +74,13 @@ public class pi_42_errorStrike extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeDamage(4);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_42_errorStrike(this.timesUpgraded);
+        return new pi_42_errorStrike();
     }
 
 

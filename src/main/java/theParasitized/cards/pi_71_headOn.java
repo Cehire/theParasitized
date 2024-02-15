@@ -29,12 +29,8 @@ public class pi_71_headOn extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_71_headOn() {
-        this(0);
-    }
-    public pi_71_headOn(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 11;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -74,22 +70,13 @@ public class pi_71_headOn extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeDamage(3);
-        this.upgradeMagicNumber(1);
+        this.upgradeDamage(4);
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
         this.initializeDescription();
+        this.upgradeName();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
-
     @Override
     public AbstractCard makeCopy(){
-        return new pi_71_headOn(this.timesUpgraded);
+        return new pi_71_headOn();
     }
 }

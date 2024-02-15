@@ -32,11 +32,7 @@ public class pi_82_extraSlash extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_82_extraSlash() {
-        this(0);
-    }
-    public pi_82_extraSlash(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
     }
 
@@ -88,19 +84,12 @@ public class pi_82_extraSlash extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeDamage(3);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_82_extraSlash(this.timesUpgraded);
+        return new pi_82_extraSlash();
     }
 }

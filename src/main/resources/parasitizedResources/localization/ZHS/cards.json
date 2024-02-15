@@ -75,8 +75,7 @@
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 NL 技巧 ：次数+1",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 NL 技巧 ：次数+1"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 技巧 ：再造成1次。"
   },
   "TheParasitized:pi_08_hunt": {
     "NAME": "追猎",
@@ -109,8 +108,7 @@
   },
   "TheParasitized:pi_16_emergencyRepair": {
     "NAME": "紧急再生",
-    "DESCRIPTION": "获得 !B! 格挡 NL 恢复 !M! 生命 NL 消耗1张手牌 NL 消耗 , 感染 ",
-    "UPGRADE_DESCRIPTION": "获得 !B! 格挡 NL 恢复 !M! 生命 NL 消耗1张手牌 NL 消耗 , 感染 "
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 恢复 !M! 生命。 NL 消耗1张手牌。 NL 消耗 。"
   },
   "TheParasitized:pi_17_graspingAtCurses": {
     "NAME": "野蛮生长",
@@ -183,12 +181,11 @@
   },
   "TheParasitized:pi_35_olfactoryAggression": {
     "NAME": "汲取",
-    "DESCRIPTION": "造成 !D! 点伤害，如果敌人有负面状态，抽 1 张牌，恢复 !M! 点生命 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，如果敌人有负面状态，抽 1 张牌，恢复 !M! 点生命 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人有负面状态，抽 1 张牌并且回复 !M! 生命。 NL 感染 。"
   },
   "TheParasitized:pi_36_sideStep": {
     "NAME": "宁静种子",
-    "DESCRIPTION": "不能被打出。 NL 虚无 。 NL 被消耗时恢复 !M! 生命。 NL 感染 。"
+    "DESCRIPTION": " 不能被打出 。 NL 虚无 。 NL 被消耗时回复 !M! 生命。 NL 感染 。"
   },
   "TheParasitized:pi_39_witherEnchantment": {
     "NAME": "凋零附魔",
@@ -207,8 +204,7 @@
   },
   "TheParasitized:pi_42_errorStrike": {
     "NAME": "阻断刺击",
-    "DESCRIPTION": "造成 !D! 点伤害，将1张错误加入手牌 NL 狂热 1, 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，将1张错误加入手牌 NL 狂热 1, 感染 "
+    "DESCRIPTION": " 狂热 1。 NL 造成 !D! 点伤害。 NL 将1张错误加入到手牌。"
   },
   "TheParasitized:pi_43_elimination": {
     "NAME": "淘汰",
@@ -330,8 +326,8 @@
   },
   "TheParasitized:pi_71_headOn": {
     "NAME": "硬碰硬",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人和自己 !M! 层虚弱 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予敌人 !M! 层虚弱 NL 给予自己1层虚弱 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 获得 !M! 层 虚弱 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 获得1层 虚弱 。"
   },
   "TheParasitized:pi_72_fall": {
     "NAME": "降临",
@@ -343,9 +339,8 @@
     "DESCRIPTION": "消耗所有诅咒牌和状态牌，造成 !D! 点伤害 NL 技巧 ：获得 [E] "
   },
   "TheParasitized:pi_74_fanaticism": {
-    "NAME": "狂热",
-    "DESCRIPTION": "造成 !D! 点伤害， 如果你在本场战斗中受到过伤害，再造成一次 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， 如果你在本场战斗中受到过伤害，再造成一次 NL 感染 "
+    "NAME": "怒击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你在本场战斗中失去过生命，再造成一次。 NL 感染 。"
   },
   "TheParasitized:pi_75_longArmStrike": {
     "NAME": "长臂劈砍",
@@ -387,8 +382,7 @@
   },
   "TheParasitized:pi_82_extraSlash": {
     "NAME": "追斩",
-    "DESCRIPTION": "造成 !D! 点伤害, 打出攻击牌时若此卡在抽牌堆，则会自动打出 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害, 打出攻击牌时若此卡在抽牌堆，则会自动打出 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 打出攻击牌时，如果这张牌在你的抽牌堆，则会自动打出。"
   },
   "TheParasitized:pi_83_illusionSlash": {
     "NAME": "剑舞",

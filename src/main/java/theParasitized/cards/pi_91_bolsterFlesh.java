@@ -12,7 +12,7 @@ import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
+public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard implements attackCard{
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_91_bolsterFlesh";
@@ -86,5 +86,11 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
     @Override
     public AbstractCard makeCopy(){
         return new pi_91_bolsterFlesh();
+    }
+
+
+    @Override
+    public int getAttackNum() {
+        return this.attackNum;
     }
 }
