@@ -73,13 +73,6 @@ public class changbi extends CustomCard implements parasitizationCard{
     }
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        if (abstractPlayer.hasPower(pi_sacrifice_power.POWER_ID)){
-            for (AbstractPower power : abstractPlayer.powers) {
-                if (power.ID.equals(pi_sacrifice_power.POWER_ID)){
-                    power.flash();
-                    this.addToBot(new DrawCardAction(power.amount));}
-            }
-        }
     }
     @Override
     public AbstractCard makeCopy(){

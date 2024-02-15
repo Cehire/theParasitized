@@ -31,6 +31,7 @@ public class pi_18_sacrifice extends CustomCard {
         this.isEthereal = true;
     }
 
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(

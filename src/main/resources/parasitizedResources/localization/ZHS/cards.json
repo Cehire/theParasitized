@@ -134,7 +134,7 @@
     "UPGRADE_DESCRIPTION": "对全体敌人造成 !D! 点伤害, 敌人每有一种负面效果，清除之并重复 NL 感染 "
   },
   "TheParasitized:pi_24_deadlySlash": {
-    "NAME": "横砍",
+    "NAME": "破伤风之刃",
     "DESCRIPTION": "对全体敌人造成 !D! 点伤害, 给予 !M! 层易伤、虚弱和中毒 NL 感染 ",
     "UPGRADE_DESCRIPTION": "对全体敌人造成 !D! 点伤害, 给予 !M! 层易伤、虚弱和中毒 NL 感染 "
   },

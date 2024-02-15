@@ -1,6 +1,7 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -31,4 +32,9 @@ public class pi_sacrifice_power extends AbstractPower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
+    @Override
+    public int onLoseHp(int damageAmount) {
+        this.addToBot(new UpgradeRandomCardAction());
+        return damageAmount;
+    }
 }
