@@ -51,13 +51,12 @@
   },
   "TheParasitized:pi_01_strike": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。"
   },
   "TheParasitized:pi_02_defend": {
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 点格挡 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡 NL 感染 "
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
   },
   "TheParasitized:pi_03_eclosion": {
     "NAME": "羽化",
@@ -165,8 +164,7 @@
   },
   "TheParasitized:pi_31_witherStrike": {
     "NAME": "凋零打击",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 点 凋零 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 给予 !M! 点 凋零 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 点 凋零 。 NL 感染 。"
   },
   "TheParasitized:pi_32_witherAll": {
     "NAME": "死亡凋零",
@@ -190,8 +188,7 @@
   },
   "TheParasitized:pi_36_sideStep": {
     "NAME": "宁静种子",
-    "DESCRIPTION": "无法被打出 NL 被消耗时恢复 !M! 生命 NL 感染 , 虚无 ",
-    "UPGRADE_DESCRIPTION": "无法被打出 NL 被消耗时恢复 !M! 生命 NL 感染 , 虚无 "
+    "DESCRIPTION": "不能被打出。 NL 虚无 。 NL 被消耗时恢复 !M! 生命。 NL 感染 。"
   },
   "TheParasitized:pi_39_witherEnchantment": {
     "NAME": "凋零附魔",
@@ -295,13 +292,11 @@
   },
   "TheParasitized:pi_63_crossSlash": {
     "NAME": "横斩",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害  NL  技巧 ：再施加 !M! 层 易伤 ",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害  NL  技巧 ：再施加 !M! 层 易伤 "
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 技巧 ：再施加 !M! 层 易伤 。"
   },
   "TheParasitized:pi_64_doubleBlade": {
     "NAME": "双刃剑",
-    "DESCRIPTION": "造成 !D! 点伤害 NL  失去 3 生命 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害  NL  失去 3 生命 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 受到 !M! 点伤害。"
   },
   "TheParasitized:pi_65_suppress": {
     "NAME": "压制",
@@ -384,13 +379,11 @@
   },
   "TheParasitized:pi_80_feignedAttack": {
     "NAME": "佯攻",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 受到1点伤害 NL 感染 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 受到1点伤害 NL 感染 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 受到1点伤害。"
   },
   "TheParasitized:pi_81_bolsterStrike": {
     "NAME": "协增冲击",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 若此卡已被保留,抽 !M! 张牌 NL 保留 , 感染 , 狂热 2",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 NL 若此卡已被保留,抽 !M! 张牌 NL 保留 , 感染 , 狂热 2"
+    "DESCRIPTION": " 狂热 2。 NL 保留 。 NL 造成 !D! 点伤害。 NL 若这张牌被 保留 ，本次额外抽 !M! 张牌 。"
   },
   "TheParasitized:pi_82_extraSlash": {
     "NAME": "追斩",
@@ -409,8 +402,7 @@
   },
   "TheParasitized:pi_85_parry": {
     "NAME": "剑格",
-    "DESCRIPTION": "获得 !B! 点格挡 NL 技巧 ：再获得一次",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡 NL 技巧 ：再获得一次"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 技巧 ：再获得一次。"
   },
   "TheParasitized:pi_86_nourishment": {
     "NAME": "滋养",
@@ -419,8 +411,7 @@
   },
   "TheParasitized:pi_87_waited": {
     "NAME": "伺机而动",
-    "DESCRIPTION": "抽 !M! 张牌，弃1张牌，若此卡被保留，则额外抽1张 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌，弃1张牌，若此卡被保留，则额外抽1张 NL 保留 "
+    "DESCRIPTION": " 保留 。 NL 抽 !M! 张牌。 NL 丢弃1张牌。 NL 若这张牌被 保留 ，则额外抽1张牌。"
   },
   "TheParasitized:pi_88_phantom": {
     "NAME": "架势",
@@ -434,8 +425,7 @@
   },
   "TheParasitized:pi_91_bolsterFlesh": {
     "NAME": "协增之躯",
-    "DESCRIPTION": "获得 !B! 点格挡 NL 若此卡已被保留，抽 !M! 张牌 NL 保留 , 感染 , 狂热 2",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡 NL 若此卡已被保留，抽 !M! 张牌 NL 保留 , 感染 , 狂热 2"
+    "DESCRIPTION": " 狂热 2。 NL 保留 。 NL 获得 !B! 点 格挡 。 NL 若这张牌被 保留 ，本次额外抽 !M! 张牌 。"
   },
   "TheParasitized:pi_89_tractionNet": {
     "NAME": "牵引之网",
@@ -479,13 +469,15 @@
   },
   "TheParasitized:pi_growth": {
     "NAME": "生长",
-    "DESCRIPTION": "升级你的一张手牌 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "升级你的一张手牌 NL 抽 !M! 张牌 NL 消耗 "
+    "DESCRIPTION": "在本场战斗中升级手牌中的一张牌 NL 消耗 。"
   },
   "TheParasitized:pi_96_tactics": {
     "NAME": "剑技",
-    "DESCRIPTION": "造成 !D! 点伤害,给予 !M! 层 易伤 NL 技巧 ：再给予 !M! 层 虚弱 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害,给予 !M! 层 易伤 NL 技巧 ：再给予 !M! 层 虚弱 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 技巧 ：再给予 !M! 层 虚弱 。"
+  },
+  "TheParasitized:pi_98_breathe": {
+    "NAME": "浅呼吸",
+    "DESCRIPTION": "将弃牌堆中的 !M! 张牌放入你的抽牌堆中。 NL 抽1张牌。"
   }
 
 }

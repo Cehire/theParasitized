@@ -30,6 +30,7 @@ import theParasitized.cards.curse.parasitizationCard;
 import theParasitized.cards.pi_01_strike;
 import theParasitized.cards.pi_02_defend;
 import theParasitized.cards.pi_96_tactics;
+import theParasitized.cards.pi_98_breathe;
 import theParasitized.interfaces.ClickableEnergyPanel;
 import theParasitized.powers.pi_initial;
 import theParasitized.stances.pi_halfMad_stance;
@@ -118,7 +119,7 @@ public class apiTheParasitized extends CustomPlayer{
             retVal.add(pi_02_defend.ID);
         }
         retVal.add(callOfParasites.ID);
-        retVal.add(pi_96_tactics.ID);
+        retVal.add(pi_98_breathe.ID);
 
 
         return retVal;

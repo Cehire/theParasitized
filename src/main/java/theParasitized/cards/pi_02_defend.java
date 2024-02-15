@@ -25,11 +25,7 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_02_defend() {
-        this(0);
-    }
-    public pi_02_defend(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 5;
         this.tags.add(CardTags.STARTER_DEFEND);
     }
@@ -45,20 +41,12 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeBlock(3);
-    }
-
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_02_defend(this.timesUpgraded);
+        return new pi_02_defend();
     }
 }

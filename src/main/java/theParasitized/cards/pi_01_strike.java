@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_01_strike extends CustomCard implements ScriedAndDiscardSubscriber {
+public class pi_01_strike extends CustomCard{
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_01_strike";
@@ -35,11 +35,7 @@ public class pi_01_strike extends CustomCard implements ScriedAndDiscardSubscrib
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_01_strike() {
-        this(0);
-    }
-    public pi_01_strike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 6;
         this.tags.add(CardTags.STRIKE);
         this.tags.add(CardTags.STARTER_STRIKE);
@@ -58,54 +54,12 @@ public class pi_01_strike extends CustomCard implements ScriedAndDiscardSubscrib
 
     @Override
     public void upgrade() {
-        if(AbstractDungeon.player == null){
-            System.out.println("aaaaaa");
-        }else{
-            boolean flag = true;
-            StackTraceElement[] trace = Thread.currentThread().getStackTrace();
-            for (StackTraceElement element : trace) {
-                    if (element.getClassName().equals("com.megacrit.cardcrawl.screens.select.HandCardSelectScreen")||
-                        element.getClassName().equals("com.megacrit.cardcrawl.screens.select.GridCardSelectScreen")||
-                        element.getClassName().equals("com.megacrit.cardcrawl.screens.SingleCardViewPopup")) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag){
-                if (AbstractDungeon.player.hasRelic("Dream Catcher")) {
-                    AbstractDungeon.player.getRelic("Dream Catcher").flash();
-                    ArrayList<AbstractCard> rewardCards = AbstractDungeon.getRewardCards();
-                    if (rewardCards != null && !rewardCards.isEmpty()) {
-                        AbstractDungeon.cardRewardScreen.open(rewardCards, (RewardItem)null, TEXT[0]);
-                    }
-                }
-            }
-        }
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeDamage(3);
+        this.upgradeName();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
-
     @Override
     public AbstractCard makeCopy(){
-        return new pi_01_strike(this.timesUpgraded);
+        return new pi_01_strike();
     }
 
-    @Override
-    public void onScriedAndDiscarded() {
-        this.addToBot(new GainEnergyAction(1));
-        System.out.println("被预见丢弃时触发");
-    }
-
-    @Override
-    public void onScried() {
-        this.addToBot(new GainEnergyAction(2));
-        System.out.println("被预见时触发");
-    }
 }

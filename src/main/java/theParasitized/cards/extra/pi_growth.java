@@ -34,18 +34,15 @@ public class pi_growth extends CustomMutiUpgradeCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ArmamentsAction(false));
-        if (this.upgraded){
-            this.addToBot(new DrawCardAction(1));
-        }
     }
 
     @Override
     public void upgrade() {
-        if (!this.upgraded){
-            this.upgradeName();
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-        }
+    }
+
+    @Override
+    public boolean canUpgrade() {
+        return false;
     }
 
     @Override

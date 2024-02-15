@@ -32,7 +32,7 @@ public class pi_63_crossSlash extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     public pi_63_crossSlash() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 

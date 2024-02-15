@@ -28,11 +28,7 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_91_bolsterFlesh() {
-        this(0);
-    }
-    public pi_91_bolsterFlesh(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.block = this.baseBlock = 7;
         this.magicNumber = this.baseMagicNumber = 1;
         this.selfRetain = true;
@@ -80,25 +76,15 @@ public class pi_91_bolsterFlesh extends CustomMutiUpgradeCard {
     }
     @Override
     public void upgrade() {
-        if (!this.upgraded){
-            this.upgradeMagicNumber(1);
-        }
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        this.upgradeMagicNumber(1);
         this.upgradeBlock(3);
+        this.upgradeName();
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
+
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_91_bolsterFlesh(this.timesUpgraded);
+        return new pi_91_bolsterFlesh();
     }
 }

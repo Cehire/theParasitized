@@ -34,6 +34,7 @@ public class pi_64_doubleBlade extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 12;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     @Override
@@ -43,24 +44,22 @@ public class pi_64_doubleBlade extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.addToBot(new LoseHPAction(abstractPlayer, abstractPlayer, 3));
+        this.addToBot(
+                new DamageAction(
+                        abstractPlayer, new DamageInfo(abstractPlayer, magicNumber, DamageInfo.DamageType.THORNS)
+                )
+        );
     }
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        this.upgradeMagicNumber(1);
         this.upgradeDamage(4);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_64_doubleBlade(this.timesUpgraded);
+        return new pi_64_doubleBlade();
     }
 }

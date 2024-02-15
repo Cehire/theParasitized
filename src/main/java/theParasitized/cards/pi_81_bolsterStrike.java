@@ -31,11 +31,7 @@ public class pi_81_bolsterStrike extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     private boolean flag = false;
     public pi_81_bolsterStrike() {
-        this(0);
-    }
-    public pi_81_bolsterStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.selfRetain = true;
         this.magicNumber = this.baseMagicNumber = 1;
@@ -85,24 +81,12 @@ public class pi_81_bolsterStrike extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        if (!this.upgraded){
-            this.upgradeMagicNumber(1);
-        }
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
-        this.initializeTitle();
+        this.upgradeMagicNumber(1);
         this.upgradeDamage(3);
+        this.upgradeName();
     }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
-
     @Override
     public AbstractCard makeCopy(){
-        return new pi_81_bolsterStrike(this.timesUpgraded);
+        return new pi_81_bolsterStrike();
     }
 }
