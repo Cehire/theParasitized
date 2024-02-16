@@ -17,7 +17,7 @@ import theParasitized.cards.extra.pi_error;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_42_errorStrike extends CustomCard {
+public class pi_42_errorStrike extends CustomCard implements attackCard{
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_42_errorStrike";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -84,4 +84,8 @@ public class pi_42_errorStrike extends CustomCard {
     }
 
 
+    @Override
+    public int getAttackNum() {
+        return this.attackNum;
+    }
 }

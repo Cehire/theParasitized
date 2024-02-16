@@ -32,8 +32,8 @@ public class pi_79_reflection extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_79_reflection() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 14;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.damage = this.baseDamage = 12;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -64,12 +64,9 @@ public class pi_79_reflection extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
-            this.upgradeDamage(5);
+            this.upgradeDamage(4);
+            this.upgradeMagicNumber(1);
         }
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
     }
 
     @Override

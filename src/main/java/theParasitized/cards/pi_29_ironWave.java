@@ -43,7 +43,7 @@ public class pi_29_ironWave extends CustomCard {
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.damage));
+        this.addToBot(new HealAction(abstractPlayer, abstractPlayer, damage));
     }
 
     @Override

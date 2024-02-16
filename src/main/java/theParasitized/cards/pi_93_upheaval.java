@@ -15,7 +15,7 @@ import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_93_upheaval extends CustomMutiUpgradeCard {
+public class pi_93_upheaval extends CustomMutiUpgradeCard implements attackCard{
     //
     //func test ok
     //===============  需要改的地方 ====================
@@ -32,16 +32,13 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_93_upheaval() {
-        this(0);
-    }
-    public pi_93_upheaval(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 1;
         this.block = this.baseBlock = 5;
+        this.exhaust = true;
     }
 
-    private int BaseAttackNum = 3;
+    private final int BaseAttackNum = 3;
     private int attackNum = BaseAttackNum;
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
@@ -78,23 +75,18 @@ public class pi_93_upheaval extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded){
-            this.BaseAttackNum--;
-        }
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeMagicNumber(1);
+        this.upgradeName();
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_93_upheaval(this.timesUpgraded);
+        return new pi_93_upheaval();
+    }
+
+    @Override
+    public int getAttackNum() {
+        return attackNum;
     }
 }

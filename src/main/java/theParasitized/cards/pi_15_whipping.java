@@ -27,11 +27,7 @@ public class pi_15_whipping extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_15_whipping() {
-        this(0);
-    }
-    public pi_15_whipping(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
     }
@@ -49,23 +45,14 @@ public class pi_15_whipping extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeDamage(3);
-        if(this.timesUpgraded % 2 == 0){
-            this.upgradeMagicNumber(1);
-        }
+        this.upgradeMagicNumber(1);
+        this.upgradeName();
+    }
 
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_15_whipping(this.timesUpgraded);
+        return new pi_15_whipping();
     }
 }

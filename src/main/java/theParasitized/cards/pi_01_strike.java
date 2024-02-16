@@ -1,6 +1,7 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -46,7 +47,7 @@ public class pi_01_strike extends CustomCard{
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(
                 new DamageAction(
-                        abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
+                        abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT
                 )
         );
 

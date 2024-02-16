@@ -26,8 +26,7 @@ public class pi_purification_action extends AbstractGameAction {
             if (this.p.hand.isEmpty()) {
                 this.isDone = true;
             } else if (this.p.hand.size() == 1) {
-                if (this.p.hand.getBottomCard().type == AbstractCard.CardType.CURSE && !this.p.hand.getBottomCard().cardID
-                        .equals("TheParasitized:callOfParasites")) {
+                if (this.p.hand.getBottomCard().type == AbstractCard.CardType.STATUS) {
                     this.addToTop(new GainEnergyAction(2 + this.upgrades));
                 } else{
                     this.addToTop(new GainEnergyAction(1 + this.upgrades));
@@ -42,8 +41,7 @@ public class pi_purification_action extends AbstractGameAction {
         } else {
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 for (AbstractCard card : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                    if (card.type == AbstractCard.CardType.CURSE && !card.cardID
-                            .equals("TheParasitized:callOfParasites")) {
+                    if (card.type == AbstractCard.CardType.STATUS) {
                         this.addToTop(new GainEnergyAction(2 + this.upgrades));
                     } else{
                         this.addToTop(new GainEnergyAction(1 + this.upgrades));

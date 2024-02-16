@@ -2,8 +2,10 @@ package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -31,7 +33,8 @@ public class pi_43_elimination extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_43_elimination() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 20;
+        this.damage = this.baseDamage = 15;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -43,13 +46,13 @@ public class pi_43_elimination extends CustomCard {
                     n++;
                 }
             }
-            if (n > 2){
+            if (n > this.magicNumber){
                 this.addToBot(new VFXAction(new LightningEffect(abstractMonster.drawX, abstractMonster.drawY), 0.05F));
-                if (this.upgraded){
-                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 20));
-                }else{
-                    this.addToBot(new LoseHPAction(abstractMonster, abstractPlayer, 30));
-                }
+                this.addToBot(
+                        new DamageAction(
+                                abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
+                        )
+                );
             }
         });
     }
@@ -58,7 +61,8 @@ public class pi_43_elimination extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(10);
+            this.upgradeDamage(5);
+            this.upgradeMagicNumber(-1);
         }
     }
 

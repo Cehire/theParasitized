@@ -25,14 +25,14 @@ public class pi_68_serene extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
 
     public pi_68_serene() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class pi_68_serene extends CustomCard {
     public void upgrade() {
         if (!this.upgraded){
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeBaseCost(1);
         }
     }
     @Override

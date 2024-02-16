@@ -14,7 +14,7 @@ import theParasitized.actions.pi_drawPileToHandAction_specific;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_81_bolsterStrike extends CustomCard {
+public class pi_81_bolsterStrike extends CustomCard implements attackCard{
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_81_bolsterStrike";
@@ -88,5 +88,10 @@ public class pi_81_bolsterStrike extends CustomCard {
     @Override
     public AbstractCard makeCopy(){
         return new pi_81_bolsterStrike();
+    }
+
+    @Override
+    public int getAttackNum() {
+        return this.attackNum;
     }
 }

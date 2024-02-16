@@ -37,6 +37,8 @@ public class pi_02_defend extends CustomMutiUpgradeCard {
                          abstractPlayer, block
                 )
         );
+        String a = "";
+        a = 's' + a;
     }
 
     @Override

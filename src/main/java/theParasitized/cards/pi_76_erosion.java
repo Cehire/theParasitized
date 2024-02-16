@@ -1,7 +1,10 @@
 package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,29 +30,18 @@ public class pi_76_erosion extends CustomCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_76_erosion() {
-        this(0);
-    }
-    public pi_76_erosion(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 6;
     }
 
-    @Override
-    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
-        if (mo == null){
-            super.calculateModifiedCardDamage(player, mo, tmp);
-        }else {
-            return super.calculateModifiedCardDamage(player, mo, tmp) + mo.currentBlock;
-        }
-        return super.calculateModifiedCardDamage(player, mo, tmp);
-    }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        this.addToBot(new LoseHPAction(abstractMonster,abstractPlayer,abstractMonster.currentBlock, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        this.addToBot(new RemoveAllBlockAction(abstractMonster, abstractPlayer));
         this.addToBot(
                 new DamageAction(
-                        abstractMonster, new DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.HP_LOSS)
+                        abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
     }
@@ -57,19 +49,12 @@ public class pi_76_erosion extends CustomCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeDamage(3);
-    }
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_76_erosion(this.timesUpgraded);
+        return new pi_76_erosion();
     }
 }
