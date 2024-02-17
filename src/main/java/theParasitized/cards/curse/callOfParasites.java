@@ -79,11 +79,14 @@ public class callOfParasites extends CustomCard{
     }
 
     @Override
-    public void onRetained() {
+    public void atTurnStartPreDraw() {
         this.flash();
         this.addToBot(new pi_baseCurse_action());
-
     }
+
+
+
+
 
 
 

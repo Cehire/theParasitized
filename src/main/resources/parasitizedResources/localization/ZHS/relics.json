@@ -10,14 +10,14 @@
   "NAME": "烤鱼",
   "FLAVOR": "一把烤鱼形状的棒槌",
   "DESCRIPTIONS": [
-    "还没想好"
+    "每当你失去生命时，获得3层 活力 。"
   ]
 },
   "TheParasitized:pi_diamondChestplate": {
     "NAME": "附魔钻石甲",
     "FLAVOR": "坚硬的护甲，有被穿戴过的痕迹，在尖塔中却似乎有点突兀",
     "DESCRIPTIONS": [
-      "当你受到不超过自身格挡的伤害时，伤害值-2"
+      "每当你受到不超过自身格挡的伤害时，伤害值-2"
     ]
   },
   "TheParasitized:pi_worktable": {

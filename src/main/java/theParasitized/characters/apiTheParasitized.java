@@ -72,9 +72,9 @@ public class apiTheParasitized extends CustomPlayer{
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("theParasitized:Api");
-    private Texture image1;
-    private Texture image2;
-    private Texture image3;
+    public static Texture image1;
+    public static Texture image2;
+    public static Texture image3;
 
     public static boolean paraFlag = false;
 
@@ -223,7 +223,7 @@ public class apiTheParasitized extends CustomPlayer{
     // 翻牌事件出现的你的职业牌（一般设为打击）
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new pi_01_strike();
+        return new pi_98_breathe();
     }
 
     // 卡牌轨迹颜色
