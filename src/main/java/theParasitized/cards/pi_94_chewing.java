@@ -72,7 +72,7 @@ public class pi_94_chewing extends CustomMutiUpgradeCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeBlock(2);
+        this.upgradeBlock(1);
     }
 
     @Override

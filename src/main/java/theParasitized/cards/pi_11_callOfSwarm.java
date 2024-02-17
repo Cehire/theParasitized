@@ -28,7 +28,6 @@ public class pi_11_callOfSwarm extends CustomCard {
     public pi_11_callOfSwarm() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
-        this.isEthereal = true;
     }
 
     @Override
@@ -43,12 +42,8 @@ public class pi_11_callOfSwarm extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded){
-            this.isEthereal = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-            this.upgradeName();
-        }
+        this.upgradeBaseCost(2);
+        this.upgradeName();
     }
 
 

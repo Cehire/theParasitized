@@ -42,7 +42,6 @@ public class pi_69_parasite_power extends AbstractPower {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
             this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player,this.amount));
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
         }
         return damageAmount;
     }

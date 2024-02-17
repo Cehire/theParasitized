@@ -1,6 +1,7 @@
 package theParasitized.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -33,8 +34,11 @@ public class pi_cognitiveFilter_power extends AbstractPower{
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-    }
+
+//    @Override
+//    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+//        this.flash();
+//        this.addToBot(new GainBlockAction(this.owner, this.amount));
+//    }
+
 }

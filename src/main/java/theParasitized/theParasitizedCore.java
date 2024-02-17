@@ -150,25 +150,25 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_03_eclosion());
         BaseMod.addCard(new pi_32_witherAll());
         BaseMod.addCard(new pi_25_activate());
-        BaseMod.addCard(new pi_48_alacrity());
+//        BaseMod.addCard(new pi_48_alacrity());
         BaseMod.addCard(new pi_60_explosion());
         BaseMod.addCard(new pi_65_suppress());
-        BaseMod.addCard(new pi_67_awake());
+//        BaseMod.addCard(new pi_67_awake());
         BaseMod.addCard(new pi_12_deterioration());
         BaseMod.addCard(new pi_14_nesting());
-        BaseMod.addCard(new pi_17_graspingAtCurses());
+//        BaseMod.addCard(new pi_17_graspingAtCurses());
         BaseMod.addCard(new pi_33_cognitiveFilter());
         BaseMod.addCard(new pi_52_getMad());
-        BaseMod.addCard(new pi_66_skillful());
+//        BaseMod.addCard(new pi_66_skillful());
         BaseMod.addCard(new pi_68_serene());
-        BaseMod.addCard(new pi_18_sacrifice());
+//        BaseMod.addCard(new pi_18_sacrifice());
         BaseMod.addCard(new pi_47_scab());
         BaseMod.addCard(new pi_11_callOfSwarm());
         BaseMod.addCard(new pi_39_witherEnchantment());
         BaseMod.addCard(new pi_70_stress());
         BaseMod.addCard(new pi_45_infection());
 //        BaseMod.addCard(new pi_04_choice());
-        BaseMod.addCard(new pi_27_bloodShield());
+//        BaseMod.addCard(new pi_27_bloodShield());
         BaseMod.addCard(new pi_41_crustShield());
         BaseMod.addCard(new pi_95_prepare());
         BaseMod.addCard(new pi_84_exchange());
@@ -245,7 +245,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     }
     @Override
     public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
-        if (abstractPower.owner == AbstractDungeon.player && abstractPower.type == AbstractPower.PowerType.DEBUFF){
+        if (abstractPower.type == AbstractPower.PowerType.DEBUFF){
             if (AbstractDungeon.player != null && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()){
                 for (AbstractPower power : AbstractDungeon.player.powers) {
                     if (power.ID.equals("TheParasitized:pi_cognitiveFilter_power")){

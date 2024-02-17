@@ -34,11 +34,7 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_51_bodyEnhance() {
-        this(0);
-    }
-    public pi_51_bodyEnhance(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 2;
         this.block = this.baseBlock = 4;
     }
@@ -59,21 +55,13 @@ public class pi_51_bodyEnhance extends CustomMutiUpgradeCard {
 
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
         this.upgradeMagicNumber(1);
         this.upgradeBlock(2);
-    }
-
-    @Override
-    public boolean canUpgrade() {
-        return true;
+        this.upgradeName();
     }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_51_bodyEnhance(this.timesUpgraded);
+        return new pi_51_bodyEnhance();
     }
 }

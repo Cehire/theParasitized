@@ -35,7 +35,7 @@ public class pi_75_longArmStrike extends CustomCard {
     public pi_75_longArmStrike(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.damage = this.baseDamage = 8;
+        this.damage = this.baseDamage = 12;
         this.magicNumber = this.baseMagicNumber = 1;
         this.cardsToPreview = new pi_longArmStrike_2();
     }
@@ -62,7 +62,7 @@ public class pi_75_longArmStrike extends CustomCard {
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
     }
     @Override
     public boolean canUpgrade() {

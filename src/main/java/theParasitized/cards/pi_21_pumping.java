@@ -14,7 +14,7 @@ import theParasitized.powers.pi_pumping_power;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_21_pumping extends CustomCard {
+public class pi_21_pumping extends CustomCard implements attackCard{
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_21_pumping";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -30,7 +30,7 @@ public class pi_21_pumping extends CustomCard {
     public static final CardTarget TARGET = CardTarget.SELF;
     public pi_21_pumping() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
     private final int BaseAttackNum = 2;
     private int attackNum = BaseAttackNum;
@@ -89,5 +89,10 @@ public class pi_21_pumping extends CustomCard {
     @Override
     public AbstractCard makeCopy(){
         return new pi_21_pumping();
+    }
+
+    @Override
+    public int getAttackNum() {
+        return attackNum;
     }
 }

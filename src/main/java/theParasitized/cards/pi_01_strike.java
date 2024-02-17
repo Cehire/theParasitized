@@ -17,6 +17,9 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import theParasitized.interfaces.ScriedAndDiscardSubscriber;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -50,7 +53,6 @@ public class pi_01_strike extends CustomCard{
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT
                 )
         );
-
     }
 
     @Override

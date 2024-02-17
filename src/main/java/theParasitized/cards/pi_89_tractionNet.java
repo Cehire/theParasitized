@@ -33,65 +33,38 @@ public class pi_89_tractionNet extends CustomMutiUpgradeCard {
     public pi_89_tractionNet(int upgrades) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer, new StrengthPower(abstractMonster, -this.magicNumber), -this.magicNumber));
-        if(this.upgraded){
             this.addToBot(
                     new ApplyPowerAction(
                             abstractMonster, abstractPlayer,
-                            new VulnerablePower(abstractMonster, 2, false),
-                            2)
+                            new VulnerablePower(abstractMonster, magicNumber, false),
+                            magicNumber)
 
             );
             this.addToBot(
                     new ApplyPowerAction(
                             abstractMonster, abstractPlayer,
-                            new WeakPower(abstractMonster, 2, false),
-                            2)
-
-            );
-        }else{
-            this.addToBot(
-                    new ApplyPowerAction(
-                            abstractMonster, abstractPlayer,
-                            new VulnerablePower(abstractMonster, 1, false),
-                            3)
-
-            );
-            this.addToBot(
-                    new ApplyPowerAction(
-                            abstractMonster, abstractPlayer,
-                            new WeakPower(abstractMonster, 1, false),
-                            3)
+                            new WeakPower(abstractMonster, magicNumber, false),
+                            magicNumber)
 
             );
         }
 
-    }
-
     @Override
     public void upgrade() {
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
+        this.upgradeName();
+        this.upgradeBaseCost(1);
     }
 
-    @Override
-    public boolean canUpgrade() {
-        return true;
-    }
 
     @Override
     public AbstractCard makeCopy(){
-        return new pi_89_tractionNet(this.timesUpgraded);
+        return new pi_89_tractionNet();
     }
 }

@@ -52,6 +52,8 @@ public class pi_95_prepare extends CustomCard {
         if (!upgraded){
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
