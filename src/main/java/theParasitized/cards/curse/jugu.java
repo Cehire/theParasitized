@@ -89,6 +89,7 @@ public class jugu extends CustomCard implements parasitizationCard{
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         if (AbstractDungeon.player.hand.contains(this)){
+            this.flash();
             if (cardPlayed.type == CardType.ATTACK){
                 this.addToBot(
                         new GainBlockAction(

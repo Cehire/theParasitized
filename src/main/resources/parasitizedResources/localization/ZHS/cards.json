@@ -10,33 +10,26 @@
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
-    "DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "回合开始时, 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 , 保留 , 感染 "
-  },
+    "DESCRIPTION": " 寄染状态 。 NL 在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 ， 保留 , 感染 。"},
   "TheParasitized:zhuxing": {
     "NAME": "蛛形",
-    "DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "回合结束时, 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": " 寄染状态 。 NL 在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
-    "DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "每回合你打出第3张牌后，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你打出第3张牌时，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:duxing": {
     "NAME": "毒腥",
-    "DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人4层中毒。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人4层中毒。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你失去生命时, 给予全体敌人 !M! 层中毒。 NL 升级时，给予全体敌人4层中毒。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:huangmou": {
     "NAME": "黄眸",
-    "DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去6生命。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去6生命。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你打出牌时, 全体敌人失去 !M! 点生命。 NL 升级时，全体敌人失去6生命。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:jugu": {
     "NAME": "咀骨",
-    "DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 升级时，获得7点格挡。 NL 固有 , 保留 , 感染 ",
-    "UPGRADE_DESCRIPTION": "打出攻击牌时，则获得 !M! 点格挡。 NL 升级时，获得7点格挡。 NL 固有 , 保留 , 感染 "
+    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你打出攻击牌时，则获得 !M! 点格挡。 NL 升级时，获得7点格挡。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:error": {
     "NAME": "错误",
@@ -73,7 +66,7 @@
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 技巧 ：再造成1次。"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 明晰 ：再造成1次。"
   },
   "TheParasitized:pi_08_hunt": {
     "NAME": "追猎",
@@ -191,7 +184,7 @@
   },
   "TheParasitized:pi_42_errorStrike": {
     "NAME": "阻断刺击",
-    "DESCRIPTION": " 狂热 1。 NL 造成 !D! 点伤害。 NL 将1张错误加入到手牌。"
+    "DESCRIPTION": " 狂热 1。 NL 造成 !D! 点伤害。 NL 如果你的手牌中的 寄染状态 牌超过4张，将1张错误加入到手牌。"
   },
   "TheParasitized:pi_43_elimination": {
     "NAME": "淘汰",
@@ -237,7 +230,7 @@
   },
   "TheParasitized:pi_51_bodyEnhance": {
     "NAME": "身体强化",
-    "DESCRIPTION": "技巧 ：获得 !M! 点 力量 、!M! 点 敏捷 和 !myKey! 层 多层护甲 。 NL 否则，获得 !myKey! 点 力量 。"
+    "DESCRIPTION": "明晰 ：获得 !M! 点 力量 、!M! 点 敏捷 和 !myKey! 层 多层护甲 。 NL 否则，获得 !myKey! 点 力量 。"
   },
   "TheParasitized:pi_52_getMad": {
     "NAME": "狂躁",
@@ -250,7 +243,7 @@
   },
   "TheParasitized:pi_54_preAttack": {
     "NAME": "居合",
-    "DESCRIPTION": "你的下一张攻击牌造成两倍伤害。 NL 技巧 ：抽 !M! 张牌。 NL 消耗 。"
+    "DESCRIPTION": "你的下一张攻击牌造成两倍伤害。 NL 明晰 ：抽 !M! 张牌。 NL 消耗 。"
   },
   "TheParasitized:pi_58_parasiticArm": {
     "NAME": "寄染之臂",
@@ -263,11 +256,11 @@
   },
   "TheParasitized:pi_61_whirlwind": {
     "NAME": "回旋斩",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 !M! 张牌。 NL 抽 !M! 张牌。 NL 技巧 ：让目标敌人失去 !M! 点 力量 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 !M! 张牌。 NL 抽 !M! 张牌。 NL 明晰 ：让目标敌人失去 !M! 点 力量 。"
   },
   "TheParasitized:pi_63_crossSlash": {
     "NAME": "横斩",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 技巧 ：再施加 !M! 层 易伤 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 明晰 ：再施加 !M! 层 易伤 。"
   },
   "TheParasitized:pi_64_doubleBlade": {
     "NAME": "双刃剑",
@@ -312,7 +305,7 @@
   },
   "TheParasitized:pi_73_pureBlade": {
     "NAME": "纯洁之刃",
-    "DESCRIPTION": "消耗手牌中所有 诅咒 牌和 状态 牌，造成 !D! 点伤害。 NL 技巧 ：获得 [E] 。"
+    "DESCRIPTION": "消耗手牌中所有 诅咒 牌和 状态 牌，造成 !D! 点伤害。 NL 明晰 ：获得 [E] 。"
   },
   "TheParasitized:pi_74_fanaticism": {
     "NAME": "怒击",
@@ -357,7 +350,7 @@
   },
   "TheParasitized:pi_83_illusionSlash": {
     "NAME": "剑舞",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 技巧 ：次数+1 。 NL 感染 。"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 明晰 ：次数+1 。 NL 感染 。"
   },
   "TheParasitized:pi_84_exchange": {
     "NAME": "本能",
@@ -366,7 +359,7 @@
   },
   "TheParasitized:pi_85_parry": {
     "NAME": "剑格",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 技巧 ：再获得一次。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 明晰 ：再获得一次。"
   },
   "TheParasitized:pi_86_nourishment": {
     "NAME": "滋养",
@@ -431,7 +424,7 @@
   },
   "TheParasitized:pi_96_tactics": {
     "NAME": "剑技",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 技巧 ：再给予 !M! 层 虚弱 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 明晰 ：再给予 !M! 层 虚弱 。"
   },
   "TheParasitized:pi_98_breathe": {
     "NAME": "浅呼吸",

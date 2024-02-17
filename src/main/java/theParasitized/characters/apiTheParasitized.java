@@ -174,7 +174,7 @@ public class apiTheParasitized extends CustomPlayer{
                     n++;
                 }
             }
-            if (n <= 3 && !p.stance.ID.equals(NeutralStance.STANCE_ID) && toStage1){
+            if (n <= 2 && !p.stance.ID.equals(NeutralStance.STANCE_ID) && toStage1){
                 toStage1 = false;
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(NeutralStance.STANCE_ID));
                 ModHelper.addToBotAbstract(()->{
@@ -183,7 +183,7 @@ public class apiTheParasitized extends CustomPlayer{
                     AbstractDungeon.player.img = image1;
                 });
             }
-            if (n > 3 && n < 6 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance") && toStage2){
+            if (n > 2 && n < 5 && !p.stance.ID.equals("TheParasitized:pi_halfMad_stance") && toStage2){
                 toStage2 = false;
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_halfMad_stance()));
                 ModHelper.addToBotAbstract(()->{
@@ -192,7 +192,7 @@ public class apiTheParasitized extends CustomPlayer{
                 });
             }
 
-            if (n > 5 && !p.stance.ID.equals("TheParasitized:pi_mad_stance") && toStage3){
+            if (n > 4 && !p.stance.ID.equals("TheParasitized:pi_mad_stance") && toStage3){
                 toStage3 = false;
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new pi_mad_stance()));
                 ModHelper.addToBotAbstract(()->{

@@ -20,7 +20,7 @@ import theParasitized.relics.pi_whiteTwig;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
-public class callOfParasites extends CustomCard implements parasitizationCard{
+public class callOfParasites extends CustomCard{
 
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:callOfParasites";
