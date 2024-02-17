@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.ui.panels.DrawPilePanel;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 import javassist.CtBehavior;
+import theParasitized.cards.attackCard;
 import theParasitized.cards.curse.parasitizationCard;
 
 @SpirePatch(
@@ -42,13 +43,13 @@ public class RenderDrawPilePatch {
             int hoveredIndex = -1;
             int i = 0;
             for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                if (card.type == AbstractCard.CardType.ATTACK){
+                if (card instanceof attackCard){
                     ++i;
                 }
             }
 
             for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                if (card.type == AbstractCard.CardType.ATTACK){
+                if (card instanceof attackCard){
                     --i;
                     AbstractCard ret = renderCard(__instance, sb, card, i, 0.45F, true);
                     if (ret != null) {
