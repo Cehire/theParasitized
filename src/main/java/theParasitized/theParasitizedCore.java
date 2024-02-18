@@ -40,7 +40,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
     // 人物选择界面按钮的图片
     private static final String MY_CHARACTER_BUTTON = "parasitizedResources/images/char/Character_Button.png";
     // 人物选择界面的立绘
-    private static final String MY_CHARACTER_PORTRAIT = "parasitizedResources/images/char/Character_Portrait.jpg";
+    private static final String MY_CHARACTER_PORTRAIT = "parasitizedResources/images/char/Character_Portrait.png";
     // 攻击牌的背景（小尺寸）
     private static final String BG_ATTACK_512 = "parasitizedResources/images/512/bg_attack_512.png";
     // 能力牌的背景（小尺寸）
