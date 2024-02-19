@@ -80,7 +80,7 @@ public class duxing extends CustomCard implements parasitizationCard{
     }
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return p.hasPower(pi_sacrifice_power.POWER_ID) || p.hasRelic(BlueCandle.ID);
+        return p.hasPower(pi_sacrifice_power.POWER_ID);
     }
     @Override
     public AbstractCard makeCopy(){

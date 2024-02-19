@@ -49,9 +49,11 @@ public class pi_halfMad_stance extends AbstractStance {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
         }
     }
-    @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        damage+=3;
-        return super.atDamageGive(damage, type);
+        return type == DamageInfo.DamageType.NORMAL ? damage * 1.2F : damage;
+    }
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
+        return type == DamageInfo.DamageType.NORMAL ? damage * 1.2F : damage;
     }
 }

@@ -2,13 +2,13 @@
   "TheParasitized:pi_halfMad_stance": {
     "NAME": "感染",
     "DESCRIPTION": [
-      "攻击伤害增加3"
+      "在这一姿态中，每当你的回合开始时，少抽2张牌。 NL 你造成和受到的伤害增加20%。"
     ]
   },
   "TheParasitized:pi_mad_stance": {
     "NAME": "狂乱",
     "DESCRIPTION": [
-      "回合开始时，抽牌数减2 NL 打出攻击牌时，获得 [E] "
+      "在这一姿态中，每当你的回合开始时，少抽2张牌。 NL 你造成和受到的伤害增加50%。"
     ]
   }
 }

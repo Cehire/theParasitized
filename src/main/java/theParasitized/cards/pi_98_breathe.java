@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -13,7 +14,7 @@ import theParasitized.actions.pi_discardPileToDeck_action;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_98_breathe extends CustomMutiUpgradeCard {
+public class pi_98_breathe extends CustomCard {
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_98_breathe";

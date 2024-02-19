@@ -10,10 +10,10 @@
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
-    "DESCRIPTION": " 寄染状态 。 NL 在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 ， 保留 , 感染 。"},
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得1点力量。 NL 固有 ， 保留 , 感染 。"},
   "TheParasitized:zhuxing": {
     "NAME": "蛛形",
-    "DESCRIPTION": " 寄染状态 。 NL 在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 。"
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得1点敏捷。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
@@ -52,8 +52,7 @@
   },
   "TheParasitized:pi_03_eclosion": {
     "NAME": "羽化",
-    "DESCRIPTION": "升级你的手牌 !M! 次。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "升级你的手牌 !M! 次。 NL 消耗 。"
+    "DESCRIPTION": "在本场战斗中，升级你的所有手牌 !M! 次。 NL 消耗 。"
   },
   "TheParasitized:pi_04_choice": {
     "NAME": "抵抗",
@@ -184,7 +183,7 @@
   },
   "TheParasitized:pi_42_errorStrike": {
     "NAME": "阻断刺击",
-    "DESCRIPTION": " 狂热 1。 NL 造成 !D! 点伤害。 NL 如果你的手牌中的 寄染状态 牌超过4张，将1张错误加入到手牌。"
+    "DESCRIPTION": " 狂热 1。 NL 造成 !D! 点伤害。 NL 如果你的手牌中的 寄染状态 牌超过3张，将1张错误加入到手牌。"
   },
   "TheParasitized:pi_43_elimination": {
     "NAME": "淘汰",
@@ -260,7 +259,7 @@
   },
   "TheParasitized:pi_63_crossSlash": {
     "NAME": "横斩",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 明晰 ：再施加 !M! 层 易伤 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 明晰 ：再给予 !M! 层 易伤 。"
   },
   "TheParasitized:pi_64_doubleBlade": {
     "NAME": "双刃剑",
@@ -354,7 +353,7 @@
   },
   "TheParasitized:pi_84_exchange": {
     "NAME": "本能",
-    "DESCRIPTION": "无法被打出，无法被升级，当你对自己造成伤害时，获得 [E] NL 保留 ",
+    "DESCRIPTION": " 寄染状态 。 NL 不能被升级，每当你对自己造成伤害时，获得 [E] NL 保留 ",
     "UPGRADE_DESCRIPTION": "无法被打出，无法被升级，当你对自己造成伤害时，获得 [E] NL 保留 "
   },
   "TheParasitized:pi_85_parry": {
@@ -363,7 +362,7 @@
   },
   "TheParasitized:pi_86_nourishment": {
     "NAME": "滋养",
-    "DESCRIPTION": " 保留 。 NL 回复 !M! 生命。 NL 如果这张牌被 保留 ，则额外获得 !myKey! 点力量。 NL 回合开始时如果这张牌在你的手牌中，消耗1张手牌。 NL 感染 。"
+    "DESCRIPTION": " 保留 。 NL 回复 !M! 生命。 NL 如果这张牌被 保留 ，则额外获得 !myKey! 点力量。 NL 回合开始时如果这张牌在你的手牌中，消耗1张手牌。 NL 消耗 。 NL 感染 。"
   },
   "TheParasitized:pi_87_waited": {
     "NAME": "伺机而动",
@@ -388,7 +387,7 @@
   },
   "TheParasitized:pi_92_impetus": {
     "NAME": "声势",
-    "DESCRIPTION": " 若你的生命值比敌人高： 获得 !M! 点力量，否则：获得 !M! 点敏捷 NL 感染 ",
+    "DESCRIPTION": " 若你的生命值高于目标敌人：获得 !M! 点 力量 。 NL 否则：获得 !M! 点 敏捷 。 NL 消耗 。 NL 感染 。",
     "UPGRADE_DESCRIPTION": " 若你的生命值比敌人高： 获得 !M! 点力量，否则：获得 !M! 点敏捷 NL 感染 "
   },
   "TheParasitized:pi_93_upheaval": {
@@ -429,6 +428,14 @@
   "TheParasitized:pi_98_breathe": {
     "NAME": "浅呼吸",
     "DESCRIPTION": "将弃牌堆中的 !M! 张牌放入你的抽牌堆中。 NL 抽1张牌。"
+  },
+  "TheParasitized:pi_99_paraDef": {
+    "NAME": "活性护甲",
+    "DESCRIPTION": " 保留 。 NL 获得 !B! 点 格挡 。 NL 感染 。"
+  },
+  "TheParasitized:pi_100_gongmin": {
+    "NAME": "共鸣",
+    "DESCRIPTION": "你每有一张 寄染状态 牌，获得 !M! 点 格挡 。 NL （共获得 !B! 点 格挡 。） NL 明晰 ：再获得一次。"
   }
 
 }

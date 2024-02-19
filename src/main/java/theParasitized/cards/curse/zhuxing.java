@@ -32,6 +32,7 @@ public class zhuxing extends CustomCard implements parasitizationCard{
     public static final CardType TYPE = CardType.STATUS;
     public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.SELF;
+    public static boolean flag = false;
     public zhuxing() {
         this(0);
     }
@@ -62,7 +63,7 @@ public class zhuxing extends CustomCard implements parasitizationCard{
                 this.flash();
                 if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                     this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                            new DexterityPower(AbstractDungeon.player, 2), 2));
+                            new DexterityPower(AbstractDungeon.player, 1), 1));
                 }
             }
         }
@@ -84,8 +85,14 @@ public class zhuxing extends CustomCard implements parasitizationCard{
     }
     @Override
     public void onRetained() {
-        this.flash();
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new DexterityPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        if(!flag){
+            flag = true;
+        }else {
+            this.flash();
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new DexterityPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+            flag = false;
+        }
+
     }
 }

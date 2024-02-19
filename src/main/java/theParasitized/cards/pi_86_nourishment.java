@@ -1,5 +1,6 @@
 package theParasitized.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_86_nourishment extends CustomMutiUpgradeCard {
+public class pi_86_nourishment extends CustomCard {
     //func test ok
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_86_nourishment";
@@ -36,8 +37,9 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.timesUpgraded = upgrades;
         this.magicNumber = this.baseMagicNumber = 4;
-        this.baseBlock = 2;
+        this.baseBlock = 1;
         this.selfRetain = true;
+        this.exhaust = true;
     }
 
     @Override
@@ -68,7 +70,6 @@ public class pi_86_nourishment extends CustomMutiUpgradeCard {
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         this.upgradeMagicNumber(2);
-        this.upgradeBlock(1);
     }
 
     @Override

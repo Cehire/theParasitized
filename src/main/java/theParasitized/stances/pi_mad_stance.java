@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,11 +39,12 @@ public class pi_mad_stance extends AbstractStance {
         }
     }
 
-    @Override
-    public void onPlayCard(AbstractCard card) {
-        if (card.type== AbstractCard.CardType.ATTACK){
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
-        }
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        return type == DamageInfo.DamageType.NORMAL ? damage * 1.5F : damage;
+    }
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
+        return type == DamageInfo.DamageType.NORMAL ? damage * 1.5F : damage;
     }
 
     @Override

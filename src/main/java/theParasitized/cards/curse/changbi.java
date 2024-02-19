@@ -32,6 +32,7 @@ public class changbi extends CustomCard implements parasitizationCard{
     public static final CardType TYPE = CardType.STATUS;
     public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.SELF;
+    public static boolean flag = false;
     public changbi() {
         this(0);
     }
@@ -62,7 +63,7 @@ public class changbi extends CustomCard implements parasitizationCard{
             if (flag){
                 this.flash();
                 if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 2)));
+                    this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1)));
                 }
             }
         }
@@ -84,11 +85,15 @@ public class changbi extends CustomCard implements parasitizationCard{
     }
     @Override
     public void atTurnStart() {
-        if(AbstractDungeon.player.hand.contains(this)){
-            this.flash();
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new StrengthPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        if(!flag){
+            flag = true;
+        }else{
+            if(AbstractDungeon.player.hand.contains(this)){
+                this.flash();
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        new StrengthPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+            }
+            flag = false;
         }
-
     }
 }

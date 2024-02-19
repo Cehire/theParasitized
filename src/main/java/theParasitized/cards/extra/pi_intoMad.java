@@ -1,17 +1,17 @@
 package theParasitized.cards.extra;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theParasitized.cards.CustomMutiUpgradeCard;
 import theParasitized.stances.pi_mad_stance;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
-public class pi_intoMad extends CustomMutiUpgradeCard {
+public class pi_intoMad extends CustomCard {
     //===============  需要改的地方 ====================
     public static final String ID = "TheParasitized:pi_intoMad";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
