@@ -50,7 +50,7 @@ public class pi_43_elimination extends CustomCard {
                 this.addToBot(new VFXAction(new LightningEffect(abstractMonster.drawX, abstractMonster.drawY), 0.05F));
                 this.addToBot(
                         new DamageAction(
-                                abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
+                                abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.HP_LOSS)
                         )
                 );
             }

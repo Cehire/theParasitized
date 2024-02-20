@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.cards.curse.parasitizationCard;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
 
@@ -43,7 +44,7 @@ public class pi_10_parasiticTentacles extends CustomCard {
         this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card.type == CardType.CURSE){
+            if (card instanceof parasitizationCard){
                 this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 this.addToBot(new HealAction(abstractPlayer, abstractPlayer, this.magicNumber));
             }

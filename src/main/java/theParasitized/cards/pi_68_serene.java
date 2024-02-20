@@ -32,7 +32,7 @@ public class pi_68_serene extends CustomCard {
 
     public pi_68_serene() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -44,12 +44,6 @@ public class pi_68_serene extends CustomCard {
                 }
             }
         });
-        this.addToBot(
-                new ApplyPowerAction(
-                        abstractPlayer, abstractPlayer,
-                        new pi_serene_power(abstractPlayer, this.magicNumber),
-                        this.magicNumber)
-        );
     }
 
     @Override

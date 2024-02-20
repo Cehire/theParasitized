@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theParasitized.theParasitizedCore;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR_CURSE;
 
@@ -15,7 +16,7 @@ public class pi_84_exchange extends CustomCard implements parasitizationCard{
     public static final String ID = "TheParasitized:pi_84_exchange";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "parasitizedResources/images/cards/skill.png";
+    private static final String IMG_PATH = "parasitizedResources/images/cards/basecard_skill.png";
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final CardRarity RARITY = CardRarity.BASIC;
 
@@ -24,9 +25,12 @@ public class pi_84_exchange extends CustomCard implements parasitizationCard{
     public static final CardType TYPE = CardType.STATUS;
     public static final CardColor COLOR = CardColor.COLORLESS;
     public static final CardTarget TARGET = CardTarget.NONE;
+    public boolean flag;
+
     public pi_84_exchange() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.selfRetain = true;
+        this.flag = true;
     }
 
     @Override
@@ -34,7 +38,12 @@ public class pi_84_exchange extends CustomCard implements parasitizationCard{
         return false;
     }
 
-//
+    @Override
+    public void atTurnStartPreDraw() {
+        this.flag = true;
+    }
+
+    //
 //    @Override
 //    public void tookDamage() {
 //        if (AbstractDungeon.player.hand.contains(this) && !AbstractDungeon.actionManager.turnHasEnded){
@@ -50,6 +59,11 @@ public class pi_84_exchange extends CustomCard implements parasitizationCard{
     @Override
     public boolean canUpgrade() {
         return false;
+    }
+
+    @Override
+    public void atTurnStart() {
+        theParasitizedCore.exchangeFlag = true;
     }
 
     @Override

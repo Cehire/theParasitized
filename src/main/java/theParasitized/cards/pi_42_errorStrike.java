@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theParasitized.actions.pi_drawPileToHandAction_specific;
 import theParasitized.cards.curse.error;
 import theParasitized.cards.extra.pi_error;
+import theParasitized.stances.pi_halfMad_stance;
 import theParasitized.stances.pi_mad_stance;
 
 import static theParasitized.characters.apiTheParasitized.Enums.PI_COLOR;
@@ -58,7 +59,7 @@ public class pi_42_errorStrike extends CustomCard implements attackCard{
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_42_errorStrike() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 8;
         this.cardsToPreview = new error();
     }
 
@@ -69,7 +70,7 @@ public class pi_42_errorStrike extends CustomCard implements attackCard{
                         abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL)
                 )
         );
-        if (abstractPlayer.stance.ID.equals(pi_mad_stance.STANCE_ID)){
+        if (abstractPlayer.stance.ID.equals(pi_halfMad_stance.STANCE_ID)){
             this.addToBot(new MakeTempCardInHandAction(new error(), 1));
         }
     }

@@ -35,7 +35,7 @@ import static theParasitized.characters.apiTheParasitized.Enums.*;
 public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber
 , EditRelicsSubscriber, EditKeywordsSubscriber, RelicGetSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber,
         OnPlayerDamagedSubscriber{
-
+    public static boolean exchangeFlag = true;
     // ===================== to do
     // 人物选择界面按钮的图片
     private static final String MY_CHARACTER_BUTTON = "parasitizedResources/images/char/Character_Button.png";
@@ -158,7 +158,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_14_nesting());
 //        BaseMod.addCard(new pi_17_graspingAtCurses());
         BaseMod.addCard(new pi_33_cognitiveFilter());
-        BaseMod.addCard(new pi_52_getMad());
+//        BaseMod.addCard(new pi_52_getMad());
 //        BaseMod.addCard(new pi_66_skillful());
         BaseMod.addCard(new pi_68_serene());
 //        BaseMod.addCard(new pi_18_sacrifice());
@@ -177,6 +177,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         BaseMod.addCard(new pi_98_breathe());
         BaseMod.addCard(new pi_99_paraDef());
         BaseMod.addCard(new pi_100_gongmin());
+        BaseMod.addCard(new pi_101_chushi1());
 
     }
 
@@ -272,12 +273,14 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
 
             if (card.cardID.equals(pi_84_exchange.ID)
-                    && damageInfo.owner == AbstractDungeon.player){
+                    && damageInfo.owner == AbstractDungeon.player && exchangeFlag){
                 card.flash();
+                exchangeFlag = false;
                 AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
             }
-            }
+        }
 
         return i;
     }
+
 }

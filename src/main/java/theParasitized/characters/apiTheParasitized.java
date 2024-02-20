@@ -25,12 +25,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import theParasitized.ModHelper;
+import theParasitized.cards.*;
 import theParasitized.cards.curse.callOfParasites;
 import theParasitized.cards.curse.parasitizationCard;
-import theParasitized.cards.pi_01_strike;
-import theParasitized.cards.pi_02_defend;
-import theParasitized.cards.pi_96_tactics;
-import theParasitized.cards.pi_98_breathe;
+import theParasitized.cards.curse.pi_84_exchange;
 import theParasitized.interfaces.ClickableEnergyPanel;
 import theParasitized.powers.pi_initial;
 import theParasitized.stances.pi_halfMad_stance;
@@ -119,7 +117,8 @@ public class apiTheParasitized extends CustomPlayer{
             retVal.add(pi_02_defend.ID);
         }
         retVal.add(callOfParasites.ID);
-        retVal.add(pi_98_breathe.ID);
+        retVal.add(pi_84_exchange.ID);
+        retVal.add(pi_101_chushi1.ID);
 
 
         return retVal;

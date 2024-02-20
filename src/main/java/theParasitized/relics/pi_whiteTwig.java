@@ -2,6 +2,7 @@ package theParasitized.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -37,8 +38,6 @@ public class pi_whiteTwig extends CustomRelic {
     public void atBattleStartPreDraw() {
         this.flash();
         this.addToBot(new DrawCardAction(1));
-        ModHelper.addToBotAbstract(()->{
-            AbstractDungeon.player.drawPile.addToRandomSpot(new pi_84_exchange());
-        });
+        this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 4));
     }
 }

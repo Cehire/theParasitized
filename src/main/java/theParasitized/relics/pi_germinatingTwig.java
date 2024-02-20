@@ -37,7 +37,6 @@ public class pi_germinatingTwig extends CustomRelic {
     public void onLoseHp(int damageAmount) {
         if (!AbstractDungeon.actionManager.turnHasEnded){
             this.flash();
-            this.addToBot(new GainEnergyAction(1));
             this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 2));
         }
     }
@@ -53,6 +52,7 @@ public class pi_germinatingTwig extends CustomRelic {
     public void atBattleStartPreDraw() {
         this.flash();
         this.addToBot(new DrawCardAction(1));
+        this.addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 4));
     }
     public boolean canSpawn() {
         return AbstractDungeon.player.hasRelic("TheParasitized:pi_whiteTwig");

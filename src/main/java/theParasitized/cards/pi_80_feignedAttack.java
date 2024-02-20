@@ -2,6 +2,7 @@ package theParasitized.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,7 +29,8 @@ public class pi_80_feignedAttack extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_80_feignedAttack() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 1;
+        this.block = this.baseBlock = 5;
     }
 
     @Override
@@ -39,14 +41,13 @@ public class pi_80_feignedAttack extends CustomCard {
                 )
         );
         this.addToBot(
-                new DamageAction(
-                        abstractPlayer, new DamageInfo(abstractPlayer, 1, DamageInfo.DamageType.THORNS)
-                )
+                new GainBlockAction(abstractPlayer,this.block)
         );
     }
 
     @Override
     public void upgrade() {
+        this.upgradeDamage(1);
         this.upgradeDamage(3);
         this.upgradeName();
     }

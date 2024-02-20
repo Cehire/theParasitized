@@ -10,14 +10,14 @@
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
-    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得1点力量。 NL 固有 ， 保留 , 感染 。"},
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 ， 保留 , 感染 。"},
   "TheParasitized:zhuxing": {
     "NAME": "蛛形",
-    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得1点敏捷。 NL 固有 , 保留 , 感染 。"
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
-    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你打出第3张牌时，抽 !M! 张牌。 NL 升级时，抽2张牌。 NL 固有 , 保留 , 感染 。"
+    "DESCRIPTION": " 寄染状态 。 NL 如果这张牌在你的手牌中，当你打出第3张牌时，抽 !M! 张牌。 NL 升级时，抽1张牌。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:duxing": {
     "NAME": "毒腥",
@@ -187,7 +187,7 @@
   },
   "TheParasitized:pi_43_elimination": {
     "NAME": "淘汰",
-    "DESCRIPTION": "如果目标敌人的负面状态超过 !M! 种，则对其造成 !D! 点伤害。"
+    "DESCRIPTION": "如果目标敌人的负面状态超过 !M! 种，则使其失去 !D! 生命。"
   },
   "TheParasitized:pi_45_infection": {
     "NAME": "恶毒",
@@ -282,7 +282,7 @@
   },
   "TheParasitized:pi_68_serene": {
     "NAME": "宁静",
-    "DESCRIPTION": "清除你的负面状态。 NL 在每回合开始时，给予所有人1层 易伤 。"
+    "DESCRIPTION": "清除你的负面状态。 NL 在每回合开始时，给予所有敌人 !M! 层 易伤 。"
   },
   "TheParasitized:pi_69_parasite": {
     "NAME": "寄生",
@@ -337,7 +337,7 @@
   },
   "TheParasitized:pi_80_feignedAttack": {
     "NAME": "佯攻",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 受到1点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
   },
   "TheParasitized:pi_81_bolsterStrike": {
     "NAME": "协增冲击",
@@ -353,8 +353,7 @@
   },
   "TheParasitized:pi_84_exchange": {
     "NAME": "本能",
-    "DESCRIPTION": " 寄染状态 。 NL 不能被升级，每当你对自己造成伤害时，获得 [E] NL 保留 ",
-    "UPGRADE_DESCRIPTION": "无法被打出，无法被升级，当你对自己造成伤害时，获得 [E] NL 保留 "
+    "DESCRIPTION": " 寄染状态 。 NL 不能被升级，每回合当你第一次对自己造成伤害时，获得 [E] NL 保留 。"
   },
   "TheParasitized:pi_85_parry": {
     "NAME": "剑格",
@@ -436,6 +435,14 @@
   "TheParasitized:pi_100_gongmin": {
     "NAME": "共鸣",
     "DESCRIPTION": "你每有一张 寄染状态 牌，获得 !M! 点 格挡 。 NL （共获得 !B! 点 格挡 。） NL 明晰 ：再获得一次。"
+  },
+  "TheParasitized:pi_101_chushi1": {
+    "NAME": "凝视",
+    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL 给予 !M! 层 易伤 。"
+  },
+  "TheParasitized:pi_102_chushi2": {
+    "NAME": "凝视",
+    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL 给予 !M! 层 易伤。"
   }
 
 }

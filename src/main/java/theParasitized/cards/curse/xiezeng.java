@@ -61,7 +61,7 @@ public class xiezeng extends CustomCard implements parasitizationCard{
             if (flag){
                 this.flash();
                 if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                    this.addToBot(new DrawCardAction(2));
+                    this.addToBot(new DrawCardAction(1));
                 }
             }
         }
