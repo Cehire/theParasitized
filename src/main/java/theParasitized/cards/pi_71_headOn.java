@@ -30,7 +30,7 @@ public class pi_71_headOn extends CustomCard {
     public static final CardTarget TARGET = CardTarget.ENEMY;
     public pi_71_headOn() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 11;
+        this.damage = this.baseDamage = 10;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 

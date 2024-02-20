@@ -28,7 +28,7 @@ public class pi_95_prepare extends CustomCard {
     private boolean flag = false;
     public pi_95_prepare() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
         this.selfRetain = true;
     }

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BlueCandle;
@@ -262,14 +263,27 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
 
     @Override
     public int receiveOnPlayerDamaged(int i, DamageInfo damageInfo) {
-        for (AbstractRelic relic : AbstractDungeon.player.relics) {
-            if (relic.relicId.equals("TheParasitized:pi_diamondChestplate")){
-                if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output <= AbstractDungeon.player.currentBlock){
-                    i -= 2;
-                    i = Math.max(i, 0);
+        if (AbstractDungeon.player.hasPower("TheParasitized:pi_suppress_power")){
+            if (damageInfo.owner!= null && damageInfo.owner.powers!= null && !damageInfo.owner.isPlayer){
+                for (AbstractPower power : damageInfo.owner.powers) {
+                    if (power.type == AbstractPower.PowerType.DEBUFF) {
+                        AbstractDungeon.player.getPower("TheParasitized:pi_suppress_power").flash();
+                        i = 0;
+                        break;
+                    }
                 }
             }
         }
+
+        if (AbstractDungeon.player.hasRelic("TheParasitized:pi_diamondChestplate")){
+            if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output <= AbstractDungeon.player.currentBlock){
+                AbstractDungeon.player.getRelic("TheParasitized:pi_diamondChestplate").flash();
+                i -= 2;
+                i = Math.max(i, 0);
+            }
+        }
+
+
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
 
             if (card.cardID.equals(pi_84_exchange.ID)

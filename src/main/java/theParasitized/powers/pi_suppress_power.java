@@ -35,19 +35,12 @@ public class pi_suppress_power extends AbstractPower {
     }
 
 
-
     @Override
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-        if (info.owner!= null && info.owner.powers!= null && !info.owner.isPlayer){
-            for (AbstractPower power : info.owner.powers) {
-                if (power.type == PowerType.DEBUFF) {
-                    damageAmount = 0;
-                    break;
-                }
-            }
-        }
-        return damageAmount;
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
+
+        return super.atDamageFinalReceive(damage, type);
     }
+
 
     @Override
     public void atStartOfTurn() {

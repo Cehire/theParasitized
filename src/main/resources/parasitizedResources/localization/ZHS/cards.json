@@ -10,10 +10,10 @@
   },
   "TheParasitized:changbi": {
     "NAME": "长臂",
-    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得2点力量。 NL 固有 ， 保留 , 感染 。"},
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合开始时，如果这张牌在你的手牌中， 获得 !M! 点力量。 NL 升级时，获得1点力量。 NL 固有 ， 保留 , 感染 。"},
   "TheParasitized:zhuxing": {
     "NAME": "蛛形",
-    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得2点敏捷。 NL 固有 , 保留 , 感染 。"
+    "DESCRIPTION": " 寄染状态 。 NL 每两回合，在你的回合结束时，如果这张牌在你的手牌中， 获得 !M! 点敏捷。 NL 升级时，获得1点敏捷。 NL 固有 , 保留 , 感染 。"
   },
   "TheParasitized:xiezeng": {
     "NAME": "协增",
