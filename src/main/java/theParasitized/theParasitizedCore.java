@@ -278,7 +278,7 @@ public class theParasitizedCore implements EditCardsSubscriber, EditStringsSubsc
         if (AbstractDungeon.player.hasRelic("TheParasitized:pi_diamondChestplate")){
             if (damageInfo.type != DamageInfo.DamageType.HP_LOSS && damageInfo.output <= AbstractDungeon.player.currentBlock){
                 AbstractDungeon.player.getRelic("TheParasitized:pi_diamondChestplate").flash();
-                i -= 2;
+                i -= 1;
                 i = Math.max(i, 0);
             }
         }

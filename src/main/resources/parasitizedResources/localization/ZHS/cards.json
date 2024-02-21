@@ -61,7 +61,8 @@
   },
   "TheParasitized:pi_06_purification": {
     "NAME": "净化",
-    "DESCRIPTION": "获得 [E] 。 NL 消耗 一张手牌，如果这张牌是状态牌，则再获得 [E] 。 NL 消耗 。"
+    "DESCRIPTION": "获得 [E] 。 NL 消耗 一张手牌，如果这张牌是状态牌，则再获得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"获得 [E] 。 NL 消耗 一张手牌，如果这张牌是状态牌，则再获得 [E] 。"
   },
   "TheParasitized:pi_07_combo": {
     "NAME": "连击",

@@ -21,7 +21,7 @@ public class pi_06_purification extends CustomCard {
     public static final CardRarity RARITY = CardRarity.UNCOMMON;
 
     // type, color, cost, cardTarget是固定的
-    public static final int COST = 1;
+    public static final int COST = 0;
     public static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = PI_COLOR;
     public static final CardTarget TARGET = CardTarget.SELF;
@@ -42,8 +42,10 @@ public class pi_06_purification extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded){
-            this.upgradeBaseCost(0);
             this.upgradeName();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.exhaust = false;
         }
     }
 
